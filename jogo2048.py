@@ -1,3 +1,5 @@
+import random
+
 print("----------------------------------------------------------------------")
 print("\t\t\t\t2048")
 print("----------------------------------------------------------------------")
@@ -14,7 +16,18 @@ matriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
 for i in range(0,4):
     for j in range(0,4):
-        matriz[i][j] = "0"
+        matriz[i][j] = 0
+
+numeros = [2,4]
+
+numeroSorteado = (random.choice(numeros))
+print(f"{numeroSorteado}")
+
+linha = (random.randint(0, 3)) 
+coluna = (random.randint(0, 3)) 
+
+if matriz[linha][coluna] != " ":
+    matriz[i][j] = numeroSorteado
 
 print("+---+---+---+---+")
 for i in range(0,4):
