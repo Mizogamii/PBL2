@@ -1,6 +1,6 @@
 import random
 contador = 0
-
+score = 0
 print("----------------------------------------------------------------------")
 print("\t\t\t\t2048")
 print("----------------------------------------------------------------------")
@@ -14,13 +14,14 @@ D para mover para direita""")
 print("----------------------------------------------------------------------")
 
 matriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+lista = [0, 0, 0, 0]
 
 for i in range(0,4):
     for j in range(0,4):
         matriz[i][j] = 0
 
 numeros = [2,4]
-while contador < 3:
+while contador < 2:
     contador += 1
     numeroSorteado = (random.choice(numeros))
     print(f"{numeroSorteado}")
@@ -28,7 +29,7 @@ while contador < 3:
     linha = (random.randint(0, 3)) 
     coluna = (random.randint(0, 3)) 
 
-    print(f"Linha: {linha}\nColuna: {coluna}")
+    #print(f"Linha: {linha}\nColuna: {coluna}")
 
     if matriz[linha][coluna] != " ":
         matriz[linha][coluna] = numeroSorteado
@@ -38,6 +39,13 @@ while contador < 3:
         for j in range(0,4):
             print(f"| {matriz[i][j]} ", end="")
         print("|\n+---+---+---+---+")
+        
+#Tá contando certo todos os números que aparecem na matriz mas só tá fazendo a conta depois de sair do loop e o score deveria aparecer a cada vez que o usuário jogar
+for i in range(0,4):
+    for j in range(0,4):
+        score += matriz[i][j]
+        
+print(f"Score: {score}")
 
 movimentos = input("Informe o comando [W, S, A, D]: ")
 movimentos = movimentos.upper()
@@ -45,5 +53,8 @@ movimentos = movimentos.upper()
 while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
     movimentos = input("Informe o comando [W, S, A, D]: ")
     movimentos = movimentos.upper()
+    
+
+#if movimentos == "W":
 
 print(f"{movimentos}")
