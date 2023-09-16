@@ -1,4 +1,5 @@
 import random
+contador = 0
 
 print("----------------------------------------------------------------------")
 print("\t\t\t\t2048")
@@ -19,21 +20,24 @@ for i in range(0,4):
         matriz[i][j] = 0
 
 numeros = [2,4]
+while contador < 3:
+    contador += 1
+    numeroSorteado = (random.choice(numeros))
+    print(f"{numeroSorteado}")
 
-numeroSorteado = (random.choice(numeros))
-print(f"{numeroSorteado}")
+    linha = (random.randint(0, 3)) 
+    coluna = (random.randint(0, 3)) 
 
-linha = (random.randint(0, 3)) 
-coluna = (random.randint(0, 3)) 
+    print(f"Linha: {linha}\nColuna: {coluna}")
 
-if matriz[linha][coluna] != " ":
-    matriz[i][j] = numeroSorteado
+    if matriz[linha][coluna] != " ":
+        matriz[linha][coluna] = numeroSorteado
 
-print("+---+---+---+---+")
-for i in range(0,4):
-    for j in range(0,4):
-       print(f"| {matriz[i][j]} ", end="")
-    print("|\n+---+---+---+---+")
+    print("+---+---+---+---+")
+    for i in range(0,4):
+        for j in range(0,4):
+            print(f"| {matriz[i][j]} ", end="")
+        print("|\n+---+---+---+---+")
 
 movimentos = input("Informe o comando [W, S, A, D]: ")
 movimentos = movimentos.upper()
