@@ -63,7 +63,7 @@ if movimentos == "W":
         print(f"Lista: {lista}")    
         if i < 3:
             print("Testando")
-            if lista[i] == lista[i+1]:
+            if lista[i] == lista[i+1] and lista[i] != 0:
                 print("Tá igual")
                 listaExtra[i] = lista[i] + lista[i+1] 
         print(f"\nLista Extra: {listaExtra}")
