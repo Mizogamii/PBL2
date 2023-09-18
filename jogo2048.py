@@ -58,7 +58,7 @@ while movimentos != "W" and movimentos != "S" and movimentos != "A" and moviment
     movimentos = input("Informe o comando [W, S, A, D]: ")
     movimentos = movimentos.upper()
     
-
+#Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
 if movimentos == "W":
     for i in range(0,4):
         lista[i] = matriz[i][0]
