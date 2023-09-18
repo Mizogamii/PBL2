@@ -1,5 +1,6 @@
 import random
 contador = 0
+j = 0
 print("----------------------------------------------------------------------")
 print("\t\t\t\t2048")
 print("----------------------------------------------------------------------")
@@ -14,13 +15,14 @@ print("----------------------------------------------------------------------")
 
 matriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 lista = [0, 0, 0, 0]
+listaExtra = [0, 0, 0, 0]
 
 for i in range(0,4):
     for j in range(0,4):
         matriz[i][j] = 0
 
 numeros = [2,4]
-while contador < 2:
+while contador < 16:
     score = 0
     contador += 1
     numeroSorteado = (random.choice(numeros))
@@ -57,7 +59,17 @@ while movimentos != "W" and movimentos != "S" and movimentos != "A" and moviment
 
 if movimentos == "W":
     for i in range(0,4):
-            lista = matriz[i][0]
-            print(f"Lista: {lista}")
-                
+        lista[i] = matriz[i][0]
+        print(f"Lista: {lista}")    
+        if i < 3:
+            print("Testando")
+            if lista[i] == lista[i+1]:
+                print("Tá igual")
+                listaExtra[i] = lista[i] + lista[i+1] 
+        print(f"\nLista Extra: {listaExtra}")
+print("----------------------------------------")    
+
+print(lista, end=" ")
+print()
+print(listaExtra, end=" ")
 print(f"{movimentos}")
