@@ -32,7 +32,7 @@ def localMatriz(colunaEscolhida):
                 lista[i + 1] = 0
                 
     for i in range(0,4):
-        matriz[i][0] = lista[i]
+        matriz[i][colunaEscolhida] = lista[i]
 import random
 contador = 0
 j = 0
@@ -96,11 +96,8 @@ while movimentos != "W" and movimentos != "S" and movimentos != "A" and moviment
 #Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
 if movimentos == "W":
     localMatriz(0)
-    lista[0 ,0, 0, 0]
     localMatriz(1)
-    lista[0 ,0, 0, 0]
     localMatriz(2)
-    lista[0 ,0, 0, 0]
     localMatriz(3)
     
     
