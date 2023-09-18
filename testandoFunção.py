@@ -1,7 +1,6 @@
 def localMatriz(colunaEscolhida):
     for i in range(0,4):
         lista[i] = matriz[i][colunaEscolhida]
-        print(f"Lista: {lista}")
     for i in range (0,4):
         if i < 3: 
             if lista[i] == 0:
@@ -11,7 +10,6 @@ def localMatriz(colunaEscolhida):
     for i in range(0,4):
         if i < 3:
             if lista[i] == lista[i+1]:
-                print("Tá igual")
                 lista[i] = lista[i] + lista[i+1] 
                 lista[i + 1] = 0
                 
@@ -24,7 +22,6 @@ def localMatriz(colunaEscolhida):
     for i in range(0,4):
         if i < 3:
             if lista[i] == lista[i+1]:
-                print("Tá igual")
                 lista[i] = lista[i] + lista[i+1] 
                 lista[i + 1] = 0
                 
@@ -99,9 +96,14 @@ while movimentos != "W" and movimentos != "S" and movimentos != "A" and moviment
 #Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
 if movimentos == "W":
     localMatriz(0)
+    lista[0 ,0, 0, 0]
     localMatriz(1)
+    lista[0 ,0, 0, 0]
     localMatriz(2)
+    lista[0 ,0, 0, 0]
     localMatriz(3)
+    
+    
 
 print("----------------------------------------")    
 
