@@ -60,16 +60,24 @@ while movimentos != "W" and movimentos != "S" and movimentos != "A" and moviment
 if movimentos == "W":
     for i in range(0,4):
         lista[i] = matriz[i][0]
-        print(f"Lista: {lista}")    
+        print(f"Lista: {lista}")  
+        if i < 3:    
+            if lista[i] == 0:
+                print("Tá igual a 0")
+                lista[i] = lista[i + 1]
+                lista[i + 1] = 0
+                
+    for i in range(0,4):
         if i < 3:
-            print("Testando")
-            if lista[i] == lista[i+1] and lista[i] != 0:
+            if lista[i] == lista[i+1]:
                 print("Tá igual")
-                listaExtra[i] = lista[i] + lista[i+1] 
-        print(f"\nLista Extra: {listaExtra}")
+                lista[i] = lista[i] + lista[i+1] 
+                lista[i + 1] = 0
+    
+        #print(f"\nLista Extra: {listaExtra}")
 print("----------------------------------------")    
 
 print(lista, end=" ")
 print()
-print(listaExtra, end=" ")
+#print(listaExtra, end=" ")
 print(f"{movimentos}")
