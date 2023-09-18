@@ -45,7 +45,6 @@ while contador < 16:
             print(f"| {matriz[i][j]} ", end="")
         print("|\n+---+---+---+---+")
         
-#Tá contando certo todos os números que aparecem na matriz mas só tá fazendo a conta depois de sair do loop e o score deveria aparecer a cada vez que o usuário jogar
     for i in range(0,4):
         for j in range(0,4):
             score += matriz[i][j]
@@ -107,4 +106,12 @@ print("----------------------------------------")
 print(lista, end=" ")
 print()
 #print(listaExtra, end=" ")
+for i in range(0,4):
+    matriz[i][0] = lista[i]
+print("+---+---+---+---+")
+for i in range(0,4):
+    for j in range(0,4):
+        print(f"| {matriz[i][j]} ", end="")
+    print("|\n+---+---+---+---+")
+
 print(f"{movimentos}")
