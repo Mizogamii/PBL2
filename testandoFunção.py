@@ -1,4 +1,4 @@
-def localMatriz(colunaEscolhida):
+def localMatrizW(colunaEscolhida):
     for i in range(0,4):
         lista[i] = matriz[i][colunaEscolhida]
     for i in range (0,4):
@@ -33,6 +33,43 @@ def localMatriz(colunaEscolhida):
                 
     for i in range(0,4):
         matriz[i][colunaEscolhida] = lista[i]
+        
+def localMatrizS(linhaEscolhida):
+    for i in range(0,4):
+        lista[i] = matriz[linhaEscolhida][i]
+    for i in range (0,4):
+        if i < 3: 
+            if lista[i] == 0:
+                lista[i] = lista[i + 1]
+                lista[i + 1] = 0      
+                      
+    for i in range(0,4):
+        if i < 3:
+            if lista[i] == lista[i+1]:
+                lista[i] = lista[i] + lista[i+1] 
+                lista[i + 1] = 0
+                
+    for i in range (0,4):
+        if i < 3: 
+            if lista[i] == 0:
+                lista[i] = lista[i + 1]
+                lista[i + 1] = 0
+    
+    for i in range(0,4):
+        if i < 3:
+            if lista[i] == lista[i+1]:
+                lista[i] = lista[i] + lista[i+1] 
+                lista[i + 1] = 0
+                
+    for i in range (0,4):
+        if i < 3: 
+            if lista[i] == 0:
+                lista[i] = lista[i + 1]
+                lista[i + 1] = 0
+                
+    for i in range(0,4):
+        matriz[i][linhaEscolhida] = lista[i]
+        
 import random
 contador = 0
 j = 0
@@ -95,13 +132,16 @@ while movimentos != "W" and movimentos != "S" and movimentos != "A" and moviment
     
 #Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
 if movimentos == "W":
-    localMatriz(0)
-    localMatriz(1)
-    localMatriz(2)
-    localMatriz(3)
+    localMatrizW(0)
+    localMatrizW(1)
+    localMatrizW(2)
+    localMatrizW(3)
+elif movimentos == "S": #Fiz errado era para essa opção ser o dos lados DEPOIS CONSERTA
+    localMatrizS(0)
+    localMatrizS(1)
+    localMatrizS(2)
+    localMatrizS(3)
     
-    
-
 print("----------------------------------------")    
 
 
