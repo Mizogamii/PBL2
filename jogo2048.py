@@ -61,17 +61,29 @@ if movimentos == "W":
     for i in range(0,4):
         lista[i] = matriz[i][0]
         print(f"Lista: {lista}")  
-        if i < 3:    
+        """if i < 3:    
             if lista[i] == 0:
                 print("Tá igual a 0")
                 lista[i] = lista[i + 1]
-                lista[i + 1] = 0
+                lista[i + 1] = 0"""
                 
+    for i in range (0,4):
+        if i < 3: 
+            if lista[i] == 0:
+                lista[i] = lista[i + 1]
+                lista[i + 1] = 0      
+                      
     for i in range(0,4):
         if i < 3:
             if lista[i] == lista[i+1]:
                 print("Tá igual")
                 lista[i] = lista[i] + lista[i+1] 
+                lista[i + 1] = 0
+                
+    for i in range (0,4):
+        if i < 3: 
+            if lista[i] == 0:
+                lista[i] = lista[i + 1]
                 lista[i + 1] = 0
     
         #print(f"\nLista Extra: {listaExtra}")
