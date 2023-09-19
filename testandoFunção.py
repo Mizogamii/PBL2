@@ -122,7 +122,6 @@ def localMatrizA(linhaEscolhida):
         
 import random
 contador = 0
-j = 0
 print("----------------------------------------------------------------------")
 print("\t\t\t\t2048")
 print("----------------------------------------------------------------------")
@@ -173,44 +172,44 @@ while contador < 16:
     print(f"Score: {score}")
     #print('\033c', end='') Para limpar tela
  
-movimentos = input("Informe o comando [W, S, A, D]: ")
-movimentos = movimentos.upper()
-
-while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
     movimentos = input("Informe o comando [W, S, A, D]: ")
     movimentos = movimentos.upper()
-    
-#Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
-if movimentos == "W":
-    localMatrizW(0)
-    localMatrizW(1)
-    localMatrizW(2)
-    localMatrizW(3)
-    
-elif movimentos == "A": 
-    localMatrizA(0)
-    localMatrizA(1)
-    localMatrizA(2)
-    localMatrizA(3)
-    
-elif movimentos == "D": 
-    localMatrizD(0)
-    localMatrizD(1)
-    localMatrizD(2)
-    localMatrizD(3)
-    
-elif movimentos == "S": 
-    localMatrizS(0)
-    localMatrizS(1)
-    localMatrizS(2)
-    localMatrizS(3)
-print("----------------------------------------")    
+
+    while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
+        movimentos = input("Informe o comando [W, S, A, D]: ")
+        movimentos = movimentos.upper()
+        
+    #Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
+    if movimentos == "W":
+        localMatrizW(0)
+        localMatrizW(1)
+        localMatrizW(2)
+        localMatrizW(3)
+        
+    elif movimentos == "A": 
+        localMatrizA(0)
+        localMatrizA(1)
+        localMatrizA(2)
+        localMatrizA(3)
+        
+    elif movimentos == "D": 
+        localMatrizD(0)
+        localMatrizD(1)
+        localMatrizD(2)
+        localMatrizD(3)
+        
+    elif movimentos == "S": 
+        localMatrizS(0)
+        localMatrizS(1)
+        localMatrizS(2)
+        localMatrizS(3)
+    print("----------------------------------------")    
 
 
-print("+---+---+---+---+")
-for i in range(0,4):
-    for j in range(0,4):
-        print(f"| {matriz[i][j]} ", end="")
-    print("|\n+---+---+---+---+")
+    print("+---+---+---+---+")
+    for i in range(0,4):
+        for j in range(0,4):
+            print(f"| {matriz[i][j]} ", end="")
+        print("|\n+---+---+---+---+")
 
-print(f"{movimentos}")
+    print(f"{movimentos}")
