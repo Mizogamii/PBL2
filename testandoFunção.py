@@ -119,7 +119,11 @@ def localMatrizA(linhaEscolhida):
                 
     for i in range(0,4):
         matriz[linhaEscolhida][i] = lista[i]
-        
+
+#Preciso fazer o score direito
+#Reorganizar a parte de arrumação da matriz que tem parte que tá repetindo vários fors iguais
+#Queria ver se consigo organizar quando o número é com dois dígitos pq tá ficando desarrumado
+         
 import random
 contador = 0
 print("----------------------------------------------------------------------")
@@ -150,6 +154,7 @@ numeros = [2,4]
 while contador < 16:
     score = 0
     contador += 1
+    
     if contador > 1:
         #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
         linha = (random.randint(0, 3)) 
@@ -159,7 +164,6 @@ while contador < 16:
         #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
         numeroSorteado = (random.choice(numeros)) 
         print(f"{numeroSorteado}")
-        
         
     else:
         for sorteio in range(0,2):
