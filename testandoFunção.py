@@ -137,9 +137,18 @@ for i in range(0,4):
         
 #Lista dos números que poderão ser sorteados 
 numeros = [2,4]
-    
+ganhou = False
+
 #Aqui botei 16 por teste mas preciso que no início seja sorteado 2 números e após isso somente 1 até a pessoa ganhar ou perder 
-while contador < 16:
+while contador < 30:
+    #Testando
+    for i in range(0,4):
+        if matriz[i] == 2048:
+            break
+    
+    if contador == 3:
+        matriz[0][3] = 2048
+    
     score = 0
     contador += 1
     
