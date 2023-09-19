@@ -1,3 +1,79 @@
+"""def localMatrizW(colunaEscolhida):
+    for i in range(0,4):
+        lista[i] = matriz[i][colunaEscolhida]
+    for i in range (0,4):
+        if i < 3: 
+            if lista[i] == 0:
+                lista[i] = lista[i + 1]
+                lista[i + 1] = 0      
+                      
+    for i in range(0,4):
+        if i < 3:
+            if lista[i] == lista[i+1]:
+                lista[i] = lista[i] + lista[i+1] 
+                lista[i + 1] = 0
+                
+    for i in range (0,4):
+        if i < 3: 
+            if lista[i] == 0:
+                lista[i] = lista[i + 1]
+                lista[i + 1] = 0
+    
+    for i in range(0,4):
+        if i < 3:
+            if lista[i] == lista[i+1]:
+                lista[i] = lista[i] + lista[i+1] 
+                lista[i + 1] = 0
+                
+    for i in range (0,4):
+        if i < 3: 
+            if lista[i] == 0:
+                lista[i] = lista[i + 1]
+                lista[i + 1] = 0
+                
+    for i in range(0,4):
+        matriz[i][colunaEscolhida] = lista[i]"""
+        
+def localMatrizA(linhaEscolhida):
+    
+    for i in range(0,4):
+        lista[i] = 0
+    
+    for i in range(0,4):
+        lista[i] = matriz[linhaEscolhida][i]
+    for i in range (0,4):
+        if i < 3: 
+            if lista[i] == 0:
+                lista[i] = lista[i + 1]
+                lista[i + 1] = 0      
+                      
+    for i in range(0,4):
+        if i < 3:
+            if lista[i] == lista[i+1]:
+                lista[i] = lista[i] + lista[i+1] 
+                lista[i + 1] = 0
+                
+    for i in range (0,4):
+        if i < 3: 
+            if lista[i] == 0:
+                lista[i] = lista[i + 1]
+                lista[i + 1] = 0
+    
+    for i in range(0,4):
+        if i < 3:
+            if lista[i] == lista[i+1]:
+                lista[i] = lista[i] + lista[i+1] 
+                lista[i + 1] = 0
+                
+    for i in range (0,4):
+        if i < 3: 
+            if lista[i] == 0:
+                lista[i] = lista[i + 1]
+                lista[i + 1] = 0
+                
+    for i in range(0,4):
+        matriz[i][linhaEscolhida] = lista[i]
+        
 import random
 contador = 0
 j = 0
@@ -60,54 +136,21 @@ while movimentos != "W" and movimentos != "S" and movimentos != "A" and moviment
     
 #Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
 if movimentos == "W":
-    for i in range(0,4):
-        lista[i] = matriz[i][0]
-        print(f"Lista: {lista}")  
-        """if i < 3:    
-            if lista[i] == 0:
-                print("Tá igual a 0")
-                lista[i] = lista[i + 1]
-                lista[i + 1] = 0"""
-                
-    for i in range (0,4):
-        if i < 3: 
-            if lista[i] == 0:
-                lista[i] = lista[i + 1]
-                lista[i + 1] = 0      
-                      
-    for i in range(0,4):
-        if i < 3:
-            if lista[i] == lista[i+1]:
-                print("Tá igual")
-                lista[i] = lista[i] + lista[i+1] 
-                lista[i + 1] = 0
-                
-    for i in range (0,4):
-        if i < 3: 
-            if lista[i] == 0:
-                lista[i] = lista[i + 1]
-                lista[i + 1] = 0
+    print("Teste")
+    """localMatrizW(0)
+    localMatrizW(1)
+    localMatrizW(2)
+    localMatrizW(3)"""
     
-    for i in range(0,4):
-        if i < 3:
-            if lista[i] == lista[i+1]:
-                print("Tá igual")
-                lista[i] = lista[i] + lista[i+1] 
-                lista[i + 1] = 0
-                
-    for i in range (0,4):
-        if i < 3: 
-            if lista[i] == 0:
-                lista[i] = lista[i + 1]
-                lista[i + 1] = 0
-        #print(f"\nLista Extra: {listaExtra}")
+elif movimentos == "A": 
+    localMatrizA(0)
+    localMatrizA(1)
+    localMatrizA(2)
+    localMatrizA(3)
+    
 print("----------------------------------------")    
 
-print(lista, end=" ")
-print()
-#print(listaExtra, end=" ")
-for i in range(0,4):
-    matriz[i][0] = lista[i]
+
 print("+---+---+---+---+")
 for i in range(0,4):
     for j in range(0,4):
