@@ -46,12 +46,6 @@ def arrumacao2():
             if lista[i] == 0:
                 lista[i] = lista[i - 1]
                 lista[i - 1] = 0
-    
-    for i in range(3,-1,-1):
-        if i > 0:
-            if lista[i] == lista[i - 1]:
-                lista[i] = lista[i] + lista[i - 1] 
-                lista[i - 1] = 0
                 
     for i in range (3,-1,-1):
         if i > 0: 
@@ -77,12 +71,6 @@ def arrumacao():
         if i < 3: 
             if lista[i] == 0:
                 lista[i] = lista[i + 1]
-                lista[i + 1] = 0
-    
-    for i in range(0,4):
-        if i < 3:
-            if lista[i] == lista[i+1]:
-                lista[i] = lista[i] + lista[i+1] 
                 lista[i + 1] = 0
                 
     for i in range (0,4):
