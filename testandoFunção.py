@@ -176,15 +176,28 @@ while matriz[i] != 0 and ganhou != True:
     print(f"Score: {score}")
     #print('\033c', end='') Para limpar tela
  
-    """movimentos = input("Informe o comando [W, S, A, D]: ")
+    movimentos = input("Informe o comando [W, S, A, D]: ")
     movimentos = movimentos.upper()
 
     while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
         movimentos = input("Informe o comando [W, S, A, D]: ")
-        movimentos = movimentos.upper()"""
+        movimentos = movimentos.upper()
+        
+    """#Para testes
     mov = ["W", "A", "S", "D"]
-    movimentos = random.choice(mov)
+    movimentos = random.choice(mov)"""
+    print(f"Contador: {contador}")
     
+    if contador == 10:
+        for i in range(0,4):
+            matriz[0][3] = 2048
+    
+    for i in range(0,4):
+        for j in range(0,4):
+            if matriz[i][j] == 2048:
+                print("Deu 2048!")
+                ganhou = True
+            
     #Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
     if movimentos == "W":
         localMatrizW(0)
@@ -210,16 +223,6 @@ while matriz[i] != 0 and ganhou != True:
         localMatrizS(2)
         localMatrizS(3)
     print("----------------------------------------")  
-      
-    for i in range(0,4):
-        for j in range(0,4):
-            if matriz[i][j] == 2048:
-                print("Deu 2048!")
-                ganhou = True
-            
-    if contador == 5:
-        for i in range(0,4):
-            matriz[0][3] = 2048
 
     print("+---+---+---+---+")
     for i in range(0,4):
