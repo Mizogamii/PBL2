@@ -140,18 +140,7 @@ numeros = [2,4]
 ganhou = False
 
 #Aqui botei 16 por teste mas preciso que no início seja sorteado 2 números e após isso somente 1 até a pessoa ganhar ou perder 
-while matriz[i] != 0 and ganhou != True:
-    #Testando
-    for i in range(0,4):
-        for j in range(0,4):
-            if matriz[i][j] == 2048:
-                print("Deu 2048!")
-                ganhou = True
-            
-    if contador == 5:
-        for i in range(0,4):
-            matriz[0][3] = 2048
-            
+while matriz[i] != 0 and ganhou != True:  
     score = 0
     contador += 1
     
@@ -220,8 +209,17 @@ while matriz[i] != 0 and ganhou != True:
         localMatrizS(1)
         localMatrizS(2)
         localMatrizS(3)
-    print("----------------------------------------")    
-
+    print("----------------------------------------")  
+      
+    for i in range(0,4):
+        for j in range(0,4):
+            if matriz[i][j] == 2048:
+                print("Deu 2048!")
+                ganhou = True
+            
+    if contador == 5:
+        for i in range(0,4):
+            matriz[0][3] = 2048
 
     print("+---+---+---+---+")
     for i in range(0,4):
