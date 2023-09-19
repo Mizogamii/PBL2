@@ -1,6 +1,4 @@
-def localMatrizW(colunaEscolhida):
-    for i in range(0,4):
-        lista[i] = matriz[i][colunaEscolhida]
+def arrumacao():
     for i in range (0,4):
         if i < 3: 
             if lista[i] == 0:
@@ -30,49 +28,34 @@ def localMatrizW(colunaEscolhida):
             if lista[i] == 0:
                 lista[i] = lista[i + 1]
                 lista[i + 1] = 0
+
+def localMatrizW(colunaEscolhida):
+    for i in range(0,4):
+        lista[i] = 0
+        
+    for i in range(0,4):
+        lista[i] = matriz[i][colunaEscolhida]
+    
+    print(lista)
+    
+    arrumacao()
                 
     for i in range(0,4):
         matriz[i][colunaEscolhida] = lista[i]
         
 def localMatrizA(linhaEscolhida):
-    
     for i in range(0,4):
         lista[i] = 0
-    
+        
     for i in range(0,4):
         lista[i] = matriz[linhaEscolhida][i]
-    for i in range (0,4):
-        if i < 3: 
-            if lista[i] == 0:
-                lista[i] = lista[i + 1]
-                lista[i + 1] = 0      
-                      
-    for i in range(0,4):
-        if i < 3:
-            if lista[i] == lista[i+1]:
-                lista[i] = lista[i] + lista[i+1] 
-                lista[i + 1] = 0
-                
-    for i in range (0,4):
-        if i < 3: 
-            if lista[i] == 0:
-                lista[i] = lista[i + 1]
-                lista[i + 1] = 0
+        
+    print(lista)
     
-    for i in range(0,4):
-        if i < 3:
-            if lista[i] == lista[i+1]:
-                lista[i] = lista[i] + lista[i+1] 
-                lista[i + 1] = 0
-                
-    for i in range (0,4):
-        if i < 3: 
-            if lista[i] == 0:
-                lista[i] = lista[i + 1]
-                lista[i + 1] = 0
+    arrumacao()
                 
     for i in range(0,4):
-        matriz[i][linhaEscolhida] = lista[i]
+        matriz[linhaEscolhida][i] = lista[i]
         
 import random
 contador = 0
@@ -140,6 +123,7 @@ if movimentos == "W":
     localMatrizW(1)
     localMatrizW(2)
     localMatrizW(3)
+    
 elif movimentos == "A": 
     localMatrizA(0)
     localMatrizA(1)

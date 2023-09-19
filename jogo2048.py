@@ -4,6 +4,8 @@ def localMatrizW(colunaEscolhida):
         
     for i in range(0,4):
         lista[i] = matriz[i][colunaEscolhida]
+    
+    print(lista)
     for i in range (0,4):
         if i < 3: 
             if lista[i] == 0:
@@ -45,6 +47,7 @@ def localMatrizA(linhaEscolhida):
         lista[i] = matriz[linhaEscolhida][i]
         
     print(lista)
+    
     for i in range (0,4):
         if i < 3: 
             if lista[i] == 0:
