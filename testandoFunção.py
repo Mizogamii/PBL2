@@ -145,31 +145,32 @@ for i in range(0,4):
         
 #Lista dos números que poderão ser sorteados 
 numeros = [2,4]
-
-for sorteio in range(0,2):
-    numeroSorteado = (random.choice(numeros)) 
-    print(f"{numeroSorteado}")
-        
-    #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
-    linha = (random.randint(0, 3)) 
-    coluna = (random.randint(0, 3)) 
-    if matriz[linha][coluna] == 0:
-        matriz[linha][coluna] = numeroSorteado
     
 #Aqui botei 16 por teste mas preciso que no início seja sorteado 2 números e após isso somente 1 até a pessoa ganhar ou perder 
 while contador < 16:
     score = 0
     contador += 1
-    #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
-    numeroSorteado = (random.choice(numeros)) 
-    print(f"{numeroSorteado}")
-    
-    #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
-    linha = (random.randint(0, 3)) 
-    coluna = (random.randint(0, 3)) 
-    if matriz[linha][coluna] == 0:
-        matriz[linha][coluna] = numeroSorteado
-
+    if contador > 1:
+        #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
+        linha = (random.randint(0, 3)) 
+        coluna = (random.randint(0, 3)) 
+        if matriz[linha][coluna] == 0:
+            matriz[linha][coluna] = numeroSorteado
+        #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
+        numeroSorteado = (random.choice(numeros)) 
+        print(f"{numeroSorteado}")
+        
+        
+    else:
+        for sorteio in range(0,2):
+            numeroSorteado = (random.choice(numeros)) 
+            print(f"{numeroSorteado}")
+            #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
+            linha = (random.randint(0, 3)) 
+            coluna = (random.randint(0, 3)) 
+            if matriz[linha][coluna] == 0:
+                matriz[linha][coluna] = numeroSorteado
+                
     print("+---+---+---+---+")
     for i in range(0,4):
         for j in range(0,4):
