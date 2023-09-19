@@ -137,15 +137,25 @@ print("----------------------------------------------------------------------")
 #Fazendo a matriz e as listas 
 matriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 lista = [0, 0, 0, 0]
-listaExtra = [0, 0, 0, 0]
 
 #Inserindo os zeros na matriz
 for i in range(0,4):
     for j in range(0,4):
         matriz[i][j] = 0
         
-#Lista dos núemros que poderão ser sorteados 
+#Lista dos números que poderão ser sorteados 
 numeros = [2,4]
+
+for sorteio in range(0,2):
+    numeroSorteado = (random.choice(numeros)) 
+    print(f"{numeroSorteado}")
+        
+    #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
+    linha = (random.randint(0, 3)) 
+    coluna = (random.randint(0, 3)) 
+    if matriz[linha][coluna] == 0:
+        matriz[linha][coluna] = numeroSorteado
+    
 #Aqui botei 16 por teste mas preciso que no início seja sorteado 2 números e após isso somente 1 até a pessoa ganhar ou perder 
 while contador < 16:
     score = 0
