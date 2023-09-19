@@ -34,7 +34,11 @@ def localMatrizW(colunaEscolhida):
     for i in range(0,4):
         matriz[i][colunaEscolhida] = lista[i]
         
-def localMatrizS(linhaEscolhida):
+def localMatrizA(linhaEscolhida):
+    
+    for i in range(0,4):
+        lista[i] = 0
+    
     for i in range(0,4):
         lista[i] = matriz[linhaEscolhida][i]
     for i in range (0,4):
@@ -136,11 +140,11 @@ if movimentos == "W":
     localMatrizW(1)
     localMatrizW(2)
     localMatrizW(3)
-elif movimentos == "S": #Fiz errado era para essa opção ser o dos lados DEPOIS CONSERTA
-    localMatrizS(0)
-    localMatrizS(1)
-    localMatrizS(2)
-    localMatrizS(3)
+elif movimentos == "A": 
+    localMatrizA(0)
+    localMatrizA(1)
+    localMatrizA(2)
+    localMatrizA(3)
     
 print("----------------------------------------")    
 
