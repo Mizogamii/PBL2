@@ -1,3 +1,65 @@
+#Quando for inserido o D(para direita), essa função serve para inserir os números na lista e depois imprimir na matriz
+def localMatrizD(linhaEscolhida):
+    for i in range(0,4):
+        lista[i] = 0
+        
+    for i in range(0,4):
+        lista[i] = matriz[linhaEscolhida][i]
+        
+    print(lista)
+    
+    arrumacao2()
+                
+    for i in range(3,-1,-1):
+        matriz[linhaEscolhida][i] = lista[i]
+#Quando for inserido o W(para descer), essa função serve para inserir os números na lista e depois imprimir na matriz        
+def localMatrizS(colunaEscolhida):
+    for i in range(0,4):
+        lista[i] = 0
+        
+    for i in range(0,4):
+        lista[i] = matriz[i][colunaEscolhida]
+    
+    print(lista)
+    
+    arrumacao2()
+                
+    for i in range(0,4):
+        matriz[i][colunaEscolhida] = lista[i]
+        
+#Serve para organizar e somar os números na lista para as opções S e D (Descer e direita)
+def arrumacao2():
+    for i in range (3,-1,-1):
+        if i > 0: 
+            if lista[i] == 0:
+                lista[i] = lista[i - 1]
+                lista[i - 1] = 0      
+                      
+    for i in range(3,-1,-1):
+        if i > 0:
+            if lista[i] == lista[i - 1]:
+                lista[i] = lista[i] + lista[i - 1] 
+                lista[i - 1] = 0
+                
+    for i in range (3,-1,-1):
+        if i > 0: 
+            if lista[i] == 0:
+                lista[i] = lista[i - 1]
+                lista[i - 1] = 0
+    
+    for i in range(3,-1,-1):
+        if i > 0:
+            if lista[i] == lista[i - 1]:
+                lista[i] = lista[i] + lista[i - 1] 
+                lista[i - 1] = 0
+                
+    for i in range (3,-1,-1):
+        if i > 0: 
+            if lista[i] == 0:
+                lista[i] = lista[i - 1]
+                lista[i - 1] = 0
+                
+#Serve para organizar e somar os números na lista para as opções W e A (Subir e esquerda)
 def arrumacao():
     for i in range (0,4):
         if i < 3: 
@@ -28,7 +90,8 @@ def arrumacao():
             if lista[i] == 0:
                 lista[i] = lista[i + 1]
                 lista[i + 1] = 0
-
+                
+#Quando for inserido o W(para subir), essa função serve para inserir os números na lista e depois imprimir na matriz
 def localMatrizW(colunaEscolhida):
     for i in range(0,4):
         lista[i] = 0
@@ -42,7 +105,7 @@ def localMatrizW(colunaEscolhida):
                 
     for i in range(0,4):
         matriz[i][colunaEscolhida] = lista[i]
-        
+#Quando for inserido o A(para a esquerda), essa função serve para inserir os números na lista e depois imprimir na matriz        
 def localMatrizA(linhaEscolhida):
     for i in range(0,4):
         lista[i] = 0
@@ -130,6 +193,17 @@ elif movimentos == "A":
     localMatrizA(2)
     localMatrizA(3)
     
+elif movimentos == "D": 
+    localMatrizD(0)
+    localMatrizD(1)
+    localMatrizD(2)
+    localMatrizD(3)
+    
+elif movimentos == "S": 
+    localMatrizS(0)
+    localMatrizS(1)
+    localMatrizS(2)
+    localMatrizS(3)
 print("----------------------------------------")    
 
 
