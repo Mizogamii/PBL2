@@ -25,11 +25,12 @@ def localMatrizS(colunaEscolhida):
     arrumacao2()
                 
     for i in range(0,4):
-        matriz[i][colunaEscolhida] = lista[i]
-        
+        matriz[i][colunaEscolhida] = lista[i]        
 #Serve para organizar e somar os números na lista para as opções S e D (Descer e direita)
-def arrumacao2():                  
-    for i in range (3,-1,-1):
+def arrumacao2():       
+               
+    for i in range(2):            
+        for i in range (3,-1,-1):
             if i > 0: 
                 if lista[i] == 0:
                     lista[i] = lista[i - 1]
@@ -40,37 +41,34 @@ def arrumacao2():
             if lista[i] == lista[i - 1]:
                 lista[i] = lista[i] + lista[i - 1] 
                 lista[i - 1] = 0
-    
+
     for i in range(2):            
         for i in range (3,-1,-1):
             if i > 0: 
                 if lista[i] == 0:
                     lista[i] = lista[i - 1]
-                    lista[i - 1] = 0           
-                
+                    lista[i - 1] = 0                         
 #Serve para organizar e somar os números na lista para as opções W e A (Subir e esquerda)
-def arrumacao():       
-                  
-    for i in range (0,4):
-            if i < 3: 
-                if lista[i] == 0:
-                    lista[i] = lista[i + 1]
-                    lista[i + 1] = 0
-                    
-    for i in range(0,4):
-        if i < 3:
-            if lista[i] == lista[i+1]:
-                lista[i] = lista[i] + lista[i+1] 
-                lista[i + 1] = 0
-                
+def arrumacao():               
     for i in range(2):             
         for i in range (0,4):
             if i < 3: 
                 if lista[i] == 0:
                     lista[i] = lista[i + 1]
                     lista[i + 1] = 0
-                    
-                
+    
+    for i in range(0,4):
+        if i < 3:
+            if lista[i] == lista[i+1]:
+                lista[i] = lista[i] + lista[i+1] 
+                lista[i + 1] = 0
+        
+    for i in range(2):             
+        for i in range (0,4):
+            if i < 3: 
+                if lista[i] == 0:
+                    lista[i] = lista[i + 1]
+                    lista[i + 1] = 0           
 #Quando for inserido o W(para subir), essa função serve para inserir os números na lista e depois imprimir na matriz
 def localMatrizW(colunaEscolhida):
     for i in range(0,4):
@@ -134,40 +132,43 @@ while continuar != "N":
     numeros = [2,4]
     ganhou = False
 
-    #Aqui botei 16 por teste mas preciso que no início seja sorteado 2 números e após isso somente 1 até a pessoa ganhar ou perder 
     while matriz[i] != 0 and ganhou != True:  
         score = 0
         contador += 1
         
         if contador > 1:
-            #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
-            linha = (random.randint(0, 3)) 
-            coluna = (random.randint(0, 3)) 
-            if matriz[linha][coluna] == 0:
-                matriz[linha][coluna] = numeroSorteado
             #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
             numeroSorteado = (random.choice(numeros)) 
             print(f"{numeroSorteado}")
             
+            #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
+            linha = (random.randint(0, 3)) 
+            coluna = (random.randint(0, 3)) 
+            
+            if matriz[linha][coluna] == 0:
+                matriz[linha][coluna] = numeroSorteado
         else:
-            for sorteio in range(0,2):
+            for sorteio in range(2):
                 numeroSorteado = (random.choice(numeros)) 
                 print(f"{numeroSorteado}")
+                
                 #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
                 linha = (random.randint(0, 3)) 
                 coluna = (random.randint(0, 3)) 
+                
                 if matriz[linha][coluna] == 0:
                     matriz[linha][coluna] = numeroSorteado
-        print("+---------------------------+")
+                    
+        print("+-------------------------------+")
         for i in range(0,4):
             for j in range(0,4):
                 if matriz[i][j] < 9:
-                    print(f"|  {matriz[i][j]}   ", end="")
+                    print(f"|   {matriz[i][j]}   ", end="")
                 elif matriz[i][j] < 99:
-                    print(f"|  {matriz[i][j]}  ", end="")
+                    print(f"|   {matriz[i][j]}  ", end="")
                 elif matriz[i][j] < 999:
                     print(f"| {matriz[i][j]} ", end="")
-            print("|\n+---------------------------+")
+            print("|\n+-------------------------------+")
                     
             
         for i in range(0,4):
