@@ -28,14 +28,20 @@ def localMatrizS(colunaEscolhida):
         matriz[i][colunaEscolhida] = lista[i]
         
 #Serve para organizar e somar os números na lista para as opções S e D (Descer e direita)
-def arrumacao2():                   
+def arrumacao2():                  
+    for i in range (3,-1,-1):
+            if i > 0: 
+                if lista[i] == 0:
+                    lista[i] = lista[i - 1]
+                    lista[i - 1] = 0 
+                    
     for i in range(3,-1,-1):
         if i > 0:
             if lista[i] == lista[i - 1]:
                 lista[i] = lista[i] + lista[i - 1] 
                 lista[i - 1] = 0
     
-    for i in range(3):            
+    for i in range(2):            
         for i in range (3,-1,-1):
             if i > 0: 
                 if lista[i] == 0:
@@ -43,14 +49,21 @@ def arrumacao2():
                     lista[i - 1] = 0           
                 
 #Serve para organizar e somar os números na lista para as opções W e A (Subir e esquerda)
-def arrumacao():                     
+def arrumacao():       
+                  
+    for i in range (0,4):
+            if i < 3: 
+                if lista[i] == 0:
+                    lista[i] = lista[i + 1]
+                    lista[i + 1] = 0
+                    
     for i in range(0,4):
         if i < 3:
             if lista[i] == lista[i+1]:
                 lista[i] = lista[i] + lista[i+1] 
                 lista[i + 1] = 0
                 
-    for i in range(3):             
+    for i in range(2):             
         for i in range (0,4):
             if i < 3: 
                 if lista[i] == 0:
@@ -145,12 +158,17 @@ while continuar != "N":
                 coluna = (random.randint(0, 3)) 
                 if matriz[linha][coluna] == 0:
                     matriz[linha][coluna] = numeroSorteado
-                    
-        print("+---+---+---+---+")
+        print("+---------------------------+")
         for i in range(0,4):
             for j in range(0,4):
-                print(f"| {matriz[i][j]} ", end="")
-            print("|\n+---+---+---+---+")
+                if matriz[i][j] < 9:
+                    print(f"|  {matriz[i][j]}   ", end="")
+                elif matriz[i][j] < 99:
+                    print(f"|  {matriz[i][j]}  ", end="")
+                elif matriz[i][j] < 999:
+                    print(f"| {matriz[i][j]} ", end="")
+            print("|\n+---------------------------+")
+                    
             
         for i in range(0,4):
             for j in range(0,4):
