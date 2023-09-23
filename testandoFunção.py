@@ -56,6 +56,7 @@ def arrumacao():
                 if lista[i] == 0:
                     lista[i] = lista[i + 1]
                     lista[i + 1] = 0
+                    
                 
 #Quando for inserido o W(para subir), essa função serve para inserir os números na lista e depois imprimir na matriz
 def localMatrizW(colunaEscolhida):
@@ -89,6 +90,7 @@ def localMatrizA(linhaEscolhida):
 #Preciso fazer o score direito e guardar para mostrar os recordes
 #Reorganizar a parte de arrumação da matriz que tem parte que tá repetindo vários fors iguais
 #Queria ver se consigo organizar quando o número é com dois dígitos pq tá ficando desarrumado
+#Tá errado uma parte da arrumação, quando tem assim [2, 0, 0, 2] ele não tá somando, só tá aproximando sendo que são iguais
          
 import random
 contador = 0
