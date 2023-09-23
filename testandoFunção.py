@@ -10,7 +10,7 @@ def localMatrizD(linhaEscolhida):
     
     arrumacao2()
                 
-    for i in range(3,-1,-1):
+    for i in range(0,4):
         matriz[linhaEscolhida][i] = lista[i]
 #Quando for inserido o W(para descer), essa função serve para inserir os números na lista e depois imprimir na matriz        
 def localMatrizS(colunaEscolhida):
@@ -28,57 +28,34 @@ def localMatrizS(colunaEscolhida):
         matriz[i][colunaEscolhida] = lista[i]
         
 #Serve para organizar e somar os números na lista para as opções S e D (Descer e direita)
-def arrumacao2():
-    for i in range (3,-1,-1):
-        if i > 0: 
-            if lista[i] == 0:
-                lista[i] = lista[i - 1]
-                lista[i - 1] = 0      
-                      
+def arrumacao2():                   
     for i in range(3,-1,-1):
         if i > 0:
             if lista[i] == lista[i - 1]:
                 lista[i] = lista[i] + lista[i - 1] 
                 lista[i - 1] = 0
-                
     
-    for i in range (3,-1,-1):
-        if i > 0: 
-            if lista[i] == 0:
-                lista[i] = lista[i - 1]
-                lista[i - 1] = 0
-                
-    for i in range (3,-1,-1):
-        if i > 0: 
-            if lista[i] == 0:
-                lista[i] = lista[i - 1]
-                lista[i - 1] = 0
+    for i in range(3):            
+        for i in range (3,-1,-1):
+            if i > 0: 
+                if lista[i] == 0:
+                    lista[i] = lista[i - 1]
+                    lista[i - 1] = 0           
                 
 #Serve para organizar e somar os números na lista para as opções W e A (Subir e esquerda)
-def arrumacao():
-    for i in range (0,4):
-        if i < 3: 
-            if lista[i] == 0:
-                lista[i] = lista[i + 1]
-                lista[i + 1] = 0      
-                      
+def arrumacao():                     
     for i in range(0,4):
         if i < 3:
             if lista[i] == lista[i+1]:
                 lista[i] = lista[i] + lista[i+1] 
                 lista[i + 1] = 0
                 
-    for i in range (0,4):
-        if i < 3: 
-            if lista[i] == 0:
-                lista[i] = lista[i + 1]
-                lista[i + 1] = 0
-                
-    for i in range (0,4):
-        if i < 3: 
-            if lista[i] == 0:
-                lista[i] = lista[i + 1]
-                lista[i + 1] = 0
+    for i in range(3):             
+        for i in range (0,4):
+            if i < 3: 
+                if lista[i] == 0:
+                    lista[i] = lista[i + 1]
+                    lista[i + 1] = 0
                 
 #Quando for inserido o W(para subir), essa função serve para inserir os números na lista e depois imprimir na matriz
 def localMatrizW(colunaEscolhida):
@@ -179,21 +156,21 @@ while continuar != "N":
         print(f"Score: {score}")
         #print('\033c', end='') Para limpar tela
     
-        """movimentos = input("Informe o comando [W, S, A, D]: ")
+        movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
 
         while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
             movimentos = input("Informe o comando [W, S, A, D]: ")
-            movimentos = movimentos.upper()"""
+            movimentos = movimentos.upper()
             
-        #Para testes
+        """#Para testes
         mov = ["W", "A", "S", "D"]
         movimentos = random.choice(mov)
-        print(f"Contador: {contador}")
+        print(f"Contador: {contador}")"""
         
-        if contador == 10:
+        """if contador == 10:
             for i in range(0,4):
-                matriz[0][3] = 2048
+                matriz[0][3] = 2048"""
         
         for i in range(0,4):
             for j in range(0,4):

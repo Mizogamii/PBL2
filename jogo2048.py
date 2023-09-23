@@ -46,37 +46,20 @@ def localMatrizA(linhaEscolhida):
     for i in range(0,4):
         lista[i] = matriz[linhaEscolhida][i]
         
-    print(lista)
-    
-    for i in range (0,4):
-        if i < 3: 
-            if lista[i] == 0:
-                lista[i] = lista[i + 1]
-                lista[i + 1] = 0      
+    print(lista) 
                       
     for i in range(0,4):
         if i < 3:
             if lista[i] == lista[i+1]:
                 lista[i] = lista[i] + lista[i+1] 
                 lista[i + 1] = 0
-                
-    for i in range (0,4):
-        if i < 3: 
-            if lista[i] == 0:
-                lista[i] = lista[i + 1]
-                lista[i + 1] = 0
     
-    for i in range(0,4):
-        if i < 3:
-            if lista[i] == lista[i+1]:
-                lista[i] = lista[i] + lista[i+1] 
-                lista[i + 1] = 0
-                
-    for i in range (0,4):
-        if i < 3: 
-            if lista[i] == 0:
-                lista[i] = lista[i + 1]
-                lista[i + 1] = 0
+    for j in range(3):            
+        for i in range (0,4):
+            if i < 3: 
+                if lista[i] == 0:
+                    lista[i] = lista[i + 1]
+                    lista[i + 1] = 0
                 
     for i in range(0,4):
         matriz[linhaEscolhida][i] = lista[i]
