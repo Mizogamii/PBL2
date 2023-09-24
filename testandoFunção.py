@@ -26,7 +26,6 @@ def localMatrizS(colunaEscolhida):
                 
     for i in range(0,4):
         matriz[i][colunaEscolhida] = lista[i]        
-
 #Quando for inserido o W(para subir), essa função serve para inserir os números na lista e depois imprimir na matriz
 def localMatrizW(colunaEscolhida):
     for i in range(0,4):
@@ -57,7 +56,8 @@ def localMatrizA(linhaEscolhida):
         matriz[linhaEscolhida][i] = lista[i]
 
 #Serve para organizar e somar os números na lista para as opções S e D (Descer e direita)
-def arrumacao2():                  
+def arrumacao2():       
+    score = 0           
     for i in range(2):            
         for i in range (3,-1,-1):
             if i > 0: 
@@ -69,16 +69,21 @@ def arrumacao2():
         if i > 0:
             if lista[i] == lista[i - 1]:
                 lista[i] = lista[i] + lista[i - 1] 
+                score = lista[i]
                 lista[i - 1] = 0
+                print(f"Lista: {lista[i]}")
 
     for i in range(2):            
         for i in range (3,-1,-1):
             if i > 0: 
                 if lista[i] == 0:
                     lista[i] = lista[i - 1]
-                    lista[i - 1] = 0                         
+                    lista[i - 1] = 0  
+    print(f"Score2: {score}")
+    return score                       
 #Serve para organizar e somar os números na lista para as opções W e A (Subir e esquerda)
-def arrumacao():               
+def arrumacao():    
+    score = 0           
     for i in range(2):             
         for i in range (0,4):
             if i < 3: 
@@ -90,15 +95,18 @@ def arrumacao():
         if i < 3:
             if lista[i] == lista[i+1]:
                 lista[i] = lista[i] + lista[i+1] 
+                score = lista[i]
                 lista[i + 1] = 0
+                print(f"Lista: {lista[i]}")
         
     for i in range(2):             
         for i in range (0,4):
             if i < 3: 
                 if lista[i] == 0:
                     lista[i] = lista[i + 1]
-                    lista[i + 1] = 0           
-
+                    lista[i + 1] = 0 
+    print(f"Score1: {score}")          
+    return score
 #Preciso fazer o score direito e guardar para mostrar os recordes
 #Queria ver se consigo organizar quando o número é com dois dígitos pq tá ficando desarrumado
          
@@ -132,7 +140,9 @@ while continuar != "N":
     ganhou = False
 
     while matriz[i] != 0 and ganhou != True:  
-        score = 0
+        score1 = arrumacao()
+        score2 = arrumacao2()
+        scoreTotal = score1 + score2
         contador += 1
         
         if contador > 1:
@@ -169,10 +179,10 @@ while continuar != "N":
                     print(f"| {matriz[i][j]} ", end="")
             print("|\n+-------------------------------+")
                     
-        for i in range(0,4):
+        """for i in range(0,4):
             for j in range(0,4):
-                score += matriz[i][j]
-        print(f"Score: {score}")
+                score += matriz[i][j]"""
+        print(f"Score: {scoreTotal}")
         #print('\033c', end='') Para limpar tela
     
         movimentos = input("Informe o comando [W, S, A, D]: ")
