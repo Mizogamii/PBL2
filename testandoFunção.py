@@ -1,4 +1,5 @@
 score = 0
+jogadasValidas = 0 
 #Quando for inserido o D(para direita), essa função serve para inserir os números na lista e depois imprimir na matriz
 def localMatrizD(linhaEscolhida):
     for i in range(0,4):
@@ -59,6 +60,7 @@ def localMatrizA(linhaEscolhida):
 #Serve para organizar e somar os números na lista para as opções S e D (Descer e direita)
 def arrumacao2():      
     global score 
+    global jogadasValidas
     for i in range(2):            
         for i in range (3,-1,-1):
             if i > 0: 
@@ -77,6 +79,7 @@ def arrumacao2():
                 print(f"Lista: {lista[i]}")
                 if contou == True:
                     score += lista[i]
+                    jogadasValidas += 1
 
     for i in range(2):            
         for i in range (3,-1,-1):
@@ -88,7 +91,9 @@ def arrumacao2():
                          
 #Serve para organizar e somar os números na lista para as opções W e A (Subir e esquerda)
 def arrumacao():    
-    global score          
+    global score   
+    global jogadasValidas      
+     
     for i in range(2):             
         for i in range (0,4):
             if i < 3: 
@@ -102,10 +107,14 @@ def arrumacao():
             if lista[i] == lista[i+1]:
                 lista[i] = lista[i] + lista[i+1] 
                 lista[i + 1] = 0
+                
                 if lista[i] != 0:                
                     contou = True
+                    
                 if contou == True:
                     score += lista[i]
+                    jogadasValidas += 1
+                    
                 print(f"Lista: {lista[i]}")
         
     for i in range(2):             
@@ -185,10 +194,8 @@ while continuar != "N":
                     print(f"| {matriz[i][j]} ", end="")
             print("|\n+-------------------------------+")
                     
-        """for i in range(0,4):
-            for j in range(0,4):
-                score += matriz[i][j]"""
         print(f"Score: {score}")
+        print(f"Jogadas válidas: {jogadasValidas}")
         #print('\033c', end='') Para limpar tela
     
         movimentos = input("Informe o comando [W, S, A, D]: ")
