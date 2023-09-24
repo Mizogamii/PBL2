@@ -61,6 +61,7 @@ def localMatrizA(linhaEscolhida):
 def arrumacao2():      
     global score 
     global jogadasValidas
+    
     for i in range(2):            
         for i in range (3,-1,-1):
             if i > 0: 
@@ -74,9 +75,10 @@ def arrumacao2():
             if lista[i] == lista[i - 1]:
                 lista[i] = lista[i] + lista[i - 1] 
                 lista[i - 1] = 0
+                
                 if lista[i] != 0:
                     contou = True
-                print(f"Lista: {lista[i]}")
+                    
                 if contou == True:
                     score += lista[i]
                     jogadasValidas += 1
@@ -87,7 +89,6 @@ def arrumacao2():
                 if lista[i] == 0:
                     lista[i] = lista[i - 1]
                     lista[i - 1] = 0  
-    print(f"Score2: {score}")
                          
 #Serve para organizar e somar os números na lista para as opções W e A (Subir e esquerda)
 def arrumacao():    
@@ -114,16 +115,13 @@ def arrumacao():
                 if contou == True:
                     score += lista[i]
                     jogadasValidas += 1
-                    
-                print(f"Lista: {lista[i]}")
         
     for i in range(2):             
         for i in range (0,4):
             if i < 3: 
                 if lista[i] == 0:
                     lista[i] = lista[i + 1]
-                    lista[i + 1] = 0 
-    print(f"Score1: {score}")          
+                    lista[i + 1] = 0         
     
 #Preciso fazer o score direito e guardar para mostrar os recordes
 #Queria ver se consigo organizar quando o número é com dois dígitos pq tá ficando desarrumado
@@ -214,12 +212,6 @@ while continuar != "N":
         """if contador == 10:
             for i in range(0,4):
                 matriz[0][3] = 2048"""
-        
-        for i in range(0,4):
-            for j in range(0,4):
-                if matriz[i][j] == 2048:
-                    print("Parabéns!!!\n2048!")
-                    ganhou = True
                 
         #Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
         if movimentos == "W":
@@ -256,6 +248,20 @@ while continuar != "N":
             for j in range(0,4):
                 print(f"| {matriz[i][j]} ", end="")
             print("|\n+---+---+---+---+")
+        
+        for i in range(0,4):
+            for j in range(0,4):
+                if matriz[i][j] == 2048:
+                    print("Parabéns!!!\n2048!")
+                    ganhou = True
+        
 
         print(f"{movimentos}")
+
+        
+    print(f"Score final: {score}")
+    print(f"Jogadas válidas: {jogadasValidas}") 
     continuar = input("Deseja continuar jogando?")
+    score = 0
+    jogadasValidas = 0
+    
