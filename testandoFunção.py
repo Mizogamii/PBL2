@@ -173,7 +173,10 @@ while continuar != "N":
                 
                 if matriz[linha][coluna] == 0:
                     matriz[linha][coluna] = numeroSorteado
-                    
+        if contador == 5:
+            matriz[2][1] = 1024
+            
+                                    
         print("+-------------------------------+")
         for i in range(0,4):
             for j in range(0,4):
@@ -198,6 +201,7 @@ while continuar != "N":
             movimentos = input("Informe o comando [W, S, A, D]: ")
             movimentos = movimentos.upper()
             
+        
         """#Para testes
         mov = ["W", "A", "S", "D"]
         movimentos = random.choice(mov)
