@@ -177,16 +177,7 @@ while continuar != "N":
                 coluna = (random.randint(0, 3)) 
                 
                 if matriz[linha][coluna] == 0:
-                    matriz[linha][coluna] = numeroSorteado
-                
-            
-            
-                
-            matriz[0][1] = 2048
-            matriz[1][1] = 204
-            matriz[2][1] = 20
-            matriz[3][1] = 2
-                                    
+                    matriz[linha][coluna] = numeroSorteado                     
                                     
         print("+-----------------------------------+")
         for i in range(0,4):
@@ -275,4 +266,5 @@ while continuar != "N":
     continuar = input("Deseja continuar jogando?")
     score = 0
     jogadasValidas = 0
+    contador = 0
     
