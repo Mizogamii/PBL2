@@ -56,7 +56,6 @@ def localMatrizA(linhaEscolhida):
                 
     for i in range(0,4):
         matriz[linhaEscolhida][i] = lista[i]
-
 #Serve para organizar e somar os números na lista para as opções S e D (Descer e direita)
 def arrumacao2():      
     global score 
@@ -88,8 +87,7 @@ def arrumacao2():
             if i > 0: 
                 if lista[i] == 0:
                     lista[i] = lista[i - 1]
-                    lista[i - 1] = 0  
-                         
+                    lista[i - 1] = 0               
 #Serve para organizar e somar os números na lista para as opções W e A (Subir e esquerda)
 def arrumacao():    
     global score   
@@ -180,17 +178,34 @@ while continuar != "N":
                 
                 if matriz[linha][coluna] == 0:
                     matriz[linha][coluna] = numeroSorteado
+                
+            
+            
+                
+            matriz[0][1] = 2048
+            matriz[1][1] = 204
+            matriz[2][1] = 20
+            matriz[3][1] = 2
                                     
-        print("+-------------------------------+")
+                                    
+        print("+-----------------------------------+")
         for i in range(0,4):
+            print(f"|        |        |        |        |")
             for j in range(0,4):
                 if matriz[i][j] < 9:
-                    print(f"|   {matriz[i][j]}   ", end="")
+                    print(f"|   {matriz[i][j]}    ", end="")
+
                 elif matriz[i][j] < 99:
-                    print(f"|    {matriz[i][j]}   ", end="")
+                    print(f"|   {matriz[i][j]}   ", end="")
+                    
                 elif matriz[i][j] < 999:
-                    print(f"| {matriz[i][j]} ", end="")
-            print("|\n+-------------------------------+")
+                    print(f"|   {matriz[i][j]}  ", end="")
+                    
+                else:
+                    print(f"|  {matriz[i][j]}  ", end="")
+                    
+            print(f"|\n|        |        |        |        |")
+            print("+-----------------------------------+")
                     
         print(f"Score: {score}")
         print(f"Jogadas válidas: {jogadasValidas}")
@@ -238,10 +253,6 @@ while continuar != "N":
             localMatrizS(2)
             localMatrizS(3)
         print("----------------------------------------")  
-        
-        if contador == 5:
-            matriz[0][0] = 1024
-            matriz[2][1] = 256
             
         print("+---+---+---+---+")
         for i in range(0,4):
@@ -254,13 +265,13 @@ while continuar != "N":
                 if matriz[i][j] == 2048:
                     print("Parabéns!!!\n2048!")
                     ganhou = True
-        
 
-        print(f"{movimentos}")
-
-        
+    print("----------------------------------------")
+    print("            RESULTADO DO JOGO           ")   
+    print("----------------------------------------") 
     print(f"Score final: {score}")
     print(f"Jogadas válidas: {jogadasValidas}") 
+    print("----------------------------------------") 
     continuar = input("Deseja continuar jogando?")
     score = 0
     jogadasValidas = 0
