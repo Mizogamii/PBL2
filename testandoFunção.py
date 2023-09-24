@@ -99,7 +99,6 @@ def localMatrizA(linhaEscolhida):
         matriz[linhaEscolhida][i] = lista[i]
 
 #Preciso fazer o score direito e guardar para mostrar os recordes
-#Reorganizar a parte de arrumação da matriz que tem parte que tá repetindo vários fors iguais
 #Queria ver se consigo organizar quando o número é com dois dígitos pq tá ficando desarrumado
          
 import random
