@@ -169,7 +169,6 @@ while continuar != "N":
                     print(f"| {matriz[i][j]} ", end="")
             print("|\n+-------------------------------+")
                     
-            
         for i in range(0,4):
             for j in range(0,4):
                 score += matriz[i][j]
