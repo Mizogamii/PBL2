@@ -173,9 +173,6 @@ while continuar != "N":
                 
                 if matriz[linha][coluna] == 0:
                     matriz[linha][coluna] = numeroSorteado
-        if contador == 5:
-            matriz[2][1] = 1024
-            
                                     
         print("+-------------------------------+")
         for i in range(0,4):
@@ -242,7 +239,11 @@ while continuar != "N":
             localMatrizS(2)
             localMatrizS(3)
         print("----------------------------------------")  
-
+        
+        if contador == 5:
+            matriz[0][0] = 1024
+            matriz[2][1] = 256
+            
         print("+---+---+---+---+")
         for i in range(0,4):
             for j in range(0,4):
