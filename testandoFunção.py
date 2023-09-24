@@ -58,6 +58,7 @@ def localMatrizA(linhaEscolhida):
 
 #Serve para organizar e somar os números na lista para as opções S e D (Descer e direita)
 def arrumacao2():      
+    global score 
     for i in range(2):            
         for i in range (3,-1,-1):
             if i > 0: 
@@ -75,7 +76,7 @@ def arrumacao2():
                     contou = True
                 print(f"Lista: {lista[i]}")
                 if contou == True:
-                    score = lista[i]
+                    score += lista[i]
 
     for i in range(2):            
         for i in range (3,-1,-1):
@@ -86,7 +87,8 @@ def arrumacao2():
     print(f"Score2: {score}")
                          
 #Serve para organizar e somar os números na lista para as opções W e A (Subir e esquerda)
-def arrumacao():              
+def arrumacao():    
+    global score          
     for i in range(2):             
         for i in range (0,4):
             if i < 3: 
@@ -103,7 +105,7 @@ def arrumacao():
                 if lista[i] != 0:                
                     contou = True
                 if contou == True:
-                    score = lista[i]
+                    score += lista[i]
                 print(f"Lista: {lista[i]}")
         
     for i in range(2):             
@@ -178,7 +180,7 @@ while continuar != "N":
                 if matriz[i][j] < 9:
                     print(f"|   {matriz[i][j]}   ", end="")
                 elif matriz[i][j] < 99:
-                    print(f"|   {matriz[i][j]}  ", end="")
+                    print(f"|    {matriz[i][j]}   ", end="")
                 elif matriz[i][j] < 999:
                     print(f"| {matriz[i][j]} ", end="")
             print("|\n+-------------------------------+")
