@@ -1,9 +1,11 @@
 score = 0
 jogadasValidas = 0 
+contadorIguaisColuna = 0
+contadorIguaisLinha = 0
 
 def verificandoIgualdadesColuna(colunaVerif):
     igual = False
-    contadorIguais = 0
+    global contadorIguaisColuna
     for i in range(0,4):
             listaVerificacao[i] = 0
         
@@ -14,14 +16,14 @@ def verificandoIgualdadesColuna(colunaVerif):
         if i < 3:
             if lista[i] == lista[i+1] and lista[i] != 0:
                 igual = True
-                contadorIguais += 1
+                contadorIguaisColuna += 1
     print(f"Igual coluna: {igual}")
-    print(f"Contador Iguais Coluna: {contadorIguais}")
-    return contadorIguais
+    print(f"Contador Iguais Coluna: {contadorIguaisColuna}")
+    #return contadorIguaisColuna
 
 def verificandoIgualdadesLinha(linhaVerif):
     igual = False
-    contadorIguais = 0
+    global contadorIguaisLinha
     for i in range(0,4):
             listaVerificacao[i] = 0
         
@@ -32,10 +34,10 @@ def verificandoIgualdadesLinha(linhaVerif):
         if i < 3:
             if lista[i] == lista[i+1] and lista[i] != 0:
                 igual = True
-                contadorIguais += 1
+                contadorIguaisLinha += 1
     print(f"Igual linha: {igual}")
-    print(f"Contador Iguais Linha: {contadorIguais}")
-    return contadorIguais
+    print(f"Contador Iguais Linha: {contadorIguaisLinha}")
+    #return contadorIguaisLinha
         
 #Quando for inserido o D(para direita), essa função serve para inserir os números na lista e depois imprimir na matriz
 def localMatrizD(linhaEscolhida):
@@ -269,15 +271,12 @@ while continuar != "N" and continuar != "n":
         for i in range(0,4):    
            verificandoIgualdadesColuna(i)
            verificandoIgualdadesLinha(i)
-           
-           igualdadeColuna = verificandoIgualdadesColuna()
-           igualdadeLinha = verificandoIgualdadesLinha()
         
         """ verificandoIgualdadesColuna(i)
          verificandoIgualdadesLinha(i)"""
         
-        print(f"IgualdadeColuna: {igualdadeColuna}")
-        print(f"IgualdadeLinha: {igualdadeLinha}")
+        print(f"IgualdadeColuna: {contadorIguaisColuna}")
+        print(f"IgualdadeLinha: {contadorIguaisLinha}")
         #########################################################
         
         #########################################################    
