@@ -177,6 +177,7 @@ while continuar != "N" and continuar != "n":
     #Lista dos números que poderão ser sorteados 
     numeros = [2,4]
     ganhou = False
+    aindaTemChance = True
   
     while ganhou != True or aindaTemChance != True:  
         
@@ -208,7 +209,17 @@ while continuar != "N" and continuar != "n":
                 if matriz[linha][coluna] == 0:
                     matriz[linha][coluna] = numeroSorteado          
                     
-        contador += 1           
+        contador += 1    
+        matriz[0][0] = 
+        matriz[0][1] =
+        matriz[0][2] =
+        matriz[0][3] =
+        matriz[1][0] =
+        matriz[1][1] =
+        matriz[1][2] =
+        matriz[1][3] =
+
+               
                                     
         print("+-----------------------------------+")
         for i in range(0,4):
