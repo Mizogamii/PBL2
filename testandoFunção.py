@@ -151,9 +151,8 @@ while continuar != "N":
     ganhou = False
 
     while matriz[i] != 0 and ganhou != True:  
-        contador += 1
-        
-        if contador > 1:
+        print(f"Contador: {contador}")
+        if contador > 0:
             #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
             numeroSorteado = (random.choice(numeros)) 
             print(f"{numeroSorteado}")
@@ -162,9 +161,13 @@ while continuar != "N":
             linha = (random.randint(0, 3)) 
             coluna = (random.randint(0, 3)) 
             
-            if matriz[linha][coluna] == 0:
-                matriz[linha][coluna] = numeroSorteado
-        else:
+            while matriz[linha][coluna] != 0:
+                linha = (random.randint(0, 3)) 
+                coluna = (random.randint(0, 3))
+                
+            matriz[linha][coluna] = numeroSorteado
+                     
+        elif contador == 0:
             for sorteio in range(2):
                 numeroSorteado = (random.choice(numeros)) 
                 print(f"{numeroSorteado}")
@@ -174,7 +177,9 @@ while continuar != "N":
                 coluna = (random.randint(0, 3)) 
                 
                 if matriz[linha][coluna] == 0:
-                    matriz[linha][coluna] = numeroSorteado                     
+                    matriz[linha][coluna] = numeroSorteado          
+                    
+        contador += 1           
                                     
         print("+-----------------------------------+")
         for i in range(0,4):
@@ -205,7 +210,6 @@ while continuar != "N":
         while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
             movimentos = input("Informe o comando [W, S, A, D]: ")
             movimentos = movimentos.upper()
-            
         
         """#Para testes
         mov = ["W", "A", "S", "D"]
@@ -247,6 +251,8 @@ while continuar != "N":
                     print("Parabéns!!!\n2048!")
                     ganhou = True
 
+        
+        
     print("----------------------------------------")
     print("            RESULTADO DO JOGO           ")   
     print("----------------------------------------") 
