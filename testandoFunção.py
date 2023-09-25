@@ -7,8 +7,6 @@ def localMatrizD(linhaEscolhida):
         
     for i in range(0,4):
         lista[i] = matriz[linhaEscolhida][i]
-        
-    print(lista)
     
     arrumacao2()
                 
@@ -21,9 +19,7 @@ def localMatrizS(colunaEscolhida):
         
     for i in range(0,4):
         lista[i] = matriz[i][colunaEscolhida]
-    
-    print(lista)
-    
+        
     arrumacao2()
                 
     for i in range(0,4):
@@ -35,9 +31,7 @@ def localMatrizW(colunaEscolhida):
         
     for i in range(0,4):
         lista[i] = matriz[i][colunaEscolhida]
-    
-    print(lista)
-    
+
     arrumacao()
                 
     for i in range(0,4):
@@ -50,8 +44,6 @@ def localMatrizA(linhaEscolhida):
     for i in range(0,4):
         lista[i] = matriz[linhaEscolhida][i]
         
-    print(lista)
-    
     arrumacao()
                 
     for i in range(0,4):
