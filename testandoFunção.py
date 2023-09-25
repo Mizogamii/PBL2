@@ -4,7 +4,6 @@ contadorIguaisColuna = 0
 contadorIguaisLinha = 0
 
 def verificandoIgualdadesColuna(colunaVerif):
-    igual = False
     global contadorIguaisColuna
     for i in range(0,4):
             listaVerificacao[i] = 0
@@ -15,14 +14,10 @@ def verificandoIgualdadesColuna(colunaVerif):
     for i in range(0,4):
         if i < 3:
             if lista[i] == lista[i+1] and lista[i] != 0:
-                igual = True
                 contadorIguaisColuna += 1
-    print(f"Igual coluna: {igual}")
-    print(f"Contador Iguais Coluna: {contadorIguaisColuna}")
     #return contadorIguaisColuna
 
 def verificandoIgualdadesLinha(linhaVerif):
-    igual = False
     global contadorIguaisLinha
     for i in range(0,4):
             listaVerificacao[i] = 0
@@ -33,10 +28,7 @@ def verificandoIgualdadesLinha(linhaVerif):
     for i in range(0,4):
         if i < 3:
             if lista[i] == lista[i+1] and lista[i] != 0:
-                igual = True
                 contadorIguaisLinha += 1
-    print(f"Igual linha: {igual}")
-    print(f"Contador Iguais Linha: {contadorIguaisLinha}")
     #return contadorIguaisLinha
         
 #Quando for inserido o D(para direita), essa função serve para inserir os números na lista e depois imprimir na matriz
