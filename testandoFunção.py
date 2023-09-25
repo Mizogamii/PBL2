@@ -238,7 +238,7 @@ while continuar != "N":
                 localMatrizS(i)
            
         print("----------------------------------------")  
-            
+        print(f"Jogadas válidas: {jogadasValidas}")     
         print("+---+---+---+---+")
         for i in range(0,4):
             for j in range(0,4):
@@ -250,9 +250,7 @@ while continuar != "N":
                 if matriz[i][j] == 2048:
                     print("Parabéns!!!\n2048!")
                     ganhou = True
-
-        
-        
+                    
     print("----------------------------------------")
     print("            RESULTADO DO JOGO           ")   
     print("----------------------------------------") 
