@@ -140,7 +140,7 @@ matriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 lista = [0, 0, 0, 0]
 continuar = "S"
 
-while continuar != "N":
+while continuar != "N" or continuar != "n":
     #Inserindo os zeros na matriz
     for i in range(0,4):
         for j in range(0,4):
@@ -257,7 +257,7 @@ while continuar != "N":
     print(f"Score final: {score}")
     print(f"Jogadas válidas: {jogadasValidas}") 
     print("----------------------------------------") 
-    continuar = input("Deseja continuar jogando?")
+    continuar = input("Deseja continuar jogando?[S/N]: ")
     score = 0
     jogadasValidas = 0
     contador = 0
