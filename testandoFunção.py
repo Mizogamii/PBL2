@@ -43,6 +43,7 @@ def localMatrizD(linhaEscolhida):
                 
     for i in range(0,4):
         matriz[linhaEscolhida][i] = lista[i]
+        
 #Quando for inserido o W(para descer), essa função serve para inserir os números na lista e depois imprimir na matriz        
 def localMatrizS(colunaEscolhida):
     for i in range(0,4):
@@ -54,7 +55,8 @@ def localMatrizS(colunaEscolhida):
     arrumacao2()
                 
     for i in range(0,4):
-        matriz[i][colunaEscolhida] = lista[i]        
+        matriz[i][colunaEscolhida] = lista[i] 
+               
 #Quando for inserido o W(para subir), essa função serve para inserir os números na lista e depois imprimir na matriz
 def localMatrizW(colunaEscolhida):
     for i in range(0,4):
@@ -67,6 +69,7 @@ def localMatrizW(colunaEscolhida):
                 
     for i in range(0,4):
         matriz[i][colunaEscolhida] = lista[i]
+        
 #Quando for inserido o A(para a esquerda), essa função serve para inserir os números na lista e depois imprimir na matriz        
 def localMatrizA(linhaEscolhida):
     for i in range(0,4):
@@ -79,6 +82,7 @@ def localMatrizA(linhaEscolhida):
                 
     for i in range(0,4):
         matriz[linhaEscolhida][i] = lista[i]
+        
 #Serve para organizar e somar os números na lista para as opções S e D (Descer e direita)
 def arrumacao2():      
     global score 
@@ -111,8 +115,7 @@ def arrumacao2():
                 if lista[i] == 0:
                     lista[i] = lista[i - 1]
                     lista[i - 1] = 0 
-                
-                              
+                                        
 #Serve para organizar e somar os números na lista para as opções W e A (Subir e esquerda)
 def arrumacao():    
     global score   
@@ -175,7 +178,8 @@ while continuar != "N" and continuar != "n":
     numeros = [2,4]
     ganhou = False
     #matriz[i] != 0 and  and 
-    while ganhou != True:  
+    while ganhou != True or aindaTemChance != True:  
+        
         print(f"Contador: {contador}")
         if contador > 0:
             #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
@@ -264,14 +268,11 @@ while continuar != "N" and continuar != "n":
            verificandoIgualdadesColuna(i)
            verificandoIgualdadesLinha(i)
         
-        """ verificandoIgualdadesColuna(i)
-         verificandoIgualdadesLinha(i)"""
-        
         print(f"IgualdadeColuna: {contadorIguaisColuna}")
-        print(f"IgualdadeLinha: {contadorIguaisLinha}")
-        #########################################################
+        print(f"IgualdadeLinha: {contadorIguaisLinha}")   
         
-        #########################################################    
+        
+        
         
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
@@ -281,7 +282,16 @@ while continuar != "N" and continuar != "n":
                 if matriz[i][j] == 2048:
                     print("Parabéns!!!\n2048!")
                     ganhou = True
-                
+                elif matriz[i][j] != 0:
+                    MatrizCheia = True
+        
+        if contadorIguaisColuna == 0 or contadorIguaisLinha == 0 and MatrizCheia:
+            aindaTemChance = False
+        
+            
+        contadorIguaisColuna = 0
+        contadorIguaisLinha = 0
+        
         print(f"Ganhou: {ganhou}")       
              
     print("----------------------------------------")
