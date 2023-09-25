@@ -1,5 +1,42 @@
 score = 0
 jogadasValidas = 0 
+
+def verificandoIgualdadesColuna(colunaVerif):
+    igual = False
+    contadorIguais = 0
+    for i in range(0,4):
+            listaVerificacao[i] = 0
+        
+    for i in range(0,4):
+        lista[i] = matriz[i][colunaVerif]
+    
+    for i in range(0,4):
+        if i < 3:
+            if lista[i] == lista[i+1] and lista[i] != 0:
+                igual = True
+                contadorIguais += 1
+    print(f"Igual coluna: {igual}")
+    print(f"Contador Iguais Coluna: {contadorIguais}")
+    return contadorIguais
+
+def verificandoIgualdadesLinha(linhaVerif):
+    igual = False
+    contadorIguais = 0
+    for i in range(0,4):
+            listaVerificacao[i] = 0
+        
+    for i in range(0,4):
+        lista[i] = matriz[linhaVerif][i]
+    
+    for i in range(0,4):
+        if i < 3:
+            if lista[i] == lista[i+1] and lista[i] != 0:
+                igual = True
+                contadorIguais += 1
+    print(f"Igual linha: {igual}")
+    print(f"Contador Iguais Linha: {contadorIguais}")
+    return contadorIguais
+        
 #Quando for inserido o D(para direita), essa função serve para inserir os números na lista e depois imprimir na matriz
 def localMatrizD(linhaEscolhida):
     for i in range(0,4):
@@ -73,10 +110,7 @@ def arrumacao2():
                 if contou == True:
                     score += lista[i]
                     jogadasValidas += 1
-                    
-            else:
-                naoTemIgual = True
-
+                
     for i in range(2):            
         for i in range (3,-1,-1):
             if i > 0: 
@@ -229,7 +263,25 @@ while continuar != "N" and continuar != "n":
         elif movimentos == "S": 
             for i in range(0,4): 
                 localMatrizS(i)
+        
+        #Verificar se tem números iguais na matriz que podem ser somados posteriomente   
+        listaVerificacao = [0, 0, 0, 0]
+        for i in range(0,4):    
+           verificandoIgualdadesColuna(i)
+           verificandoIgualdadesLinha(i)
            
+           igualdadeColuna = verificandoIgualdadesColuna()
+           igualdadeLinha = verificandoIgualdadesLinha()
+        
+        """ verificandoIgualdadesColuna(i)
+         verificandoIgualdadesLinha(i)"""
+        
+        print(f"IgualdadeColuna: {igualdadeColuna}")
+        print(f"IgualdadeLinha: {igualdadeLinha}")
+        #########################################################
+        
+        #########################################################    
+        
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
         
