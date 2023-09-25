@@ -121,9 +121,6 @@ def arrumacao():
                     lista[i] = lista[i + 1]
                     lista[i + 1] = 0         
     
-#Preciso fazer o score direito e guardar para mostrar os recordes
-#Queria ver se consigo organizar quando o número é com dois dígitos pq tá ficando desarrumado
-         
 import random
 contador = 0
 print("----------------------------------------------------------------------")
@@ -221,28 +218,21 @@ while continuar != "N":
                 
         #Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
         if movimentos == "W":
-            localMatrizW(0)
-            localMatrizW(1)
-            localMatrizW(2)
-            localMatrizW(3)
+            for i in range(0,4):    
+                localMatrizW(i)
             
         elif movimentos == "A": 
-            localMatrizA(0)
-            localMatrizA(1)
-            localMatrizA(2)
-            localMatrizA(3)
+            for i in range(0,4):     
+                localMatrizA(i)
             
         elif movimentos == "D": 
-            localMatrizD(0)
-            localMatrizD(1)
-            localMatrizD(2)
-            localMatrizD(3)
+            for i in range(0,4):     
+                localMatrizD(i)
             
         elif movimentos == "S": 
-            localMatrizS(0)
-            localMatrizS(1)
-            localMatrizS(2)
-            localMatrizS(3)
+            for i in range(0,4): 
+                localMatrizS(i)
+           
         print("----------------------------------------")  
             
         print("+---+---+---+---+")
