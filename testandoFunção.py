@@ -177,7 +177,7 @@ while continuar != "N" and continuar != "n":
     #Lista dos números que poderão ser sorteados 
     numeros = [2,4]
     ganhou = False
-    #matriz[i] != 0 and  and 
+  
     while ganhou != True or aindaTemChance != True:  
         
         print(f"Contador: {contador}")
@@ -270,9 +270,6 @@ while continuar != "N" and continuar != "n":
         
         print(f"IgualdadeColuna: {contadorIguaisColuna}")
         print(f"IgualdadeLinha: {contadorIguaisLinha}")   
-        
-        
-        
         
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
