@@ -178,6 +178,7 @@ while continuar != "N" and continuar != "n":
     numeros = [2,4]
     ganhou = False
     aindaTemChance = True
+    #Para testar
     matriz[0][0] = 2
     matriz[0][1] = 4
     matriz[0][2] = 4
