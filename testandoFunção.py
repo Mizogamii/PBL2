@@ -149,8 +149,8 @@ while continuar != "N" or continuar != "n":
     #Lista dos números que poderão ser sorteados 
     numeros = [2,4]
     ganhou = False
-
-    while matriz[i] != 0 and ganhou != True:  
+    #matriz[i] != 0 and ganhou != True and 
+    while contador <= 100:  
         print(f"Contador: {contador}")
         if contador > 0:
             #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
@@ -204,21 +204,17 @@ while continuar != "N" or continuar != "n":
         print(f"Jogadas válidas: {jogadasValidas}")
         #print('\033c', end='') Para limpar tela
     
-        movimentos = input("Informe o comando [W, S, A, D]: ")
+        """movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
 
         while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
             movimentos = input("Informe o comando [W, S, A, D]: ")
-            movimentos = movimentos.upper()
+            movimentos = movimentos.upper()"""
         
-        """#Para testes
+        #Para testes
         mov = ["W", "A", "S", "D"]
         movimentos = random.choice(mov)
-        print(f"Contador: {contador}")"""
-        
-        """if contador == 10:
-            for i in range(0,4):
-                matriz[0][3] = 2048"""
+        print(f"Contador: {contador}")
                 
         #Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
         if movimentos == "W":
@@ -239,18 +235,18 @@ while continuar != "N" or continuar != "n":
            
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
-        print("+---+---+---+---+")
+        """print("+---+---+---+---+")
         for i in range(0,4):
             for j in range(0,4):
                 print(f"| {matriz[i][j]} ", end="")
-            print("|\n+---+---+---+---+")
+            print("|\n+---+---+---+---+")"""
         
         for i in range(0,4):
             for j in range(0,4):
                 if matriz[i][j] == 2048:
                     print("Parabéns!!!\n2048!")
                     ganhou = True
-                    
+        print(f"Ganhou: {ganhou}")            
     print("----------------------------------------")
     print("            RESULTADO DO JOGO           ")   
     print("----------------------------------------") 
