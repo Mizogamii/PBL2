@@ -73,6 +73,9 @@ def arrumacao2():
                 if contou == True:
                     score += lista[i]
                     jogadasValidas += 1
+                    
+            else:
+                naoTemIgual = True
 
     for i in range(2):            
         for i in range (3,-1,-1):
@@ -144,7 +147,7 @@ while continuar != "N" and continuar != "n":
     numeros = [2,4]
     ganhou = False
     #matriz[i] != 0 and  and 
-    while contador <= 100 and ganhou != True:  
+    while ganhou != True:  
         print(f"Contador: {contador}")
         if contador > 0:
             #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
@@ -235,7 +238,7 @@ while continuar != "N" and continuar != "n":
                 if matriz[i][j] == 2048:
                     print("Parabéns!!!\n2048!")
                     ganhou = True
-                    
+                
         print(f"Ganhou: {ganhou}")       
              
     print("----------------------------------------")
