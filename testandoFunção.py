@@ -147,7 +147,8 @@ def arrumacao():
             if i < 3: 
                 if lista[i] == 0:
                     lista[i] = lista[i + 1]
-                    lista[i + 1] = 0         
+                    lista[i + 1] = 0 
+                        
     
 import random
 contador = 0
