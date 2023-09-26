@@ -195,16 +195,23 @@ while continuar != "N" and continuar != "n":
     matriz[3][1] = 8
     matriz[3][2] = 16
     matriz[3][3] = 32
-  
+    
     while ganhou != True or aindaTemChance != True:  
-        
+        temEspaco = False
+        for i in range(0,4):
+            for j in range(0,4):
+                if matriz[i][j] == 0:
+                    temEspaco = True
+                    #Preciso arranjar uma maneira de guardar onde é que tem espaço para quando já tiver quase tudo cheio ele ir direto no ponto em vez de ficar testando achar 
+                    
         print(f"Contador: {contador}")
-        if contador > 0:
+        if contador > 0 and temEspaco == True:
             #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
             numeroSorteado = (random.choice(numeros)) 
             print(f"{numeroSorteado}")
             
             #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
+            
             linha = (random.randint(0, 3)) 
             coluna = (random.randint(0, 3)) 
             
