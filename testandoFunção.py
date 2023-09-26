@@ -310,7 +310,6 @@ while continuar != "N" and continuar != "n":
         if contadorIguaisColuna == 0 or contadorIguaisLinha == 0 and MatrizCheia:
             aindaTemChance = False
         
-            
         contadorIguaisColuna = 0
         contadorIguaisLinha = 0
         
