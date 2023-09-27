@@ -311,8 +311,8 @@ while continuar != "N" and continuar != "n":
             print("Matriz cheia")
         else:
             print("Matriz com espaços")
-            
-        if contadorIguaisColuna == 0 or contadorIguaisLinha == 0 and matrizCheia == True:
+            #matrizCheia == True and 
+        if contadorIguaisColuna == 0 or contadorIguaisLinha == 0 and temEspaco == False:
             aindaTemChance = False
         
         contadorIguaisColuna = 0
