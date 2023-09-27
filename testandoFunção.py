@@ -305,11 +305,14 @@ while continuar != "N" and continuar != "n":
                 if matriz[i][j] == 2048:
                     print("Parabéns!!!\n2048!")
                     ganhou = True
-                elif matriz[i][j] == 0:
-                    MatrizCheia = True
-                    print("Matriz cheia")
-        
-        if contadorIguaisColuna == 0 or contadorIguaisLinha == 0 and MatrizCheia == True:
+            
+        matrizCheia= all(all(element != 0 for element in sublist) for sublist in matriz)
+        if matrizCheia:
+            print("Matriz cheia")
+        else:
+            print("Matriz com espaços")
+            
+        if contadorIguaisColuna == 0 or contadorIguaisLinha == 0 and matrizCheia == True:
             aindaTemChance = False
         
         contadorIguaisColuna = 0
