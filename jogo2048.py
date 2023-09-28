@@ -7,28 +7,29 @@ contadorIguaisLinha = 0
 def verificandoIgualdadesColuna(colunaVerif):
     global contadorIguaisColuna
     for i in range(0,4):
-        listaVerificacao[i] = 0
+        listaVerificacao1[i] = 0
         
     for i in range(0,4):
-        listaVerificacao[i] = matriz[i][colunaVerif]
+        listaVerificacao1[i] = matriz[i][colunaVerif]
     
     for i in range(0,4):
         if i < 3:
-            if listaVerificacao[i] == listaVerificacao[i+1] and listaVerificacao[i] != 0:
+            if listaVerificacao1[i] == listaVerificacao1[i+1] and listaVerificacao1[i] != 0:
                 contadorIguaisColuna += 1
     #return contadorIguaisColuna
 
 def verificandoIgualdadesLinha(linhaVerif):
     global contadorIguaisLinha
+    listaVerificacao2 = [0, 0, 0, 0]
     for i in range(0,4):
-            listaVerificacao[i] = 0
+            listaVerificacao2[i] = 0
         
     for i in range(0,4):
-        listaVerificacao[i] = matriz[linhaVerif][i]
+        listaVerificacao2[i] = matriz[linhaVerif][i]
     
     for i in range(0,4):
         if i < 3:
-            if listaVerificacao[i] == listaVerificacao[i+1] and listaVerificacao[i] != 0:
+            if listaVerificacao2[i] == listaVerificacao2[i+1] and listaVerificacao2[i] != 0:
                 contadorIguaisLinha += 1
     #return contadorIguaisLinha
         
@@ -288,9 +289,11 @@ while continuar != "N" and continuar != "n":
         elif movimentos == "S": 
             for i in range(0,4): 
                 localMatrizS(i)
+                
+        listaVerificacao1 = [0, 0, 0, 0]
+        listaVerificacao2 = [0, 0, 0, 0]
         
-        #Verificar se tem números iguais na matriz que podem ser somados posteriomente   
-        listaVerificacao = [0, 0, 0, 0]
+        #Verificar se tem números iguais na matriz que podem ser somados posteriomente
         for i in range(0,4):    
            verificandoIgualdadesColuna(i)
            
