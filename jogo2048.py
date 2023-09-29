@@ -219,10 +219,10 @@ while continuar != "N" and continuar != "n":
             linha = (random.randint(0, 3)) 
             coluna = (random.randint(0, 3)) 
             
-            if matriz[linha][coluna] != 0:
-                while matriz[linha][coluna] != 0:
-                    linha = (random.randint(0, 3)) 
-                    coluna = (random.randint(0, 3))
+            #if matriz[linha][coluna] != 0:
+            while matriz[linha][coluna] != 0:
+                linha = (random.randint(0, 3)) 
+                coluna = (random.randint(0, 3))
                 
             matriz[linha][coluna] = numeroSorteado
                      
@@ -235,10 +235,10 @@ while continuar != "N" and continuar != "n":
                 linha = (random.randint(0, 3)) 
                 coluna = (random.randint(0, 3)) 
                 
-                if matriz[linha][coluna] != 0:
-                    while matriz[linha][coluna] != 0:
-                        linha = (random.randint(0, 3)) 
-                        coluna = (random.randint(0, 3))
+                #if matriz[linha][coluna] != 0:
+                while matriz[linha][coluna] != 0:
+                    linha = (random.randint(0, 3)) 
+                    coluna = (random.randint(0, 3))
                 
                 if matriz[linha][coluna] == 0:
                     matriz[linha][coluna] = numeroSorteado          
