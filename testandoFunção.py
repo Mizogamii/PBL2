@@ -192,13 +192,14 @@ while continuar != "N" and continuar != "n":
     matriz[2][1] = 8
     matriz[2][2] = 4
     matriz[2][3] = 4
-    matriz[3][0] = 4
+    matriz[3][0] = 2
     matriz[3][1] = 8
     matriz[3][2] = 16
     matriz[3][3] = 32
     
     while ganhou != True or aindaTemChance != True:  
         temEspaco = False
+        #Para verificar se tem espaço na matriz
         for i in range(0,4):
             for j in range(0,4):
                 if matriz[i][j] == 0:
@@ -221,6 +222,7 @@ while continuar != "N" and continuar != "n":
                 coluna = (random.randint(0, 3))
                 
             matriz[linha][coluna] = numeroSorteado
+            print(f"Linha: {linha}\nColuna: {coluna}")
                      
         elif contador == 0:
             for sorteio in range(2):
@@ -231,9 +233,9 @@ while continuar != "N" and continuar != "n":
                 linha = (random.randint(0, 3)) 
                 coluna = (random.randint(0, 3)) 
                 
-                if matriz[linha][coluna] == 0:
+                if matriz[linha][coluna] == 0: #Isso aqui pode tirar depois pq no início a matriz sempre(deveria pelo menos) estar vazia
                     matriz[linha][coluna] = numeroSorteado          
-                    
+                print(f"Linha: {linha}\nColuna: {coluna}")
         contador += 1    
                                     
         print("+-----------------------------------+")
