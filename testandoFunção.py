@@ -6,28 +6,28 @@ contadorIguaisLinha = 0
 def verificandoIgualdadesColuna(colunaVerif):
     global contadorIguaisColuna
     for i in range(0,4):
-            listaVerificacao[i] = 0
+        listaVerificacao[i] = 0
         
     for i in range(0,4):
-        lista[i] = matriz[i][colunaVerif]
+        listaVerificacao[i] = matriz[i][colunaVerif]
     
     for i in range(0,4):
         if i < 3:
-            if lista[i] == lista[i+1] and lista[i] != 0:
+            if listaVerificacao[i] == listaVerificacao[i+1] and listaVerificacao[i] != 0:
                 contadorIguaisColuna += 1
     #return contadorIguaisColuna
 
 def verificandoIgualdadesLinha(linhaVerif):
     global contadorIguaisLinha
     for i in range(0,4):
-            listaVerificacao[i] = 0
+        listaVerificacao[i] = 0
         
     for i in range(0,4):
-        lista[i] = matriz[linhaVerif][i]
+        listaVerificacao[i] = matriz[linhaVerif][i]
     
     for i in range(0,4):
         if i < 3:
-            if lista[i] == lista[i+1] and lista[i] != 0:
+            if listaVerificacao[i] == listaVerificacao[i+1] and listaVerificacao[i] != 0:
                 contadorIguaisLinha += 1
     #return contadorIguaisLinha
         
@@ -149,7 +149,6 @@ def arrumacao():
                     lista[i] = lista[i + 1]
                     lista[i + 1] = 0 
                         
-    
 import random
 contador = 0
 print("----------------------------------------------------------------------")
@@ -167,6 +166,7 @@ print("----------------------------------------------------------------------")
 #Fazendo a matriz e as listas 
 matriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 lista = [0, 0, 0, 0]
+listaVerificacao = [0, 0, 0, 0]
 continuar = "S"
 
 while continuar != "N" and continuar != "n":
@@ -289,7 +289,7 @@ while continuar != "N" and continuar != "n":
                 localMatrizS(i)
         
         #Verificar se tem números iguais na matriz que podem ser somados posteriomente   
-        listaVerificacao = [0, 0, 0, 0]
+        
         for i in range(0,4):    
            verificandoIgualdadesColuna(i)
            verificandoIgualdadesLinha(i)
