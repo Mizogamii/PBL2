@@ -151,7 +151,6 @@ def arrumacao():
                     lista[i] = lista[i + 1]
                     lista[i + 1] = 0 
                         
-    
 import random
 contador = 0
 print("----------------------------------------------------------------------")
@@ -171,8 +170,9 @@ matriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 lista = [0, 0, 0, 0]
 continuar = "S"
 
+#Para o jogo continuar até o usuário querer 
 while continuar != "N" and continuar != "n":
-    #Inserindo os zeros na matriz
+    #Inserindo os zeros na matriz / limpando a matriz
     for i in range(0,4):
         for j in range(0,4):
             matriz[i][j] = 0
@@ -201,6 +201,8 @@ while continuar != "N" and continuar != "n":
     
     while ganhou != True or aindaTemChance != True:  
         temEspaco = False
+        
+        #Para verificar se tem espaço na matriz
         for i in range(0,4):
             for j in range(0,4):
                 if matriz[i][j] == 0:
@@ -214,13 +216,13 @@ while continuar != "N" and continuar != "n":
             print(f"{numeroSorteado}")
             
             #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
-            
             linha = (random.randint(0, 3)) 
             coluna = (random.randint(0, 3)) 
             
-            while matriz[linha][coluna] != 0:
-                linha = (random.randint(0, 3)) 
-                coluna = (random.randint(0, 3))
+            if matriz[linha][coluna] != 0:
+                while matriz[linha][coluna] != 0:
+                    linha = (random.randint(0, 3)) 
+                    coluna = (random.randint(0, 3))
                 
             matriz[linha][coluna] = numeroSorteado
                      
@@ -232,6 +234,11 @@ while continuar != "N" and continuar != "n":
                 #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
                 linha = (random.randint(0, 3)) 
                 coluna = (random.randint(0, 3)) 
+                
+                if matriz[linha][coluna] != 0:
+                    while matriz[linha][coluna] != 0:
+                        linha = (random.randint(0, 3)) 
+                        coluna = (random.randint(0, 3))
                 
                 if matriz[linha][coluna] == 0:
                     matriz[linha][coluna] = numeroSorteado          
