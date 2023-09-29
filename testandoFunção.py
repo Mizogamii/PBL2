@@ -179,27 +179,32 @@ while continuar != "N" and continuar != "n":
     numeros = [2,4]
     ganhou = False
     aindaTemChance = True
-    #Para testar
-    matriz[0][0] = 2
-    matriz[0][1] = 4
-    matriz[0][2] = 4
-    matriz[0][3] = 2
-    matriz[1][0] = 2
-    matriz[1][1] = 2 
-    matriz[1][2] = 4
-    matriz[1][3] = 2
-    matriz[2][0] = 4
-    matriz[2][1] = 8
-    matriz[2][2] = 4
-    matriz[2][3] = 4
-    matriz[3][0] = 2
-    matriz[3][1] = 8
-    matriz[3][2] = 16
-    matriz[3][3] = 32
     
-    while ganhou != True or aindaTemChance != True:  
+    while ganhou == False and aindaTemChance == True:  
+        if contador == 3:
+            #Para testar
+            matriz[0][0] = 2
+            matriz[0][1] = 4
+            matriz[0][2] = 8
+            matriz[0][3] = 3
+            matriz[1][0] = 1
+            matriz[1][1] = 9
+            matriz[1][2] = 7
+            matriz[1][3] = 5
+            matriz[2][0] = 6
+            matriz[2][1] = 10
+            matriz[2][2] = 11
+            matriz[2][3] = 12
+            matriz[3][0] = 13
+            matriz[3][1] = 14
+            matriz[3][2] = 16
+            matriz[3][3] = 32
+            
         temEspaco = False
+        matrizCheia = False
         #Para verificar se tem espaço na matriz
+        """matrizCheia = all(all(element != 0 for element in sublist) for sublist in matriz)
+        print(matrizCheia)"""
         for i in range(0,4):
             for j in range(0,4):
                 if matriz[i][j] == 0:
@@ -216,13 +221,14 @@ while continuar != "N" and continuar != "n":
             
             linha = (random.randint(0, 3)) 
             coluna = (random.randint(0, 3)) 
+            print(f"Linha1: {linha}\nColuna1: {coluna}")
             
             while matriz[linha][coluna] != 0:
                 linha = (random.randint(0, 3)) 
                 coluna = (random.randint(0, 3))
                 
             matriz[linha][coluna] = numeroSorteado
-            print(f"Linha: {linha}\nColuna: {coluna}")
+            print(f"Linha2: {linha}\nColuna2: {coluna}")
                      
         elif contador == 0:
             for sorteio in range(2):
@@ -235,7 +241,7 @@ while continuar != "N" and continuar != "n":
                 
                 if matriz[linha][coluna] == 0: #Isso aqui pode tirar depois pq no início a matriz sempre(deveria pelo menos) estar vazia
                     matriz[linha][coluna] = numeroSorteado          
-                print(f"Linha: {linha}\nColuna: {coluna}")
+                #print(f"Linha: {linha}\nColuna: {coluna}")
         contador += 1    
                                     
         print("+-----------------------------------+")
@@ -308,14 +314,17 @@ while continuar != "N" and continuar != "n":
                     print("Parabéns!!!\n2048!")
                     ganhou = True
             
-        matrizCheia= all(all(element != 0 for element in sublist) for sublist in matriz)
-        if matrizCheia:
+        matrizCheia = all(all(element != 0 for element in sublist) for sublist in matriz)
+        if matrizCheia == True:
             print("Matriz cheia")
         else:
             print("Matriz com espaços")
             #matrizCheia == True and 
-        if contadorIguaisColuna == 0 or contadorIguaisLinha == 0 and temEspaco == False:
-            aindaTemChance = False
+            
+        if temEspaco == False:
+            if contadorIguaisColuna == 0 or contadorIguaisLinha == 0:
+                aindaTemChance = False
+                print("PERDEU!")
         
         contadorIguaisColuna = 0
         contadorIguaisLinha = 0
@@ -333,4 +342,5 @@ while continuar != "N" and continuar != "n":
     score = 0
     jogadasValidas = 0
     contador = 0
+print("Encerrando...")
     
