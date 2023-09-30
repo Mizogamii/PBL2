@@ -40,10 +40,11 @@ def localMatrizD():
             lista[i] = 0
             
         for i in range(0,4):
+            
             lista[i] = matriz[linha][i]
-
+            
         arrumacao2()
-                    
+        
         for i in range(0,4):
             matriz[linha][i] = lista[i]
         
@@ -198,7 +199,7 @@ while continuar != "N" and continuar != "n":
                     temEspaco = True
                     #Preciso arranjar uma maneira de guardar onde é que tem espaço para quando já tiver quase tudo cheio ele ir direto no ponto em vez de ficar testando achar
         
-            """#Para testar            
+        """#Para testar            
             matriz[0][0] = 2
             matriz[0][1] = 4
             matriz[0][2] = 4
@@ -215,6 +216,7 @@ while continuar != "N" and continuar != "n":
             matriz[3][1] = 8
             matriz[3][2] = 16
             matriz[3][3] = 32 """
+            
         print(f"Contador: {contador}")
         if contador > 0 and temEspaco == True:
             #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)

@@ -171,18 +171,38 @@ lista = [0, 0, 0, 0]
 listaVerificacao = [0, 0, 0, 0]
 continuar = "S"
 
+#Para testar            
+matriz[0][0] = 2
+matriz[0][1] = 4
+matriz[0][2] = 4
+matriz[0][3] = 2
+matriz[1][0] = 2
+matriz[1][1] = 2 
+matriz[1][2] = 4
+matriz[1][3] = 2
+matriz[2][0] = 4
+matriz[2][1] = 8
+matriz[2][2] = 4
+matriz[2][3] = 4
+matriz[3][0] = 2
+matriz[3][1] = 8
+matriz[3][2] = 16
+matriz[3][3] = 32 
+
 while continuar != "N" and continuar != "n":
     #Inserindo os zeros na matriz
-    for i in range(0,4):
+    """for i in range(0,4):
         for j in range(0,4):
-            matriz[i][j] = 0
-            
+            matriz[i][j] = 0"""
+         
     #Lista dos números que poderão ser sorteados 
     numeros = [2,4]
     ganhou = False
     aindaTemChance = True
     
     while ganhou == False and aindaTemChance == True:  
+        if contador == 3:
+            matriz[3][3] = 2048   
         temEspaco = False
         matrizCheia = False
         #Para verificar se tem espaço na matriz
@@ -194,23 +214,13 @@ while continuar != "N" and continuar != "n":
                     temEspaco = True
                     #Preciso arranjar uma maneira de guardar onde é que tem espaço para quando já tiver quase tudo cheio ele ir direto no ponto em vez de ficar testando achar
         
-            """#Para testar            
-            matriz[0][0] = 2
-            matriz[0][1] = 4
-            matriz[0][2] = 4
-            matriz[0][3] = 2
-            matriz[1][0] = 2
-            matriz[1][1] = 2 
-            matriz[1][2] = 4
-            matriz[1][3] = 2
-            matriz[2][0] = 4
-            matriz[2][1] = 8
-            matriz[2][2] = 4
-            matriz[2][3] = 4
-            matriz[3][0] = 2
-            matriz[3][1] = 8
-            matriz[3][2] = 16
-            matriz[3][3] = 32 """
+        for i in range(0,4):
+            for j in range(0,4):
+                if matriz[i][j] == 2048:
+                    print("Parabéns!!!\n2048!")
+                    ganhou = True
+                       
+                    
         print(f"Contador: {contador}")
         if contador > 0 and temEspaco == True:
             #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
@@ -307,11 +317,6 @@ while continuar != "N" and continuar != "n":
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
         
-        for i in range(0,4):
-            for j in range(0,4):
-                if matriz[i][j] == 2048:
-                    print("Parabéns!!!\n2048!")
-                    ganhou = True
             
         matrizCheia = all(all(element != 0 for element in sublist) for sublist in matriz)
         if matrizCheia == True:
