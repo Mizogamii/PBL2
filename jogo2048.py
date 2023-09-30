@@ -199,7 +199,7 @@ while continuar != "N" and continuar != "n":
     matriz[3][2] = 16
     matriz[3][3] = 32
     
-    while ganhou != True or aindaTemChance != True:  
+    while ganhou != True or aindaTemChance == True:  
         temEspaco = False
         
         #Para verificar se tem espaço na matriz

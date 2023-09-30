@@ -192,7 +192,7 @@ while continuar != "N" and continuar != "n":
     matriz[2][1] = 8
     matriz[2][2] = 4
     matriz[2][3] = 4
-    matriz[3][0] = 4
+    matriz[3][0] = 2
     matriz[3][1] = 8
     matriz[3][2] = 16
     matriz[3][3] = 32 
