@@ -34,61 +34,56 @@ def verificandoIgualdadesLinha():
     return contadorIguaisLinha
         
 #Quando for inserido o D(para direita), essa função serve para inserir os números na lista e depois imprimir na matriz
-def localMatrizD():
-    for linha in range(0,4): 
-        for i in range(0,4):
-            lista[i] = 0
-            
-        for i in range(0,4):
-            
-            lista[i] = matriz[linha][i]
-            
-        arrumacao2()
+def localMatrizD(linhaEscolhida):
+    for i in range(0,4):
+        lista[i] = 0
         
-        for i in range(0,4):
-            matriz[linha][i] = lista[i]
+    for i in range(0,4):
+        lista[i] = matriz[linhaEscolhida][i]
+    
+    arrumacao2()
+                
+    for i in range(0,4):
+        matriz[linhaEscolhida][i] = lista[i]
         
 #Quando for inserido o W(para descer), essa função serve para inserir os números na lista e depois imprimir na matriz        
-def localMatrizS():
-    for coluna in range(0,4):
-        for i in range(0,4):
-            lista[i] = 0
-            
-        for i in range(0,4):
-            lista[i] = matriz[i][coluna]
-            
-        arrumacao2()
-                    
-        for i in range(0,4):
-            matriz[i][coluna] = lista[i] 
+def localMatrizS(colunaEscolhida):
+    for i in range(0,4):
+        lista[i] = 0
+        
+    for i in range(0,4):
+        lista[i] = matriz[i][colunaEscolhida]
+        
+    arrumacao2()
+                
+    for i in range(0,4):
+        matriz[i][colunaEscolhida] = lista[i] 
                
 #Quando for inserido o W(para subir), essa função serve para inserir os números na lista e depois imprimir na matriz
-def localMatrizW():
-    for coluna in range(0,4):
-        for i in range(0,4):
-            lista[i] = 0
-            
-        for i in range(0,4):
-            lista[i] = matriz[i][coluna]
+def localMatrizW(colunaEscolhida):
+    for i in range(0,4):
+        lista[i] = 0
+        
+    for i in range(0,4):
+        lista[i] = matriz[i][colunaEscolhida]
 
-        arrumacao()
-                    
-        for i in range(0,4):
-            matriz[i][coluna] = lista[i]
+    arrumacao()
+                
+    for i in range(0,4):
+        matriz[i][colunaEscolhida] = lista[i]
         
 #Quando for inserido o A(para a esquerda), essa função serve para inserir os números na lista e depois imprimir na matriz        
-def localMatrizA():
-    for linha in range(0,4):
-        for i in range(0,4):
-            lista[i] = 0
-            
-        for i in range(0,4):
-            lista[i] = matriz[linha][i]
-            
-        arrumacao()
-                    
-        for i in range(0,4):
-            matriz[linha][i] = lista[i]
+def localMatrizA(linhaEscolhida):
+    for i in range(0,4):
+        lista[i] = 0
+        
+    for i in range(0,4):
+        lista[i] = matriz[linhaEscolhida][i]
+        
+    arrumacao()
+                
+    for i in range(0,4):
+        matriz[linhaEscolhida][i] = lista[i]
         
 #Serve para organizar e somar os números na lista para as opções S e D (Descer e direita)
 def arrumacao2():      
@@ -176,18 +171,36 @@ lista = [0, 0, 0, 0]
 listaVerificacao = [0, 0, 0, 0]
 continuar = "S"
 
+#Para testar            
+matriz[0][0] = 2
+matriz[0][1] = 4
+matriz[0][2] = 4
+matriz[0][3] = 2
+matriz[1][0] = 2
+matriz[1][1] = 2 
+matriz[1][2] = 4
+matriz[1][3] = 2
+matriz[2][0] = 4
+matriz[2][1] = 8
+matriz[2][2] = 4
+matriz[2][3] = 4
+matriz[3][0] = 2
+matriz[3][1] = 8
+matriz[3][2] = 16
+matriz[3][3] = 32 
+
 while continuar != "N" and continuar != "n":
     #Inserindo os zeros na matriz
-    for i in range(0,4):
+    """for i in range(0,4):
         for j in range(0,4):
-            matriz[i][j] = 0
-            
+            matriz[i][j] = 0"""
+         
     #Lista dos números que poderão ser sorteados 
     numeros = [2,4]
     ganhou = False
     aindaTemChance = True
     
-    while ganhou == False and aindaTemChance == True:  
+    while ganhou != True and aindaTemChance == True:  
         temEspaco = False
         matrizCheia = False
         #Para verificar se tem espaço na matriz
@@ -199,24 +212,12 @@ while continuar != "N" and continuar != "n":
                     temEspaco = True
                     #Preciso arranjar uma maneira de guardar onde é que tem espaço para quando já tiver quase tudo cheio ele ir direto no ponto em vez de ficar testando achar
         
-        """#Para testar            
-            matriz[0][0] = 2
-            matriz[0][1] = 4
-            matriz[0][2] = 4
-            matriz[0][3] = 2
-            matriz[1][0] = 2
-            matriz[1][1] = 2 
-            matriz[1][2] = 4
-            matriz[1][3] = 2
-            matriz[2][0] = 4
-            matriz[2][1] = 8
-            matriz[2][2] = 4
-            matriz[2][3] = 4
-            matriz[3][0] = 2
-            matriz[3][1] = 8
-            matriz[3][2] = 16
-            matriz[3][3] = 32 """
-            
+        for i in range(0,4):
+            for j in range(0,4):
+                if matriz[i][j] == 2048:
+                    print("Parabéns!!!\n2048!")
+                    ganhou = True
+                       
         print(f"Contador: {contador}")
         if contador > 0 and temEspaco == True:
             #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
@@ -290,18 +291,25 @@ while continuar != "N" and continuar != "n":
         print(f"Contador: {contador}")
                 """
         #Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
-        if movimentos == "W":    
-            localMatrizW()
+        if movimentos == "W":
+            for i in range(0,4):    
+                localMatrizW(i)
             
         elif movimentos == "A": 
-            localMatrizA()
+            for i in range(0,4):     
+                localMatrizA(i)
             
         elif movimentos == "D": 
-            localMatrizD()
+            for i in range(0,4):     
+                localMatrizD(i)
             
         elif movimentos == "S": 
-            localMatrizS()
-        
+            for i in range(0,4): 
+                localMatrizS(i)
+                
+        if contador == 3:
+            matriz[3][3] = 2048   
+            
         print("----------------------------------------")
         print(f"IgualdadeColuna: {contadorIguaisColuna}")
         print(f"IgualdadeLinha: {contadorIguaisLinha}")   
@@ -309,11 +317,6 @@ while continuar != "N" and continuar != "n":
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
         
-        for i in range(0,4):
-            for j in range(0,4):
-                if matriz[i][j] == 2048:
-                    print("Parabéns!!!\n2048!")
-                    ganhou = True
             
         matrizCheia = all(all(element != 0 for element in sublist) for sublist in matriz)
         if matrizCheia == True:

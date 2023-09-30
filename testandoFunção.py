@@ -34,57 +34,61 @@ def verificandoIgualdadesLinha():
     return contadorIguaisLinha
         
 #Quando for inserido o D(para direita), essa função serve para inserir os números na lista e depois imprimir na matriz
-def localMatrizD(linhaEscolhida):
-    for i in range(0,4):
-        lista[i] = 0
+def localMatrizD():
+    for linha in range(0,4):
+        for i in range(0,4):
+            lista[i] = 0
+            
+        for i in range(0,4):
+            lista[i] = matriz[linha][i]
         
-    for i in range(0,4):
-        lista[i] = matriz[linhaEscolhida][i]
-    
-    arrumacao2()
-                
-    for i in range(0,4):
-        matriz[linhaEscolhida][i] = lista[i]
+        arrumacao2()
+                    
+        for i in range(0,4):
+            matriz[linha][i] = lista[i]
         
 #Quando for inserido o W(para descer), essa função serve para inserir os números na lista e depois imprimir na matriz        
-def localMatrizS(colunaEscolhida):
-    for i in range(0,4):
-        lista[i] = 0
-        
-    for i in range(0,4):
-        lista[i] = matriz[i][colunaEscolhida]
-        
-    arrumacao2()
-                
-    for i in range(0,4):
-        matriz[i][colunaEscolhida] = lista[i] 
+def localMatrizS():
+    for coluna in range(0,4):
+        for i in range(0,4):
+            lista[i] = 0
+            
+        for i in range(0,4):
+            lista[i] = matriz[i][coluna]
+            
+        arrumacao2()
+                    
+        for i in range(0,4):
+            matriz[i][coluna] = lista[i] 
                
 #Quando for inserido o W(para subir), essa função serve para inserir os números na lista e depois imprimir na matriz
-def localMatrizW(colunaEscolhida):
-    for i in range(0,4):
-        lista[i] = 0
-        
-    for i in range(0,4):
-        lista[i] = matriz[i][colunaEscolhida]
+def localMatrizW():
+    for coluna in range(0,4):
+        for i in range(0,4):
+            lista[i] = 0
+            
+        for i in range(0,4):
+            lista[i] = matriz[i][coluna]
 
-    arrumacao()
-                
-    for i in range(0,4):
-        matriz[i][colunaEscolhida] = lista[i]
+        arrumacao()
+                    
+        for i in range(0,4):
+            matriz[i][coluna] = lista[i]
         
 #Quando for inserido o A(para a esquerda), essa função serve para inserir os números na lista e depois imprimir na matriz        
-def localMatrizA(linhaEscolhida):
-    for i in range(0,4):
-        lista[i] = 0
-        
-    for i in range(0,4):
-        lista[i] = matriz[linhaEscolhida][i]
-        
-    arrumacao()
-                
-    for i in range(0,4):
-        matriz[linhaEscolhida][i] = lista[i]
-        
+def localMatrizA():
+    for linha in range(0,4):
+        for i in range(0,4):
+            lista[i] = 0
+            
+        for i in range(0,4):
+            lista[i] = matriz[linha][i]
+            
+        arrumacao()
+                    
+        for i in range(0,4):
+            matriz[linha][i] = lista[i]
+            
 #Serve para organizar e somar os números na lista para as opções S e D (Descer e direita)
 def arrumacao2():      
     global score 
@@ -292,20 +296,16 @@ while continuar != "N" and continuar != "n":
                 """
         #Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
         if movimentos == "W":
-            for i in range(0,4):    
-                localMatrizW(i)
+            localMatrizW()
             
-        elif movimentos == "A": 
-            for i in range(0,4):     
-                localMatrizA(i)
+        elif movimentos == "A":    
+            localMatrizA()
             
         elif movimentos == "D": 
-            for i in range(0,4):     
-                localMatrizD(i)
+            localMatrizD()
             
         elif movimentos == "S": 
-            for i in range(0,4): 
-                localMatrizS(i)
+            localMatrizS()
                 
         if contador == 3:
             matriz[3][3] = 2048   
