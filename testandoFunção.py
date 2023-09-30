@@ -199,7 +199,7 @@ lista = [0, 0, 0, 0]
 listaVerificacao = [0, 0, 0, 0]
 continuar = "S"
 
-#Para testar            
+"""#Para testar            
 matriz[0][0] = 2
 matriz[0][1] = 4
 matriz[0][2] = 4
@@ -215,7 +215,7 @@ matriz[2][3] = 4
 matriz[3][0] = 2
 matriz[3][1] = 8
 matriz[3][2] = 16
-matriz[3][3] = 32 
+matriz[3][3] = 32 """
 
 while continuar != "N" and continuar != "n":
     #Inserindo os zeros na matriz
@@ -234,7 +234,6 @@ while continuar != "N" and continuar != "n":
                        
         print(f"Contador: {contador}")
         if contador == 0:
-            imprimirMatriz()
             for sorteio in range(2):
                 numeroSorteado = (random.choice(numeros)) 
                 print(f"{numeroSorteado}")
@@ -245,8 +244,12 @@ while continuar != "N" and continuar != "n":
                 
                 if matriz[linha][coluna] == 0: #Isso aqui pode tirar depois pq no início a matriz sempre(deveria pelo menos) estar vazia
                     matriz[linha][coluna] = numeroSorteado          
+            imprimirMatriz()
         
+        contador += 1
+            
         copiarMatriz()
+        
         print(copiaMatriz)
         #Verificar se tem números iguais na matriz que podem ser somados posteriomente   
         contadorIguaisColuna = verificandoIgualdadesColuna()
@@ -276,18 +279,30 @@ while continuar != "N" and continuar != "n":
             localMatrizS()
                 
         """if contador == 3:
-            matriz[3][3] = 2048   """
+            matriz[3][3] = 2048"""
             
         #Comparação da matriz antes e depois dos movimentos para verificar se moveu
         saoDiferentes = False
         contandoIguadadeMatriz = 0
+        
         for i in range(0,4):
             for j in range(0,4):
                 if matriz[i][j] != copiaMatriz[i][j]:
                     saoDiferentes = True
                 print(f"São diferentes: {saoDiferentes}")
                 
-        if contador > 0 and temEspaco == True and saoDiferentes != False:
+        if saoDiferentes == True:
+            print("São diferente, pode colocar um novo")  
+        
+        #Para verificar se tem espaço na matriz
+        for i in range(0,4):
+            for j in range(0,4):
+                if matriz[i][j] == 0:
+                    temEspaco = True
+                    #Preciso arranjar uma maneira de guardar onde é que tem espaço para quando já tiver quase tudo cheio ele ir direto no ponto em vez de ficar testando achar
+    
+        if contador > 0 and temEspaco == True: #Tá dando erro por causa desse temEspaco
+            print("testando")
             #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
             numeroSorteado = (random.choice(numeros)) 
             print(f"{numeroSorteado}")
@@ -304,7 +319,6 @@ while continuar != "N" and continuar != "n":
             matriz[linha][coluna] = numeroSorteado
             print(f"Linha2: {linha}  Coluna2: {coluna}")
             
-        contador += 1
         print(copiaMatriz)
         imprimirMatriz()
         
@@ -315,12 +329,6 @@ while continuar != "N" and continuar != "n":
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
         
-        #Para verificar se tem espaço na matriz
-        for i in range(0,4):
-            for j in range(0,4):
-                if matriz[i][j] == 0:
-                    temEspaco = True
-                    #Preciso arranjar uma maneira de guardar onde é que tem espaço para quando já tiver quase tudo cheio ele ir direto no ponto em vez de ficar testando achar
         
         for i in range(0,4):
             for j in range(0,4):
