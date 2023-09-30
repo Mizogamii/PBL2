@@ -200,9 +200,7 @@ while continuar != "N" and continuar != "n":
     ganhou = False
     aindaTemChance = True
     
-    while ganhou == False and aindaTemChance == True:  
-        if contador == 3:
-            matriz[3][3] = 2048   
+    while ganhou != True and aindaTemChance == True:  
         temEspaco = False
         matrizCheia = False
         #Para verificar se tem espaço na matriz
@@ -220,7 +218,6 @@ while continuar != "N" and continuar != "n":
                     print("Parabéns!!!\n2048!")
                     ganhou = True
                        
-                    
         print(f"Contador: {contador}")
         if contador > 0 and temEspaco == True:
             #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
@@ -309,7 +306,10 @@ while continuar != "N" and continuar != "n":
         elif movimentos == "S": 
             for i in range(0,4): 
                 localMatrizS(i)
-        
+                
+        if contador == 3:
+            matriz[3][3] = 2048   
+            
         print("----------------------------------------")
         print(f"IgualdadeColuna: {contadorIguaisColuna}")
         print(f"IgualdadeLinha: {contadorIguaisLinha}")   
