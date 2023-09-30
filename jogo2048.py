@@ -198,9 +198,9 @@ while continuar != "N" and continuar != "n":
     #Lista dos números que poderão ser sorteados 
     numeros = [2,4]
     ganhou = False
-    aindaTemChance = True
+    perdeu = False
     
-    while ganhou != True and aindaTemChance == True:  
+    while ganhou != True and perdeu != True:  
         temEspaco = False
         matrizCheia = False
         #Para verificar se tem espaço na matriz
@@ -327,7 +327,7 @@ while continuar != "N" and continuar != "n":
             
         if temEspaco == False:
             if contadorIguaisColuna == 0 or contadorIguaisLinha == 0:
-                aindaTemChance = False
+                perdeu = True
                 print("PERDEU!")
         
         contadorIguaisColuna = 0

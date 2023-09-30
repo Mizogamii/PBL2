@@ -199,24 +199,24 @@ lista = [0, 0, 0, 0]
 listaVerificacao = [0, 0, 0, 0]
 continuar = "S"
 
-"""#Para testar            
+#Para testar            
 matriz[0][0] = 2
 matriz[0][1] = 4
-matriz[0][2] = 4
-matriz[0][3] = 2
-matriz[1][0] = 2
-matriz[1][1] = 2 
-matriz[1][2] = 4
-matriz[1][3] = 2
-matriz[2][0] = 4
-matriz[2][1] = 8
-matriz[2][2] = 4
-matriz[2][3] = 4
-matriz[3][0] = 2
-matriz[3][1] = 8
-matriz[3][2] = 16
-matriz[3][3] = 32
-"""
+matriz[0][2] = 6
+matriz[0][3] = 8
+matriz[1][0] = 10
+matriz[1][1] = 12 
+matriz[1][2] = 14
+matriz[1][3] = 16
+matriz[2][0] = 18
+matriz[2][1] = 20
+matriz[2][2] = 22
+matriz[2][3] = 24
+matriz[3][0] = 26
+matriz[3][1] = 28
+matriz[3][2] = 0
+matriz[3][3] = 0
+
 while continuar != "N" and continuar != "n":
     #Inserindo os zeros na matriz
     """for i in range(0,4):
@@ -226,9 +226,9 @@ while continuar != "N" and continuar != "n":
     #Lista dos números que poderão ser sorteados 
     numeros = [2,4]
     ganhou = False
-    aindaTemChance = True
+    perdeu = False
     
-    while ganhou != True and aindaTemChance == True:  
+    while ganhou != True and perdeu != True:  
         temEspaco = False
         matrizCheia = False
                        
@@ -289,7 +289,6 @@ while continuar != "N" and continuar != "n":
             for j in range(0,4):
                 if matriz[i][j] != copiaMatriz[i][j]:
                     saoDiferentes = True
-                print(f"São diferentes: {saoDiferentes}")
         
         #Para verificar se tem espaço na matriz
         for i in range(0,4):
@@ -339,13 +338,14 @@ while continuar != "N" and continuar != "n":
             
         if temEspaco == False:
             if contadorIguaisColuna == 0 or contadorIguaisLinha == 0:
-                aindaTemChance = False
+                perdeu = True
                 print("PERDEU!")
         
         contadorIguaisColuna = 0
         contadorIguaisLinha = 0
         
-        print(f"Ganhou: {ganhou}")  
+        print(f"Ganhou: {ganhou}") 
+        print(f"Perdeu: {perdeu}") 
         print("-------------------------------------------------------------------------------")     
              
     print("----------------------------------------")
