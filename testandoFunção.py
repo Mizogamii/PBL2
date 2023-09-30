@@ -13,8 +13,7 @@ def verificandoIgualdadesColuna():
         for i in range(0,4):
             if i < 3:
                 if listaVerificacao[i] == listaVerificacao[i+1] and listaVerificacao[i] != 0:
-                    contadorIguaisColuna += 1
-    print(f"Contador colunas: {contadorIguaisColuna}")                
+                    contadorIguaisColuna += 1               
     return contadorIguaisColuna
 
 def verificandoIgualdadesLinha():
@@ -30,7 +29,6 @@ def verificandoIgualdadesLinha():
             if i < 3:
                 if listaVerificacao[i] == listaVerificacao[i+1] and listaVerificacao[i] != 0:
                     contadorIguaisLinha += 1
-    print(f"Contador linha: {contadorIguaisLinha}")
     return contadorIguaisLinha
         
 #Quando for inserido o D(para direita), essa função serve para inserir os números na lista e depois imprimir na matriz
@@ -208,8 +206,6 @@ while continuar != "N" and continuar != "n":
         temEspaco = False
         matrizCheia = False
         #Para verificar se tem espaço na matriz
-        """matrizCheia = all(all(element != 0 for element in sublist) for sublist in matriz)
-        print(matrizCheia)"""
         for i in range(0,4):
             for j in range(0,4):
                 if matriz[i][j] == 0:
@@ -229,7 +225,6 @@ while continuar != "N" and continuar != "n":
             print(f"{numeroSorteado}")
             
             #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
-            
             linha = (random.randint(0, 3)) 
             coluna = (random.randint(0, 3)) 
             print(f"Linha1: {linha}  Coluna1: {coluna}")
@@ -252,7 +247,7 @@ while continuar != "N" and continuar != "n":
                 
                 if matriz[linha][coluna] == 0: #Isso aqui pode tirar depois pq no início a matriz sempre(deveria pelo menos) estar vazia
                     matriz[linha][coluna] = numeroSorteado          
-                #print(f"Linha: {linha}\nColuna: {coluna}")
+
         contador += 1    
         
         #Verificar se tem números iguais na matriz que podem ser somados posteriomente   
@@ -288,13 +283,7 @@ while continuar != "N" and continuar != "n":
         while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
             movimentos = input("Informe o comando [W, S, A, D]: ")
             movimentos = movimentos.upper()
-        
-        """#Para testes
-        mov = ["W", "A", "S", "D"]
-        movimentos = random.choice(mov)
-        print(f"Contador: {contador}")
-                """
-        #Aqui tem uma parte que eu só copiei e colei várias vezes um for para ficar repetindo, isso pode ser feito com o while para não ficar essa repetição ou transformando em uma função DEPOIS PENSA NISSO E RESOLVE!
+    
         if movimentos == "W":
             localMatrizW()
             
@@ -323,7 +312,6 @@ while continuar != "N" and continuar != "n":
             print("Matriz cheia")
         else:
             print("Matriz com espaços")
-            #matrizCheia == True and 
             
         if temEspaco == False:
             if contadorIguaisColuna == 0 or contadorIguaisLinha == 0:
@@ -344,8 +332,9 @@ while continuar != "N" and continuar != "n":
     print(f"Quantidade de jogadas: {contador}")
     print("----------------------------------------") 
     continuar = input("Deseja continuar jogando?[S/N]: ")
-    score = 0
-    jogadasValidas = 0
-    contador = 0
+    if continuar == "S" and continuar == "s":
+        score = 0
+        jogadasValidas = 0
+        contador = 0
 print("Encerrando...")
     
