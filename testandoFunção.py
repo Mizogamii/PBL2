@@ -215,8 +215,8 @@ matriz[2][3] = 4
 matriz[3][0] = 2
 matriz[3][1] = 8
 matriz[3][2] = 16
-matriz[3][3] = 32 """
-
+matriz[3][3] = 32
+"""
 while continuar != "N" and continuar != "n":
     #Inserindo os zeros na matriz
     """for i in range(0,4):
@@ -279,8 +279,8 @@ while continuar != "N" and continuar != "n":
             localMatrizS()
                 
         """if contador == 3:
-            matriz[3][3] = 2048"""
-            
+            matriz[3][3] = 2048
+            """
         #Comparação da matriz antes e depois dos movimentos para verificar se moveu
         saoDiferentes = False
         contandoIguadadeMatriz = 0
@@ -290,9 +290,6 @@ while continuar != "N" and continuar != "n":
                 if matriz[i][j] != copiaMatriz[i][j]:
                     saoDiferentes = True
                 print(f"São diferentes: {saoDiferentes}")
-                
-        if saoDiferentes == True:
-            print("São diferente, pode colocar um novo")  
         
         #Para verificar se tem espaço na matriz
         for i in range(0,4):
@@ -301,8 +298,7 @@ while continuar != "N" and continuar != "n":
                     temEspaco = True
                     #Preciso arranjar uma maneira de guardar onde é que tem espaço para quando já tiver quase tudo cheio ele ir direto no ponto em vez de ficar testando achar
     
-        if contador > 0 and temEspaco == True: #Tá dando erro por causa desse temEspaco
-            print("testando")
+        if contador > 0 and temEspaco == True and saoDiferentes == True: 
             #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
             numeroSorteado = (random.choice(numeros)) 
             print(f"{numeroSorteado}")
@@ -328,7 +324,6 @@ while continuar != "N" and continuar != "n":
         
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
-        
         
         for i in range(0,4):
             for j in range(0,4):
