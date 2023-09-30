@@ -1,35 +1,37 @@
 score = 0
 jogadasValidas = 0 
-contadorIguaisColuna = 0
-contadorIguaisLinha = 0
 
-def verificandoIgualdadesColuna(colunaVerif):
-    global contadorIguaisColuna
-    for i in range(0,4):
-        listaVerificacao[i] = 0
+def verificandoIgualdadesColuna():
+    contadorIguaisColuna = 0
+    for j in range(0,4):
+        for i in range(0,4):
+            listaVerificacao[i] = 0
+            
+        for i in range(0,4):
+            listaVerificacao[i] = matriz[i][j]
         
-    for i in range(0,4):
-        listaVerificacao[i] = matriz[i][colunaVerif]
-    
-    for i in range(0,4):
-        if i < 3:
-            if listaVerificacao[i] == listaVerificacao[i+1] and listaVerificacao[i] != 0:
-                contadorIguaisColuna += 1
-    #return contadorIguaisColuna
+        for i in range(0,4):
+            if i < 3:
+                if listaVerificacao[i] == listaVerificacao[i+1] and listaVerificacao[i] != 0:
+                    contadorIguaisColuna += 1
+    print(f"Contador colunas: {contadorIguaisColuna}")                
+    return contadorIguaisColuna
 
-def verificandoIgualdadesLinha(linhaVerif):
-    global contadorIguaisLinha
-    for i in range(0,4):
-        listaVerificacao[i] = 0
+def verificandoIgualdadesLinha():
+    contadorIguaisLinha = 0
+    for j in range(0,4):    
+        for i in range(0,4):
+            listaVerificacao[i] = 0
+            
+        for i in range(0,4):
+            listaVerificacao[i] = matriz[j][i]
         
-    for i in range(0,4):
-        listaVerificacao[i] = matriz[linhaVerif][i]
-    
-    for i in range(0,4):
-        if i < 3:
-            if listaVerificacao[i] == listaVerificacao[i+1] and listaVerificacao[i] != 0:
-                contadorIguaisLinha += 1
-    #return contadorIguaisLinha
+        for i in range(0,4):
+            if i < 3:
+                if listaVerificacao[i] == listaVerificacao[i+1] and listaVerificacao[i] != 0:
+                    contadorIguaisLinha += 1
+    print(f"Contador linha: {contadorIguaisLinha}")
+    return contadorIguaisLinha
         
 #Quando for inserido o D(para direita), essa função serve para inserir os números na lista e depois imprimir na matriz
 def localMatrizD(linhaEscolhida):
@@ -179,23 +181,6 @@ while continuar != "N" and continuar != "n":
     numeros = [2,4]
     ganhou = False
     aindaTemChance = True
-    #Para testar            
-    matriz[0][0] = 2
-    matriz[0][1] = 4
-    matriz[0][2] = 4
-    matriz[0][3] = 2
-    matriz[1][0] = 2
-    matriz[1][1] = 2 
-    matriz[1][2] = 4
-    matriz[1][3] = 2
-    matriz[2][0] = 4
-    matriz[2][1] = 8
-    matriz[2][2] = 4
-    matriz[2][3] = 4
-    matriz[3][0] = 2
-    matriz[3][1] = 8
-    matriz[3][2] = 16
-    matriz[3][3] = 32 
     
     while ganhou == False and aindaTemChance == True:  
         temEspaco = False
@@ -208,7 +193,24 @@ while continuar != "N" and continuar != "n":
                 if matriz[i][j] == 0:
                     temEspaco = True
                     #Preciso arranjar uma maneira de guardar onde é que tem espaço para quando já tiver quase tudo cheio ele ir direto no ponto em vez de ficar testando achar
-                    
+        
+            """#Para testar            
+            matriz[0][0] = 2
+            matriz[0][1] = 4
+            matriz[0][2] = 4
+            matriz[0][3] = 2
+            matriz[1][0] = 2
+            matriz[1][1] = 2 
+            matriz[1][2] = 4
+            matriz[1][3] = 2
+            matriz[2][0] = 4
+            matriz[2][1] = 8
+            matriz[2][2] = 4
+            matriz[2][3] = 4
+            matriz[3][0] = 2
+            matriz[3][1] = 8
+            matriz[3][2] = 16
+            matriz[3][3] = 32 """
         print(f"Contador: {contador}")
         if contador > 0 and temEspaco == True:
             #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
@@ -219,14 +221,14 @@ while continuar != "N" and continuar != "n":
             
             linha = (random.randint(0, 3)) 
             coluna = (random.randint(0, 3)) 
-            print(f"Linha1: {linha}\nColuna1: {coluna}")
+            print(f"Linha1: {linha}  Coluna1: {coluna}")
             
             while matriz[linha][coluna] != 0:
                 linha = (random.randint(0, 3)) 
                 coluna = (random.randint(0, 3))
                 
             matriz[linha][coluna] = numeroSorteado
-            print(f"Linha2: {linha}\nColuna2: {coluna}")
+            print(f"Linha2: {linha}  Coluna2: {coluna}")
                      
         elif contador == 0:
             for sorteio in range(2):
@@ -241,7 +243,11 @@ while continuar != "N" and continuar != "n":
                     matriz[linha][coluna] = numeroSorteado          
                 #print(f"Linha: {linha}\nColuna: {coluna}")
         contador += 1    
-                                    
+        
+        #Verificar se tem números iguais na matriz que podem ser somados posteriomente   
+        contadorIguaisColuna = verificandoIgualdadesColuna()
+        contadorIguaisLinha = verificandoIgualdadesLinha()
+        
         print("+-----------------------------------+")
         for i in range(0,4):
             print(f"|        |        |        |        |")
@@ -294,12 +300,7 @@ while continuar != "N" and continuar != "n":
             for i in range(0,4): 
                 localMatrizS(i)
         
-        #Verificar se tem números iguais na matriz que podem ser somados posteriomente   
-        
-        for i in range(0,4):    
-           verificandoIgualdadesColuna(i)
-           verificandoIgualdadesLinha(i)
-        
+        print("----------------------------------------")
         print(f"IgualdadeColuna: {contadorIguaisColuna}")
         print(f"IgualdadeLinha: {contadorIguaisLinha}")   
         
@@ -327,7 +328,8 @@ while continuar != "N" and continuar != "n":
         contadorIguaisColuna = 0
         contadorIguaisLinha = 0
         
-        print(f"Ganhou: {ganhou}")       
+        print(f"Ganhou: {ganhou}")  
+        print("-------------------------------------------------------------------------------")     
              
     print("----------------------------------------")
     print("            RESULTADO DO JOGO           ")   
