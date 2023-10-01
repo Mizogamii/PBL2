@@ -369,6 +369,8 @@ while continuar != "N" and continuar != "n":
     print(f"Quantidade de jogadas: {contador}")
     print("----------------------------------------") 
     continuar = input("Deseja continuar jogando?[S/N]: ")
+    
+    #Para zerar o jogo e iniciar um novo
     if continuar != "N" and continuar != "n":
         score = 0
         jogadasValidas = 0
