@@ -213,7 +213,7 @@ lista = [0, 0, 0, 0]
 listaVerificacao = [0, 0, 0, 0]
 continuar = "S"
 
-#Para testar            
+"""#Para testar todos os números diferentes           
 matriz[0][0] = 2
 matriz[0][1] = 4
 matriz[0][2] = 6
@@ -229,7 +229,25 @@ matriz[2][3] = 24
 matriz[3][0] = 26
 matriz[3][1] = 28
 matriz[3][2] = 0
-matriz[3][3] = 0
+matriz[3][3] = 0"""
+
+#Para testar números iguais
+matriz[0][0] = 2
+matriz[0][1] = 4
+matriz[0][2] = 4
+matriz[0][3] = 2
+matriz[1][0] = 2
+matriz[1][1] = 2 
+matriz[1][2] = 4
+matriz[1][3] = 2
+matriz[2][0] = 4
+matriz[2][1] = 8
+matriz[2][2] = 4
+matriz[2][3] = 4
+matriz[3][0] = 2
+matriz[3][1] = 8
+matriz[3][2] = 16
+matriz[3][3] = 32 
 
 #Para continuar o loop até o usuário desejar encerrar 
 while continuar != "N" and continuar != "n":
@@ -252,14 +270,14 @@ while continuar != "N" and continuar != "n":
         if contador == 0:
             for sorteio in range(2):
                 numeroSorteado = (random.choice(numeros)) 
-                print(f"{numeroSorteado}")
                 
                 #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
                 linha = (random.randint(0, 3)) 
                 coluna = (random.randint(0, 3)) 
                 
-                if matriz[linha][coluna] == 0: #Isso aqui pode tirar depois pq no início a matriz sempre(deveria pelo menos) estar vazia
+                if matriz[linha][coluna] == 0: 
                     matriz[linha][coluna] = numeroSorteado          
+                    
             imprimirMatriz()
         
         contador += 1
@@ -269,6 +287,10 @@ while continuar != "N" and continuar != "n":
         #Verificar se tem números iguais na matriz que podem ser somados posteriormente   
         contadorIguaisColuna = verificandoIgualdadesColuna()
         contadorIguaisLinha = verificandoIgualdadesLinha()
+        
+        print("----------------------------------------")
+        print(f"IgualdadeColuna: {contadorIguaisColuna}")
+        print(f"IgualdadeLinha: {contadorIguaisLinha}") 
                            
         print(f"Score: {score}")
         print(f"Jogadas válidas: {jogadasValidas}")
@@ -280,17 +302,29 @@ while continuar != "N" and continuar != "n":
             for j in range(0,4):
                 if matriz[i][j] == 0:
                     temEspaco = True
+                    #E se a ultima der false?
+                    
                     #Preciso arranjar uma maneira de guardar onde é que tem espaço para quando já tiver quase tudo cheio ele ir direto no ponto em vez de ficar testando achar
                     
+        #Verificação da vitória do usuário
+        for i in range(0,4):
+            for j in range(0,4):
+                if matriz[i][j] == 2048:
+                    print("GANHOU!")
+                    print("Parabéns!!!\n2048!")
+                    ganhou = True
+                    
         #Verificação da derrota do usuário    
-        if temEspaco == False:
-            if contadorIguaisColuna == 0 or contadorIguaisLinha == 0:
-                perdeu = True
-                print("PERDEU!")
-                
+        if ganhou != True:
+            if temEspaco == False:
+                if contadorIguaisColuna == 0 and contadorIguaisLinha == 0:
+                    perdeu = True
+                    print("PERDEU!")
+                    
         print(f"Ganhou: {ganhou}") 
         print(f"Perdeu: {perdeu}") 
-                
+        print(f"Tem espaço: {temEspaco}")
+        
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
 
@@ -311,18 +345,17 @@ while continuar != "N" and continuar != "n":
             localMatrizS()
                 
         """if contador == 3:
-            matriz[3][3] = 2048
-            """
+            matriz[3][3] = 2048"""
+        
         #Comparação da matriz antes e depois dos movimentos para verificar se moveu
         saoDiferentes = False
-        contandoIguadadeMatriz = 0
         
         for i in range(0,4):
             for j in range(0,4):
                 if matriz[i][j] != copiaMatriz[i][j]:
                     saoDiferentes = True
-        
-                
+                    #E se a ultima der como false?
+                    
         #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4) com condições de ter espaço e ter tido movimentos antes
         if contador > 0 and temEspaco == True and saoDiferentes == True: 
             numeroSorteado = (random.choice(numeros)) 
@@ -342,19 +375,9 @@ while continuar != "N" and continuar != "n":
         
         imprimirMatriz()
         
-        print("----------------------------------------")
-        print(f"IgualdadeColuna: {contadorIguaisColuna}")
-        print(f"IgualdadeLinha: {contadorIguaisLinha}")   
-        
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
         
-        #Verificação da vitória do usuário
-        for i in range(0,4):
-            for j in range(0,4):
-                if matriz[i][j] == 2048:
-                    print("Parabéns!!!\n2048!")
-                    ganhou = True
                         
         matrizCheia = all(all(element != 0 for element in sublist) for sublist in matriz)
         if matrizCheia == True:
@@ -378,5 +401,7 @@ while continuar != "N" and continuar != "n":
         score = 0
         jogadasValidas = 0
         contador = 0
+        perdeu = False
+        ganhou = False
 print("Encerrando...")
     
