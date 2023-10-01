@@ -266,8 +266,6 @@ while continuar != "N" and continuar != "n":
             
         copiarMatriz()
         
-        print(copiaMatriz)
-        
         #Verificar se tem números iguais na matriz que podem ser somados posteriormente   
         contadorIguaisColuna = verificandoIgualdadesColuna()
         contadorIguaisLinha = verificandoIgualdadesLinha()
@@ -276,7 +274,23 @@ while continuar != "N" and continuar != "n":
         print(f"Jogadas válidas: {jogadasValidas}")
         
         #print('\033c', end='') Para limpar tela
-    
+
+        #Para verificar se tem espaço na matriz
+        for i in range(0,4):
+            for j in range(0,4):
+                if matriz[i][j] == 0:
+                    temEspaco = True
+                    #Preciso arranjar uma maneira de guardar onde é que tem espaço para quando já tiver quase tudo cheio ele ir direto no ponto em vez de ficar testando achar
+                    
+        #Verificação da derrota do usuário    
+        if temEspaco == False:
+            if contadorIguaisColuna == 0 or contadorIguaisLinha == 0:
+                perdeu = True
+                print("PERDEU!")
+                
+        print(f"Ganhou: {ganhou}") 
+        print(f"Perdeu: {perdeu}") 
+                
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
 
@@ -308,13 +322,7 @@ while continuar != "N" and continuar != "n":
                 if matriz[i][j] != copiaMatriz[i][j]:
                     saoDiferentes = True
         
-        #Para verificar se tem espaço na matriz
-        for i in range(0,4):
-            for j in range(0,4):
-                if matriz[i][j] == 0:
-                    temEspaco = True
-                    #Preciso arranjar uma maneira de guardar onde é que tem espaço para quando já tiver quase tudo cheio ele ir direto no ponto em vez de ficar testando achar
-    
+                
         #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4) com condições de ter espaço e ter tido movimentos antes
         if contador > 0 and temEspaco == True and saoDiferentes == True: 
             numeroSorteado = (random.choice(numeros)) 
@@ -331,8 +339,7 @@ while continuar != "N" and continuar != "n":
                 
             matriz[linha][coluna] = numeroSorteado
             print(f"Linha2: {linha}  Coluna2: {coluna}")
-            
-        print(copiaMatriz)
+        
         imprimirMatriz()
         
         print("----------------------------------------")
@@ -355,14 +362,6 @@ while continuar != "N" and continuar != "n":
         else:
             print("Matriz com espaços")
         
-        #Verificação da derrota do usuário    
-        if temEspaco == False:
-            if contadorIguaisColuna == 0 or contadorIguaisLinha == 0:
-                perdeu = True
-                print("PERDEU!")
-        
-        print(f"Ganhou: {ganhou}") 
-        print(f"Perdeu: {perdeu}") 
         print("-------------------------------------------------------------------------------")     
              
     print("----------------------------------------")
