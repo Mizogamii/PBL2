@@ -11,6 +11,7 @@ do código, e estou ciente que estes trechos não serão considerados para fins 
 score = 0
 jogadasValidas = 0 
 
+#Função para imprimir a matriz
 def imprimirMatriz():
     print("+-----------------------------------+")
     for i in range(0,4):
@@ -31,11 +32,13 @@ def imprimirMatriz():
         print(f"|\n|        |        |        |        |")
         print("+-----------------------------------+")
 
+#Função para copiar a matriz
 def copiarMatriz():
     for i in range(0,4):
         for j in range(0,4):
             copiaMatriz[i][j] = matriz[i][j]
 
+#Função para verificar se há números que podem ser somados nas colunas da matriz
 def verificandoIgualdadesColuna():
     contadorIguaisColuna = 0
     for j in range(0,4):
@@ -51,6 +54,7 @@ def verificandoIgualdadesColuna():
                     contadorIguaisColuna += 1               
     return contadorIguaisColuna
 
+#Função para verificar se há números que podem ser somados nas linhas da matriz
 def verificandoIgualdadesLinha():
     contadorIguaisLinha = 0
     for j in range(0,4):    
