@@ -264,7 +264,7 @@ while continuar != "N" and continuar != "n":
     #Para continuar o loop até perder ou ganhar o jogo
     while ganhou != True and perdeu != True:  
         temEspaco = False
-        matrizCheia = False
+        #matrizCheia = False
                        
         print(f"Contador: {contador}")
         if contador == 0:
@@ -302,8 +302,6 @@ while continuar != "N" and continuar != "n":
             for j in range(0,4):
                 if matriz[i][j] == 0:
                     temEspaco = True
-                    print(f"i: {i}, j: {j}")
-                    #E se a ultima der false?
                     
                     #Preciso arranjar uma maneira de guardar onde é que tem espaço para quando já tiver quase tudo cheio ele ir direto no ponto em vez de ficar testando até achar
                     
@@ -380,11 +378,11 @@ while continuar != "N" and continuar != "n":
         print(f"Jogadas válidas: {jogadasValidas}")     
         
                         
-        matrizCheia = all(all(element != 0 for element in sublist) for sublist in matriz)
+        """matrizCheia = all(all(element != 0 for element in sublist) for sublist in matriz)
         if matrizCheia == True:
             print("Matriz cheia")
         else:
-            print("Matriz com espaços")
+            print("Matriz com espaços")"""
         
         print("-------------------------------------------------------------------------------")     
              
