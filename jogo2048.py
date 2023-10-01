@@ -367,6 +367,8 @@ while continuar != "N" and continuar != "n":
         
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
+        print('\033c', end='')
+
 
     print("----------------------------------------")
     print("            RESULTADO DO JOGO           ")   
