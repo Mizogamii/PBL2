@@ -319,6 +319,7 @@ while continuar != "N" and continuar != "n":
                 if contadorIguaisColuna == 0 and contadorIguaisLinha == 0:
                     perdeu = True
                     print("PERDEU!")
+                    break
                     
         print(f"Ganhou: {ganhou}") 
         print(f"Perdeu: {perdeu}") 
