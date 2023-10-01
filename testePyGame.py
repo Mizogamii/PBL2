@@ -10,12 +10,14 @@ altura = 480
 
 tela = pygame.display.set_mode((largura, altura))
 
+pygame.display.set_caption("Jogo 2048")
+
 while True:
     for event in pygame.event.get():
-        if event.type == quit:
+        if event.type == QUIT:
             pygame.quit()
             exit()
     pygame.display.update()
     
-
+ 
 
