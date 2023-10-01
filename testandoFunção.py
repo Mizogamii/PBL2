@@ -1,3 +1,13 @@
+"""/*******************************************************************************
+Autor: Sayumi Mizogami Santana
+Componente Curricular: Algoritmos I
+Concluido em: 08/10/2023
+Declaro que este código foi elaborado por mim de forma individual e não contém nenhum
+trecho de código de outro colega ou de outro autor, tais como provindos de livros e
+apostilas, e páginas ou documentos eletrônicos da Internet. Qualquer trecho de código
+de outra autoria que não a minha está destacado com uma citação para o autor e a fonte
+do código, e estou ciente que estes trechos não serão considerados para fins de avaliação.
+******************************************************************************************/"""
 score = 0
 jogadasValidas = 0 
 
@@ -217,6 +227,7 @@ matriz[3][1] = 28
 matriz[3][2] = 0
 matriz[3][3] = 0
 
+#Para continuar o loop até o usuário desejar encerrar 
 while continuar != "N" and continuar != "n":
     #Inserindo os zeros na matriz
     """for i in range(0,4):
@@ -228,6 +239,7 @@ while continuar != "N" and continuar != "n":
     ganhou = False
     perdeu = False
     
+    #Para continuar o loop até perder ou ganhar o jogo
     while ganhou != True and perdeu != True:  
         temEspaco = False
         matrizCheia = False
@@ -251,12 +263,14 @@ while continuar != "N" and continuar != "n":
         copiarMatriz()
         
         print(copiaMatriz)
-        #Verificar se tem números iguais na matriz que podem ser somados posteriomente   
+        
+        #Verificar se tem números iguais na matriz que podem ser somados posteriormente   
         contadorIguaisColuna = verificandoIgualdadesColuna()
         contadorIguaisLinha = verificandoIgualdadesLinha()
                            
         print(f"Score: {score}")
         print(f"Jogadas válidas: {jogadasValidas}")
+        
         #print('\033c', end='') Para limpar tela
     
         movimentos = input("Informe o comando [W, S, A, D]: ")
@@ -297,8 +311,8 @@ while continuar != "N" and continuar != "n":
                     temEspaco = True
                     #Preciso arranjar uma maneira de guardar onde é que tem espaço para quando já tiver quase tudo cheio ele ir direto no ponto em vez de ficar testando achar
     
+        #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4) com condições de ter espaço e ter tido movimentos antes
         if contador > 0 and temEspaco == True and saoDiferentes == True: 
-            #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4)
             numeroSorteado = (random.choice(numeros)) 
             print(f"{numeroSorteado}")
             
@@ -324,6 +338,7 @@ while continuar != "N" and continuar != "n":
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
         
+        #Verificação da vitória do usuário
         for i in range(0,4):
             for j in range(0,4):
                 if matriz[i][j] == 2048:
@@ -335,14 +350,12 @@ while continuar != "N" and continuar != "n":
             print("Matriz cheia")
         else:
             print("Matriz com espaços")
-            
+        
+        #Verificação da derrota do usuário    
         if temEspaco == False:
             if contadorIguaisColuna == 0 or contadorIguaisLinha == 0:
                 perdeu = True
                 print("PERDEU!")
-        
-        contadorIguaisColuna = 0
-        contadorIguaisLinha = 0
         
         print(f"Ganhou: {ganhou}") 
         print(f"Perdeu: {perdeu}") 
