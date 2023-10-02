@@ -11,7 +11,6 @@ do código, e estou ciente que estes trechos não serão considerados para fins 
 score = 0
 jogadasValidas = 0 
 
-
 def imprimirInstrucoes():
     print("----------------------------------------")
     print("\t\t  2048")
