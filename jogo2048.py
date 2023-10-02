@@ -30,7 +30,9 @@ def imprimirMatriz():
     for i in range(0,4):
         print(f"|        |        |        |        |")
         for j in range(0,4):
-            if matriz[i][j] < 9:
+            if matriz[i][j] == 0:
+                print("|        ", end="")
+            elif matriz[i][j] < 9:
                 print(f"|   {matriz[i][j]}    ", end="")
 
             elif matriz[i][j] < 99:
