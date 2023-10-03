@@ -269,12 +269,15 @@ while continuar != "N" and continuar != "n":
     ganhou = False
     perdeu = False
     teste = 0
-    ganhador = 0
-    perdedor = 0
+
     #Para continuar o loop até perder ou ganhar o jogo
-    while ganhou != True and perdeu != True and ganhador < 1:   
+    while ganhou != True and perdeu != True:   
         temEspaco = False
-        
+        print(f"Contador: {contador}")
+        #Para testar 
+        if contador == 3:
+            matriz[3][3] = 2048
+            
         imprimirInstrucoes()
         if contador > 0:
             imprimirMatriz()
@@ -302,30 +305,6 @@ while continuar != "N" and continuar != "n":
         teste += 1                   
         print(f"Score: {score}")
         print(f"Jogadas válidas: {jogadasValidas}")
-    
-        #Para verificar se tem espaço na matriz
-        for i in range(0,4):
-            for j in range(0,4):
-                if matriz[i][j] == 0:
-                    temEspaco = True
-        
-        #Verificação da vitória do usuário
-        for i in range(0,4):
-            for j in range(0,4):
-                if matriz[i][j] == 2048:
-                    ganhou = True
-                    print("GANHOU!")
-                    print("Parabéns!!!\n2048!")
-                    
-        #Verificação da derrota do usuário    
-        if ganhou != True:
-            if temEspaco == False:
-                if contadorIguaisColuna == 0 and contadorIguaisLinha == 0:
-                    perdeu = True
-                    print("PERDEU!\nTente novamente!!")
-                    
-        if ganhou == True and perdeu == True:
-            break
             
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
@@ -348,10 +327,6 @@ while continuar != "N" and continuar != "n":
             
         elif movimentos == "S": 
             localMatrizS()
-                
-        #Para testar 
-        if contador == 3:
-            matriz[3][3] = 2048
         
         #Comparação da matriz antes e depois dos movimentos para verificar se moveu
         saoDiferentes = False
@@ -375,7 +350,28 @@ while continuar != "N" and continuar != "n":
                 
             matriz[linha][coluna] = numeroSorteado
         
-        imprimirMatriz()
+        #Para verificar se tem espaço na matriz
+        for i in range(0,4):
+            for j in range(0,4):
+                if matriz[i][j] == 0:
+                    temEspaco = True
+        
+        #Verificação da vitória do usuário
+        for i in range(0,4):
+            for j in range(0,4):
+                if matriz[i][j] == 2048:
+                    ganhou = True
+                    print("GANHOU!")
+                    print("Parabéns!!!\n2048!")
+                    
+        #Verificação da derrota do usuário    
+        if ganhou != True:
+            if temEspaco == False:
+                if contadorIguaisColuna == 0 and contadorIguaisLinha == 0:
+                    perdeu = True
+                    print("PERDEU!\nTente novamente!!")
+                    
+        #imprimirMatriz()
         
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
