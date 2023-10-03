@@ -312,18 +312,22 @@ while continuar != "N" and continuar != "n":
             for j in range(0,4):
                 if matriz[i][j] == 2048:
                     ganhou = True
+                    print("GANHOU!")
+                    print("Parabéns!!!\n2048!")
                     
         #Verificação da derrota do usuário    
         if ganhou != True:
             if temEspaco == False:
                 if contadorIguaisColuna == 0 and contadorIguaisLinha == 0:
                     perdeu = True
+                    print("PERDEU!\nTente novamente!!")
+                    
                 
         if ganhou == True:
-            print("GANHOU!")
-            print("Parabéns!!!\n2048!")
+            print("Ganhou miseravi")
         elif perdeu == True:
-            print("PERDEU!")
+            print("Perdeu eim")
+            
                   
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
