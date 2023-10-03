@@ -311,8 +311,6 @@ while continuar != "N" and continuar != "n":
         for i in range(0,4):
             for j in range(0,4):
                 if matriz[i][j] == 2048:
-                    print("GANHOU!")
-                    print("Parabéns!!!\n2048!")
                     ganhou = True
                     
         #Verificação da derrota do usuário    
@@ -320,9 +318,13 @@ while continuar != "N" and continuar != "n":
             if temEspaco == False:
                 if contadorIguaisColuna == 0 and contadorIguaisLinha == 0:
                     perdeu = True
-                    print("PERDEU!")
-                    break
-        
+                
+        if ganhou == True:
+            print("GANHOU!")
+            print("Parabéns!!!\n2048!")
+        elif perdeu == True:
+            print("PERDEU!")
+                  
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
 
@@ -342,7 +344,6 @@ while continuar != "N" and continuar != "n":
         elif movimentos == "S": 
             localMatrizS()
                 
-    
         #Para testar 
         if contador == 3:
             matriz[3][3] = 2048
