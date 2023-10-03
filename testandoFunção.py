@@ -327,12 +327,13 @@ while continuar != "N" and continuar != "n":
                   
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
+
+        if ganhou == True:
+            print("Testando essa porra")
         
-        if ganhou == False and perdeu == False:
-            print("Testando")
-            while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
-                movimentos = input("Informe o comando [W, S, A, D]: ")
-                movimentos = movimentos.upper()
+        while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
+            movimentos = input("Informe o comando [W, S, A, D]: ")
+            movimentos = movimentos.upper()
         
         if movimentos == "W":
             localMatrizW()

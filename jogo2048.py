@@ -338,10 +338,9 @@ while continuar != "N" and continuar != "n":
         elif movimentos == "S": 
             localMatrizS()
                 
-        """
-        Para testar 
+        #Para testar 
         if contador == 3:
-            matriz[3][3] = 2048"""
+            matriz[3][3] = 2048
         
         #Comparação da matriz antes e depois dos movimentos para verificar se moveu
         saoDiferentes = False
