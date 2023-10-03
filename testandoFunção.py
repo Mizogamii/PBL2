@@ -269,8 +269,10 @@ while continuar != "N" and continuar != "n":
     ganhou = False
     perdeu = False
     teste = 0
+    ganhador = 0
+    perdedor = 0
     #Para continuar o loop até perder ou ganhar o jogo
-    while ganhou != True and perdeu != True:  
+    while ganhou != True and perdeu != True and ganhador < 1:   
         temEspaco = False
         
         imprimirInstrucoes()
@@ -322,13 +324,9 @@ while continuar != "N" and continuar != "n":
                     perdeu = True
                     print("PERDEU!\nTente novamente!!")
                     
-                
-        if ganhou == True:
-            print("Ganhou miseravi")
-        elif perdeu == True:
-            print("Perdeu eim")
+        if ganhou == True and perdeu == True:
+            break
             
-                  
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
 
