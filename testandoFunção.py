@@ -388,15 +388,12 @@ while continuar != "N" and continuar != "n":
     print("----------------------------------------")
     print("            HISTÓRICO DO JOGO           ")   
     print("----------------------------------------")
-    print("Score anteriores      Jogadas realizadas")
-    #for i in range(0, contJogos):
-    i = 0
-    while i <= contJogos:    
-        print(f"{listaScore[i]}                  \n")
-        i += 1
-        if i == contJogos:
-            break
- 
+    print("Score anteriores: ")
+    for elementos in listaScore:
+        print(elementos, end=" ")
+    print("\nJogadas realizadas: ")
+    for elementos2 in listaQuantidadeJogadas: 
+        print(elementos2, end=" ")
     print("----------------------------------------") 
     continuar = input("Deseja continuar jogando?[S/N]: ")
     
