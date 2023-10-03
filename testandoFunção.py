@@ -173,7 +173,7 @@ def arrumacao2():
                 if lista[i] == 0:
                     lista[i] = lista[i - 1]
                     lista[i - 1] = 0 
-                                        
+                                                        
 #Serve para organizar e somar os números na lista para as opções W e A (Subir e esquerda)
 def arrumacao():    
     global score   
@@ -215,7 +215,11 @@ matriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 copiaMatriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 lista = [0, 0, 0, 0]
 listaVerificacao = [0, 0, 0, 0]
+listaScore = []
+listaQuantidadeJogadas = []
+listaContador = []
 continuar = "S"
+contJogos = 0
 
 """#Para testar todos os números diferentes           
 matriz[0][0] = 2
@@ -338,10 +342,10 @@ while continuar != "N" and continuar != "n":
         elif movimentos == "S": 
             localMatrizS()
                 
-        """
-        Para testar 
+    
+        #Para testar 
         if contador == 3:
-            matriz[3][3] = 2048"""
+            matriz[3][3] = 2048
         
         #Comparação da matriz antes e depois dos movimentos para verificar se moveu
         saoDiferentes = False
@@ -370,13 +374,28 @@ while continuar != "N" and continuar != "n":
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
         print('\033c', end='')
-  
+        contJogos += 1
+    
+    listaScore.append(score)
+    listaQuantidadeJogadas.append(jogadasValidas)
+    
     print("----------------------------------------")
     print("            RESULTADO DO JOGO           ")   
     print("----------------------------------------") 
     print(f"Score final: {score}")
     print(f"Jogadas válidas: {jogadasValidas}") 
     print(f"Quantidade de jogadas: {contador}")
+    print("----------------------------------------")
+    print("            HISTÓRICO DO JOGO           ")   
+    print("----------------------------------------")
+    print("Score anteriores      Jogadas realizadas")
+    #for i in range(0, contJogos):
+    i = 0
+    while i <= contJogos:    
+        print(f"{listaScore[i]}                  \n")
+        i += 1
+        if i == contJogos:
+            break
  
     print("----------------------------------------") 
     continuar = input("Deseja continuar jogando?[S/N]: ")
