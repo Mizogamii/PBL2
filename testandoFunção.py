@@ -319,8 +319,7 @@ while continuar != "N" and continuar != "n":
                     ganhou = True
                     print("GANHOU!")
                     print("Parabéns!!!\n2048!")
-                    
-                
+        
         #Verificação da derrota do usuário    
         if ganhou != True:
             if temEspaco == False:
@@ -328,6 +327,10 @@ while continuar != "N" and continuar != "n":
                     perdeu = True
                     print("PERDEU!\nTente novamente!!")
          
+        if ganhou == True or perdeu == True:
+            print("Tesntando")
+            break
+        print("Test")
         
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
@@ -378,8 +381,7 @@ while continuar != "N" and continuar != "n":
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
         print('\033c', end='')
-       
-    
+        
     listaScore.append(score)
     listaQuantidadeJogadas.append(jogadasValidas)
     
@@ -390,22 +392,28 @@ while continuar != "N" and continuar != "n":
     print(f"Jogadas válidas: {jogadasValidas}") 
     print(f"Quantidade de jogadas: {contador}\n\n")
     
-    print("----------------------------------------")
-    print("            HISTÓRICO DO JOGO           ")   
-    print("----------------------------------------")
-    print("Score anteriores")
-    print("........................................")
+    mostrarHistorico = input("Deseja ver o histórico do jogo? [S/N]")
     
-    for elementos in listaScore:
-        print(elementos, end=" ")
+    if mostrarHistorico != "N" and mostrarHistorico != "n":
+        print('\033c', end='')
+        print("----------------------------------------")
+        print("            HISTÓRICO DO JOGO           ")   
+        print("----------------------------------------")
+        print("Score anteriores")
+        print("........................................")
         
-    print("\n\n........................................") 
-    print("Jogadas realizadas")
-    print("........................................")
-    for elementos2 in listaQuantidadeJogadas: 
-        print(elementos2, end=" ")
-    print("\n\n----------------------------------------\n") 
+        for elementos in listaScore:
+            print(elementos, end=" ")
+            
+        print("\n\n........................................") 
+        print("Jogadas realizadas")
+        print("........................................")
+        for elementos2 in listaQuantidadeJogadas: 
+            print(elementos2, end=" ")
+        print("\n\n----------------------------------------\n") 
+        
     continuar = input("Deseja continuar jogando?[S/N]: ")
+    print('\033c', end='')
     
     #Para zerar o jogo e iniciar um novo
     if continuar != "N" and continuar != "n":
