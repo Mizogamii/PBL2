@@ -388,13 +388,17 @@ while continuar != "N" and continuar != "n":
     print("----------------------------------------")
     print("            HISTÓRICO DO JOGO           ")   
     print("----------------------------------------")
-    print("Score anteriores: ")
+    print("Score anteriores")
+    print("----------------------------------------")
     for elementos in listaScore:
         print(elementos, end=" ")
-    print("\nJogadas realizadas: ")
+        
+    print("\n\n----------------------------------------") 
+    print("Jogadas realizadas")
+    print("----------------------------------------")
     for elementos2 in listaQuantidadeJogadas: 
         print(elementos2, end=" ")
-    print("----------------------------------------") 
+    print("\n\n----------------------------------------\n") 
     continuar = input("Deseja continuar jogando?[S/N]: ")
     
     #Para zerar o jogo e iniciar um novo
