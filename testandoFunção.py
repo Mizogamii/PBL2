@@ -333,7 +333,7 @@ while continuar != "N" and continuar != "n":
         movimentos = movimentos.upper()
 
         if ganhou == True:
-            print("Testando essa porra")
+            print("Testando")
         
         while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
             movimentos = input("Informe o comando [W, S, A, D]: ")
@@ -392,18 +392,18 @@ while continuar != "N" and continuar != "n":
     print("----------------------------------------") 
     print(f"Score final: {score}")
     print(f"Jogadas válidas: {jogadasValidas}") 
-    print(f"Quantidade de jogadas: {contador}")
+    print(f"Quantidade de jogadas: {contador}\n\n")
     print("----------------------------------------")
     print("            HISTÓRICO DO JOGO           ")   
     print("----------------------------------------")
     print("Score anteriores")
-    print("----------------------------------------")
+    print("........................................")
     for elementos in listaScore:
         print(elementos, end=" ")
         
-    print("\n\n----------------------------------------") 
+    print("\n\n........................................") 
     print("Jogadas realizadas")
-    print("----------------------------------------")
+    print("........................................")
     for elementos2 in listaQuantidadeJogadas: 
         print(elementos2, end=" ")
     print("\n\n----------------------------------------\n") 
