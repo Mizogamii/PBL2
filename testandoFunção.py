@@ -377,7 +377,7 @@ while continuar != "N" and continuar != "n":
     print(f"Score final: {score}")
     print(f"Jogadas válidas: {jogadasValidas}") 
     print(f"Quantidade de jogadas: {contador}")
-    #print(f"Score mais alto: {scoreMaisAlto}") --> tem que ver se realmente precisa disso
+ 
     print("----------------------------------------") 
     continuar = input("Deseja continuar jogando?[S/N]: ")
     
