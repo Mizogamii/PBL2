@@ -327,10 +327,10 @@ while continuar != "N" and continuar != "n":
                     perdeu = True
                     print("PERDEU!\nTente novamente!!")
          
-        if ganhou == True or perdeu == True:
+        """if ganhou == True or perdeu == True:
             print("Tesntando")
             break
-        print("Test")
+        print("Test")"""
         
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
