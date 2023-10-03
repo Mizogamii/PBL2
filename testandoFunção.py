@@ -268,7 +268,7 @@ while continuar != "N" and continuar != "n":
     numeros = [2,4]
     ganhou = False
     perdeu = False
-    
+    teste = 0
     #Para continuar o loop até perder ou ganhar o jogo
     while ganhou != True and perdeu != True:  
         temEspaco = False
@@ -297,7 +297,7 @@ while continuar != "N" and continuar != "n":
         #Verificar se tem números iguais na matriz que podem ser somados posteriormente   
         contadorIguaisColuna = verificandoIgualdadesColuna()
         contadorIguaisLinha = verificandoIgualdadesLinha()
-                           
+        teste += 1                   
         print(f"Score: {score}")
         print(f"Jogadas válidas: {jogadasValidas}")
     
@@ -327,11 +327,13 @@ while continuar != "N" and continuar != "n":
                   
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
-
-        while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
-            movimentos = input("Informe o comando [W, S, A, D]: ")
-            movimentos = movimentos.upper()
-    
+        
+        if ganhou == False and perdeu == False:
+            print("Testando")
+            while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
+                movimentos = input("Informe o comando [W, S, A, D]: ")
+                movimentos = movimentos.upper()
+        
         if movimentos == "W":
             localMatrizW()
             
