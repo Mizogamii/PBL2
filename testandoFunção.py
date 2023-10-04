@@ -332,9 +332,6 @@ while continuar != "N" and continuar != "n":
         
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
-
-        if ganhou == True:
-            print("Testando")
         
         while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
             movimentos = input("Informe o comando [W, S, A, D]: ")
@@ -374,8 +371,6 @@ while continuar != "N" and continuar != "n":
                 
             matriz[linha][coluna] = numeroSorteado
         
-        imprimirMatriz()
-        
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
         print('\033c', end='')
@@ -388,7 +383,7 @@ while continuar != "N" and continuar != "n":
     print("----------------------------------------") 
     print(f"Score final: {score}")
     print(f"Jogadas válidas: {jogadasValidas}") 
-    print(f"Quantidade de jogadas: {contador}\n\n")
+    print(f"Quantidade de movimentos realizados: {contador}\n")
     
     mostrarHistorico = input("Deseja ver o histórico do jogo? [S/N]")
     
