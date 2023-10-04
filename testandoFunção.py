@@ -220,6 +220,7 @@ listaQuantidadeJogadas = []
 listaContador = []
 continuar = "S"
 
+
 """#Para testar todos os números diferentes           
 matriz[0][0] = 2
 matriz[0][1] = 4
@@ -325,64 +326,59 @@ while continuar != "N" and continuar != "n":
                 if contadorIguaisColuna == 0 and contadorIguaisLinha == 0:
                     perdeu = True
                     print("PERDEU!\nTente novamente!!")
-        print(f"Perdeu: {perdeu}")
-        print(f"Ganhou: {ganhou}")
-        """if ganhou == True or perdeu == True:
-            print("Tesntando")
+         
+        if ganhou == True or perdeu == True:
             break
-        print("Test")"""
         
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
 
         if ganhou == True:
             print("Testando")
-            
-        if ganhou != True and perdeu != True: 
-            while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
-                movimentos = input("Informe o comando [W, S, A, D]: ")
-                movimentos = movimentos.upper()
-            
-            if movimentos == "W":
-                localMatrizW()
-                
-            elif movimentos == "A":    
-                localMatrizA()
-                
-            elif movimentos == "D": 
-                localMatrizD()
-                
-            elif movimentos == "S": 
-                localMatrizS()
-            
-            #Comparação da matriz antes e depois dos movimentos para verificar se moveu
-            saoDiferentes = False
-            
-            for i in range(0,4):
-                for j in range(0,4):
-                    if matriz[i][j] != copiaMatriz[i][j]:
-                        saoDiferentes = True
-                        
-            #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4) com condições de ter espaço e ter tido movimentos antes
-            if contador > 0 and temEspaco == True and saoDiferentes == True: 
-                numeroSorteado = (random.choice(numeros)) 
-                
-                #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
-                linha = (random.randint(0, 3)) 
-                coluna = (random.randint(0, 3)) 
-                
-                while matriz[linha][coluna] != 0:
-                    linha = (random.randint(0, 3)) 
-                    coluna = (random.randint(0, 3))
-                    
-                matriz[linha][coluna] = numeroSorteado
         
-        #imprimirMatriz()
-        print("Testando2")
+        while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
+            movimentos = input("Informe o comando [W, S, A, D]: ")
+            movimentos = movimentos.upper()
+        
+        if movimentos == "W":
+            localMatrizW()
+            
+        elif movimentos == "A":    
+            localMatrizA()
+            
+        elif movimentos == "D": 
+            localMatrizD()
+            
+        elif movimentos == "S": 
+            localMatrizS()
+        
+        #Comparação da matriz antes e depois dos movimentos para verificar se moveu
+        saoDiferentes = False
+        
+        for i in range(0,4):
+            for j in range(0,4):
+                if matriz[i][j] != copiaMatriz[i][j]:
+                    saoDiferentes = True
+                    
+        #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4) com condições de ter espaço e ter tido movimentos antes
+        if contador > 0 and temEspaco == True and saoDiferentes == True: 
+            numeroSorteado = (random.choice(numeros)) 
+            
+            #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
+            linha = (random.randint(0, 3)) 
+            coluna = (random.randint(0, 3)) 
+            
+            while matriz[linha][coluna] != 0:
+                linha = (random.randint(0, 3)) 
+                coluna = (random.randint(0, 3))
+                
+            matriz[linha][coluna] = numeroSorteado
+        
+        imprimirMatriz()
         
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
-        #print('\033c', end='')
+        print('\033c', end='')
         
     listaScore.append(score)
     listaQuantidadeJogadas.append(jogadasValidas)
@@ -397,7 +393,7 @@ while continuar != "N" and continuar != "n":
     mostrarHistorico = input("Deseja ver o histórico do jogo? [S/N]")
     
     if mostrarHistorico != "N" and mostrarHistorico != "n":
-        #print('\033c', end='')
+        print('\033c', end='')
         print("----------------------------------------")
         print("            HISTÓRICO DO JOGO           ")   
         print("----------------------------------------")
@@ -415,14 +411,14 @@ while continuar != "N" and continuar != "n":
         print("\n\n----------------------------------------\n") 
         
     continuar = input("Deseja continuar jogando?[S/N]: ")
-    #print('\033c', end='')
+    print('\033c', end='')
     
     #Para zerar o jogo e iniciar um novo
     if continuar != "N" and continuar != "n":
         score = 0
         jogadasValidas = 0
         contador = 0
-        #perdeu = False
-        #ganhou = False
+        perdeu = False
+        ganhou = False
 print("Encerrando...")
     
