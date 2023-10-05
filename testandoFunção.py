@@ -94,7 +94,7 @@ def localMatrizD():
         for i in range(0,4):
             lista[i] = matriz[linha][i]
         
-        arrumacao2()
+        arrumacaoDecrescente()
                     
         for i in range(0,4):
             matriz[linha][i] = lista[i]
@@ -108,7 +108,7 @@ def localMatrizS():
         for i in range(0,4):
             lista[i] = matriz[i][coluna]
             
-        arrumacao2()
+        arrumacaoDecrescente()
                     
         for i in range(0,4):
             matriz[i][coluna] = lista[i] 
@@ -122,7 +122,7 @@ def localMatrizW():
         for i in range(0,4):
             lista[i] = matriz[i][coluna]
 
-        arrumacao()
+        arrumacaoCrescente()
                     
         for i in range(0,4):
             matriz[i][coluna] = lista[i]
@@ -136,13 +136,13 @@ def localMatrizA():
         for i in range(0,4):
             lista[i] = matriz[linha][i]
             
-        arrumacao()
+        arrumacaoCrescente()
                     
         for i in range(0,4):
             matriz[linha][i] = lista[i]
             
 #Serve para organizar e somar os números na lista para as opções S e D (Descer e direita)
-def arrumacao2():      
+def arrumacaoDecrescente():      
     global score 
     global jogadasValidas
     
@@ -175,7 +175,7 @@ def arrumacao2():
                     lista[i - 1] = 0 
                                                         
 #Serve para organizar e somar os números na lista para as opções W e A (Subir e esquerda)
-def arrumacao():    
+def arrumacaoCrescente():    
     global score   
     global jogadasValidas      
      
