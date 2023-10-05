@@ -11,6 +11,16 @@ do código, e estou ciente que estes trechos não serão considerados para fins 
 score = 0
 jogadasValidas = 0 
 
+#Função para sortear o número
+def sorteioNumero():
+    sortear = (random.randint(0,100))
+    if sortear < 90: 
+        numeroSorteado = 2
+    else: 
+        numeroSorteado = 4
+            
+    return numeroSorteado
+
 #Função para imprimir as intruções 
 def imprimirInstrucoes():
     print("----------------------------------------")
@@ -237,11 +247,7 @@ while continuar != "N" and continuar != "n":
                        
         if contador == 0:
             for sorteio in range(2): 
-                sortear = (random.randint(0,100))
-                if sortear < 90: 
-                    numeroSorteado = 2
-                else: 
-                    numeroSorteado = 4
+                numeroSorteado = sorteioNumero()
                 #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
                 linha = (random.randint(0, 3)) 
                 coluna = (random.randint(0, 3)) 
@@ -315,11 +321,7 @@ while continuar != "N" and continuar != "n":
                     
         #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4) com condições de ter espaço e ter tido movimentos antes
         if contador > 0 and temEspaco == True and saoDiferentes == True: 
-            sortear = (random.randint(0,100))
-            if sortear < 90: 
-                numeroSorteado = 2
-            else: 
-                numeroSorteado = 4
+            numeroSorteado = sorteioNumero()
             #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
             linha = (random.randint(0, 3)) 
             coluna = (random.randint(0, 3)) 
