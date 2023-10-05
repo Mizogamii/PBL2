@@ -243,9 +243,7 @@ while continuar != "N" and continuar != "n":
     for i in range(0,4):
         for j in range(0,4):
             matriz[i][j] = 0  
-            
-    #Lista dos números que poderão ser sorteados 
-    #numeros = [2,4]
+
     ganhou = False
     perdeu = False
     teste = 0
