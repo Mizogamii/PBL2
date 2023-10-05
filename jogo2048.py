@@ -219,42 +219,6 @@ listaContador = []
 continuar = "S"
 contador = 0
 
-"""#Para testar todos os números diferentes           
-matriz[0][0] = 2
-matriz[0][1] = 4
-matriz[0][2] = 6
-matriz[0][3] = 8
-matriz[1][0] = 10
-matriz[1][1] = 12 
-matriz[1][2] = 14
-matriz[1][3] = 16
-matriz[2][0] = 18
-matriz[2][1] = 20
-matriz[2][2] = 22
-matriz[2][3] = 24
-matriz[3][0] = 26
-matriz[3][1] = 28
-matriz[3][2] = 0
-matriz[3][3] = 0"""
-
-"""#Para testar números iguais
-matriz[0][0] = 2
-matriz[0][1] = 4
-matriz[0][2] = 4
-matriz[0][3] = 2
-matriz[1][0] = 2
-matriz[1][1] = 2 
-matriz[1][2] = 4
-matriz[1][3] = 2
-matriz[2][0] = 4
-matriz[2][1] = 8
-matriz[2][2] = 4
-matriz[2][3] = 4
-matriz[3][0] = 2
-matriz[3][1] = 8
-matriz[3][2] = 16
-matriz[3][3] = 32"""
-
 #Para continuar o loop até o usuário desejar encerrar 
 while continuar != "N" and continuar != "n":
     #Inserindo os zeros na matriz
@@ -271,11 +235,6 @@ while continuar != "N" and continuar != "n":
     #Para continuar o loop até perder ou ganhar o jogo
     while ganhou != True and perdeu != True:   
         temEspaco = False
-        print(f"Contador: {contador}")
-        #Para testar 
-        if contador == 3:
-            matriz[3][3] = 2048
-            
         imprimirInstrucoes()
         if contador > 0:
             imprimirMatriz()
