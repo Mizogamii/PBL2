@@ -18,9 +18,16 @@ def sorteioNumero():
         numeroSorteado = 2
     else: 
         numeroSorteado = 4
-            
-    return numeroSorteado
-
+    #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
+    linha = (random.randint(0, 3)) 
+    coluna = (random.randint(0, 3)) 
+    
+    while matriz[linha][coluna] != 0:
+        linha = (random.randint(0, 3)) 
+        coluna = (random.randint(0, 3))
+        
+    matriz[linha][coluna] = numeroSorteado
+        
 #Função para imprimir as intruções 
 def imprimirInstrucoes():
     print("----------------------------------------")
@@ -231,7 +238,12 @@ continuar = "S"
 contador = 0
 
 #Para continuar o loop até o usuário desejar encerrar 
-while continuar != "N" and continuar != "n":  
+while continuar != "N" and continuar != "n":
+    #Inserindo os zeros na matriz
+    for i in range(0,4):
+        for j in range(0,4):
+            matriz[i][j] = 0  
+            
     #Lista dos números que poderão ser sorteados 
     #numeros = [2,4]
     ganhou = False
@@ -247,14 +259,8 @@ while continuar != "N" and continuar != "n":
                        
         if contador == 0:
             for sorteio in range(2): 
-                numeroSorteado = sorteioNumero()
-                #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
-                linha = (random.randint(0, 3)) 
-                coluna = (random.randint(0, 3)) 
-                
-                if matriz[linha][coluna] == 0: 
-                    matriz[linha][coluna] = numeroSorteado          
-                    
+                sorteioNumero()        
+    
             imprimirMatriz()
         
         contador += 1
@@ -321,17 +327,8 @@ while continuar != "N" and continuar != "n":
                     
         #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4) com condições de ter espaço e ter tido movimentos antes
         if contador > 0 and temEspaco == True and saoDiferentes == True: 
-            numeroSorteado = sorteioNumero()
-            #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
-            linha = (random.randint(0, 3)) 
-            coluna = (random.randint(0, 3)) 
+            sorteioNumero()
             
-            while matriz[linha][coluna] != 0:
-                linha = (random.randint(0, 3)) 
-                coluna = (random.randint(0, 3))
-                
-            matriz[linha][coluna] = numeroSorteado
-        
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
         print('\033c', end='')
