@@ -24,6 +24,7 @@ def imprimirInstrucoes():
  A para mover para esquerda
  D para mover para direita""")
     print("----------------------------------------")
+    
 #Função para imprimir a matriz
 def imprimirMatriz():
     print("+--------+--------+--------+--------+")
@@ -222,7 +223,7 @@ contador = 0
 #Para continuar o loop até o usuário desejar encerrar 
 while continuar != "N" and continuar != "n":  
     #Lista dos números que poderão ser sorteados 
-    numeros = [2,4]
+    #numeros = [2,4]
     ganhou = False
     perdeu = False
     teste = 0
@@ -236,8 +237,12 @@ while continuar != "N" and continuar != "n":
                        
         if contador == 0:
             for sorteio in range(2):
-                numeroSorteado = (random.choice(numeros)) 
-                
+                #numeroSorteado = (random.choice(numeros)) 
+                sortear = (random.randint(0,100))
+                if sortear < 90: 
+                    numeroSorteado = 2
+                else: 
+                    numeroSorteado = 4
                 #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
                 linha = (random.randint(0, 3)) 
                 coluna = (random.randint(0, 3)) 
@@ -311,8 +316,12 @@ while continuar != "N" and continuar != "n":
                     
         #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4) com condições de ter espaço e ter tido movimentos antes
         if contador > 0 and temEspaco == True and saoDiferentes == True: 
-            numeroSorteado = (random.choice(numeros)) 
-            
+            #numeroSorteado = (random.choice(numeros)) 
+            sortear = (random.randint(0,100))
+            if sortear < 90: 
+                numeroSorteado = 2
+            else: 
+                numeroSorteado = 4
             #Sorteio da posição em que o número sorteado(2 ou 4) vai ser inserido na matriz e a inserção dele na matriz 
             linha = (random.randint(0, 3)) 
             coluna = (random.randint(0, 3)) 
