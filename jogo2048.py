@@ -173,7 +173,7 @@ def arrumacao2():
                 if lista[i] == 0:
                     lista[i] = lista[i - 1]
                     lista[i - 1] = 0 
-                                        
+                                                        
 #Serve para organizar e somar os números na lista para as opções W e A (Subir e esquerda)
 def arrumacao():    
     global score   
@@ -215,7 +215,11 @@ matriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 copiaMatriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 lista = [0, 0, 0, 0]
 listaVerificacao = [0, 0, 0, 0]
+listaScore = []
+listaQuantidadeJogadas = []
+listaContador = []
 continuar = "S"
+
 
 """#Para testar todos os números diferentes           
 matriz[0][0] = 2
@@ -264,11 +268,16 @@ while continuar != "N" and continuar != "n":
     numeros = [2,4]
     ganhou = False
     perdeu = False
-    
+    teste = 0
+
     #Para continuar o loop até perder ou ganhar o jogo
-    while ganhou != True and perdeu != True:  
+    while ganhou != True and perdeu != True:   
         temEspaco = False
-        
+        print(f"Contador: {contador}")
+        #Para testar 
+        if contador == 3:
+            matriz[3][3] = 2048
+            
         imprimirInstrucoes()
         if contador > 0:
             imprimirMatriz()
@@ -293,10 +302,10 @@ while continuar != "N" and continuar != "n":
         #Verificar se tem números iguais na matriz que podem ser somados posteriormente   
         contadorIguaisColuna = verificandoIgualdadesColuna()
         contadorIguaisLinha = verificandoIgualdadesLinha()
-                           
+        teste += 1                   
         print(f"Score: {score}")
         print(f"Jogadas válidas: {jogadasValidas}")
-    
+            
         #Para verificar se tem espaço na matriz
         for i in range(0,4):
             for j in range(0,4):
@@ -307,25 +316,27 @@ while continuar != "N" and continuar != "n":
         for i in range(0,4):
             for j in range(0,4):
                 if matriz[i][j] == 2048:
+                    ganhou = True
                     print("GANHOU!")
                     print("Parabéns!!!\n2048!")
-                    ganhou = True
-                    
+        
         #Verificação da derrota do usuário    
         if ganhou != True:
             if temEspaco == False:
                 if contadorIguaisColuna == 0 and contadorIguaisLinha == 0:
                     perdeu = True
-                    print("PERDEU!")
-                    break
+                    print("PERDEU!\nTente novamente!!")
+         
+        if ganhou == True or perdeu == True:
+            break
         
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
-
+        
         while movimentos != "W" and movimentos != "S" and movimentos != "A" and movimentos != "D":
             movimentos = input("Informe o comando [W, S, A, D]: ")
             movimentos = movimentos.upper()
-    
+        
         if movimentos == "W":
             localMatrizW()
             
@@ -337,10 +348,6 @@ while continuar != "N" and continuar != "n":
             
         elif movimentos == "S": 
             localMatrizS()
-                
-        #Para testar 
-        if contador == 3:
-            matriz[3][3] = 2048
         
         #Comparação da matriz antes e depois dos movimentos para verificar se moveu
         saoDiferentes = False
@@ -364,21 +371,42 @@ while continuar != "N" and continuar != "n":
                 
             matriz[linha][coluna] = numeroSorteado
         
-        imprimirMatriz()
-        
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
         print('\033c', end='')
-
-
+        
+    listaScore.append(score)
+    listaQuantidadeJogadas.append(jogadasValidas)
+    
     print("----------------------------------------")
     print("            RESULTADO DO JOGO           ")   
     print("----------------------------------------") 
     print(f"Score final: {score}")
     print(f"Jogadas válidas: {jogadasValidas}") 
-    print(f"Quantidade de jogadas: {contador}")
-    print("----------------------------------------") 
+    print(f"Quantidade de movimentos realizados: {contador}\n")
+    
+    mostrarHistorico = input("Deseja ver o histórico do jogo? [S/N]")
+    
+    if mostrarHistorico != "N" and mostrarHistorico != "n":
+        print('\033c', end='')
+        print("----------------------------------------")
+        print("            HISTÓRICO DO JOGO           ")   
+        print("----------------------------------------")
+        print("Score anteriores")
+        print("........................................")
+        
+        for elementos in listaScore:
+            print(elementos, end=" ")
+            
+        print("\n\n........................................") 
+        print("Jogadas realizadas")
+        print("........................................")
+        for elementos2 in listaQuantidadeJogadas: 
+            print(elementos2, end=" ")
+        print("\n\n----------------------------------------\n") 
+        
     continuar = input("Deseja continuar jogando?[S/N]: ")
+    print('\033c', end='')
     
     #Para zerar o jogo e iniciar um novo
     if continuar != "N" and continuar != "n":
