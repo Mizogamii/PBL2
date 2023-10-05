@@ -208,10 +208,8 @@ def arrumacaoCrescente():
                     lista[i + 1] = 0 
                         
 import random
-contador = 0
 
-#Fazendo a matriz e as listas 
-matriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
+matriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]] 
 copiaMatriz = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 lista = [0, 0, 0, 0]
 listaVerificacao = [0, 0, 0, 0]
@@ -219,7 +217,7 @@ listaScore = []
 listaQuantidadeJogadas = []
 listaContador = []
 continuar = "S"
-
+contador = 0
 
 """#Para testar todos os números diferentes           
 matriz[0][0] = 2
