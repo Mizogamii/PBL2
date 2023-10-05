@@ -236,8 +236,7 @@ while continuar != "N" and continuar != "n":
             imprimirMatriz()
                        
         if contador == 0:
-            for sorteio in range(2):
-                #numeroSorteado = (random.choice(numeros)) 
+            for sorteio in range(2): 
                 sortear = (random.randint(0,100))
                 if sortear < 90: 
                     numeroSorteado = 2
@@ -316,7 +315,6 @@ while continuar != "N" and continuar != "n":
                     
         #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4) com condições de ter espaço e ter tido movimentos antes
         if contador > 0 and temEspaco == True and saoDiferentes == True: 
-            #numeroSorteado = (random.choice(numeros)) 
             sortear = (random.randint(0,100))
             if sortear < 90: 
                 numeroSorteado = 2
