@@ -220,12 +220,7 @@ continuar = "S"
 contador = 0
 
 #Para continuar o loop até o usuário desejar encerrar 
-while continuar != "N" and continuar != "n":
-    #Inserindo os zeros na matriz
-    for i in range(0,4):
-        for j in range(0,4):
-            matriz[i][j] = 0
-         
+while continuar != "N" and continuar != "n":  
     #Lista dos números que poderão ser sorteados 
     numeros = [2,4]
     ganhou = False
