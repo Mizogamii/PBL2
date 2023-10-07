@@ -11,6 +11,15 @@ do código, e estou ciente que estes trechos não serão considerados para fins 
 score = 0
 jogadasValidas = 0 
 
+#Função verificar se há espaços na matriz
+def verificacaoEspacosMatriz():
+    temEspaco = False
+    for i in range(0,4):
+        for j in range(0,4):
+            if matriz[i][j] == 0:
+                temEspaco = True
+    return temEspaco
+
 #Função para sortear o número
 def sorteioNumero():
     sortear = (random.randint(0,100))
@@ -245,6 +254,7 @@ while continuar != "N" and continuar != "n":
     jogadasValidas = 0
     contador = 0
     matrizCheia = False
+    
     #Inserindo os zeros na matriz
     for i in range(0,4):
         for j in range(0,4):
@@ -284,11 +294,7 @@ while continuar != "N" and continuar != "n":
             localMatrizS()
        
         #Para verificar se tem espaço na matriz
-        for i in range(0,4):
-            for j in range(0,4):
-                if matriz[i][j] == 0:
-                    temEspaco = True
-                    print("Verificação espaço matriz OK")
+        temEspaco = verificacaoEspacosMatriz()
         
         #Comparação da matriz antes e depois dos movimentos para verificar se moveu
         saoDiferentes = False
@@ -297,20 +303,13 @@ while continuar != "N" and continuar != "n":
             for j in range(0,4):
                 if matriz[i][j] != copiaMatriz[i][j]:
                     saoDiferentes = True
-                    print("Comparação matriz OK")
                     
         #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4) com condições de ter espaço e ter tido movimentos antes
         if contador > 0 and temEspaco == True and saoDiferentes == True: 
             sorteioNumero()
-            print("Sorteio do número a ser inserido OK")
             
-        temEspaco = False
-        #Para verificar se tem espaço na matriz
-        for i in range(0,4):
-            for j in range(0,4):
-                if matriz[i][j] == 0:
-                    temEspaco = True
-                    print("Verificação espaço matriz OK")   
+        #Para verificar se tem espaço na matriz após a inserção do número sorteado
+        temEspaco = verificacaoEspacosMatriz()
                              
         print(f"Score: {score}")
         print(f"Jogadas válidas: {jogadasValidas}")
@@ -347,7 +346,7 @@ while continuar != "N" and continuar != "n":
     print("----------------------------------------") 
     print(f"Score final: {score}")
     print(f"Jogadas válidas: {jogadasValidas}") 
-    print(f"Quantidade de movimentos realizados: {contador}\n")
+    print(f"Quantidade de movimentos realizados: {contador}")
     print("----------------------------------------")
     if ganhou == True:
         imprimirMatriz()
