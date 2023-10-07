@@ -276,7 +276,7 @@ while continuar != "N" and continuar != "n":
         contador += 1
             
         copiarMatriz()
-
+     
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
         
