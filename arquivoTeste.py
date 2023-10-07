@@ -319,7 +319,11 @@ while continuar != "N" and continuar != "n":
         if contador > 0 and temEspaco == True and saoDiferentes == True: 
             sorteioNumero()
             print("Sorteio do número a ser inserido OK")
-                   
+            imprimirMatriz()
+            
+        #Para verificar se tem espaço na matriz
+        matrizCheia = all(all(element != 0 for element in sublist) for sublist in matriz)
+                    
         print(f"Score: {score}")
         print(f"Jogadas válidas: {jogadasValidas}")
         
@@ -336,7 +340,9 @@ while continuar != "N" and continuar != "n":
         
         #Verificação da derrota do usuário    
         if ganhou != True:
-            if temEspaco == False:
+            print("Diferente de true")
+            if matrizCheia == True:
+                print("Tem espaço não")
                 if contadorIguaisColuna == 0 and contadorIguaisLinha == 0:
                     perdeu = True
                     print("Verificação se perdeu ou não OK")     
@@ -347,15 +353,18 @@ while continuar != "N" and continuar != "n":
         elif perdeu == True:
             print("PERDEU!\nTente novamente!!")
             
+        print(f"Ganhou: {ganhou}")
+        print(f"Perdeu: {perdeu}")    
         """if ganhou == True or perdeu == True:
-            break
-            """
+            break"""
+            
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
         #print('\033c', end='')
         print(f"Verificação coluna: {contadorIguaisColuna}")
         print(f"Verificação linhas: {contadorIguaisLinha}")
         print("Encerrou um loop")
+        
     listaScore.append(score)
     listaQuantidadeJogadas.append(jogadasValidas)
     
