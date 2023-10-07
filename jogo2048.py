@@ -263,12 +263,15 @@ while continuar != "N" and continuar != "n":
     #Para continuar o loop até perder ou ganhar o jogo
     while ganhou != True and perdeu != True:   
         temEspaco = False
+        
         imprimirInstrucoes()
         if contador == 0:
             for sorteio in range(2): 
                 sorteioNumero()  
                     
         imprimirMatriz()
+        
+        print(f"Score: {score}")
         
         contador += 1
             
@@ -310,9 +313,6 @@ while continuar != "N" and continuar != "n":
             
         #Para verificar se tem espaço na matriz após a inserção do número sorteado
         temEspaco = verificacaoEspacosMatriz()
-                             
-        print(f"Score: {score}")
-        print(f"Jogadas válidas: {jogadasValidas}")
         
         #Verificar se tem números iguais na matriz que podem ser somados posteriormente   
         contadorIguaisColuna = verificandoIgualdadesColuna()
@@ -322,8 +322,7 @@ while continuar != "N" and continuar != "n":
         for i in range(0,4):
             for j in range(0,4):
                 if matriz[i][j] == 2048:
-                    ganhou = True
-                    print("Verificação de 2048 OK")            
+                    ganhou = True           
         
         #Verificação da derrota do usuário    
         if ganhou != True:
