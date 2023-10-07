@@ -238,66 +238,48 @@ continuar = "S"
 contador = 0
 
 #Para continuar o loop até o usuário desejar encerrar 
-while continuar != "N" and continuar != "n": 
-    
+while continuar != "N" and continuar != "n":
+    ganhou = False
+    perdeu = False
     score = 0
     jogadasValidas = 0
     contador = 0
-    perdeu = False
-    ganhou = False
-    
     #Inserindo os zeros na matriz
-    for i in range(0,4):
+    """for i in range(0,4):
         for j in range(0,4):
-            matriz[i][j] = 0 
-
+            matriz[i][j] = 0 """
+            
+    matriz[0][0] = 2
+    matriz[0][1] = 4
+    matriz[0][2] = 6
+    matriz[0][3] = 8
+    matriz[1][0] = 10
+    matriz[1][1] = 12 
+    matriz[1][2] = 14
+    matriz[1][3] = 16
+    matriz[2][0] = 18
+    matriz[2][1] = 20
+    matriz[2][2] = 22
+    matriz[2][3] = 24
+    matriz[3][0] = 26
+    matriz[3][1] = 28
+    matriz[3][2] = 0
+    matriz[3][3] = 0
+    
     #Para continuar o loop até perder ou ganhar o jogo
     while ganhou != True and perdeu != True:   
         temEspaco = False
         imprimirInstrucoes()
-        if contador > 0:
-            imprimirMatriz()
-                       
-        if contador == 0:
+        """if contador == 0:
             for sorteio in range(2): 
-                sorteioNumero()        
-    
-            imprimirMatriz()
+                sorteioNumero() """   
+                    
+        imprimirMatriz()
         
         contador += 1
             
         copiarMatriz()
-        
-        #Verificar se tem números iguais na matriz que podem ser somados posteriormente   
-        contadorIguaisColuna = verificandoIgualdadesColuna()
-        contadorIguaisLinha = verificandoIgualdadesLinha()                  
-        print(f"Score: {score}")
-        print(f"Jogadas válidas: {jogadasValidas}")
-            
-        #Para verificar se tem espaço na matriz
-        for i in range(0,4):
-            for j in range(0,4):
-                if matriz[i][j] == 0:
-                    temEspaco = True
-        
-        #Verificação da vitória do usuário
-        for i in range(0,4):
-            for j in range(0,4):
-                if matriz[i][j] == 2048:
-                    ganhou = True
-                    print("GANHOU!")
-                    print("Parabéns!!!\n2048!")
-        
-        #Verificação da derrota do usuário    
-        if ganhou != True:
-            if temEspaco == False:
-                if contadorIguaisColuna == 0 and contadorIguaisLinha == 0:
-                    perdeu = True
-                    print("PERDEU!\nTente novamente!!")
-         
-        if ganhou == True or perdeu == True:
-            break
-        
+
         movimentos = input("Informe o comando [W, S, A, D]: ")
         movimentos = movimentos.upper()
         
@@ -316,6 +298,13 @@ while continuar != "N" and continuar != "n":
             
         elif movimentos == "S": 
             localMatrizS()
+       
+        #Para verificar se tem espaço na matriz
+        for i in range(0,4):
+            for j in range(0,4):
+                if matriz[i][j] == 0:
+                    temEspaco = True
+                    print("Verificação espaço matriz OK")
         
         #Comparação da matriz antes e depois dos movimentos para verificar se moveu
         saoDiferentes = False
@@ -324,15 +313,49 @@ while continuar != "N" and continuar != "n":
             for j in range(0,4):
                 if matriz[i][j] != copiaMatriz[i][j]:
                     saoDiferentes = True
+                    print("Comparação matriz OK")
                     
         #Sorteio dos números que vão ser inseridos na matriz(podendo ser 2 ou 4) com condições de ter espaço e ter tido movimentos antes
         if contador > 0 and temEspaco == True and saoDiferentes == True: 
             sorteioNumero()
+            print("Sorteio do número a ser inserido OK")
+                   
+        print(f"Score: {score}")
+        print(f"Jogadas válidas: {jogadasValidas}")
+        
+        #Verificar se tem números iguais na matriz que podem ser somados posteriormente   
+        contadorIguaisColuna = verificandoIgualdadesColuna()
+        contadorIguaisLinha = verificandoIgualdadesLinha()
+        
+        #Verificação da vitória do usuário
+        for i in range(0,4):
+            for j in range(0,4):
+                if matriz[i][j] == 2048:
+                    ganhou = True
+                    print("Verificação de 2048 OK")            
+        
+        #Verificação da derrota do usuário    
+        if ganhou != True:
+            if temEspaco == False:
+                if contadorIguaisColuna == 0 and contadorIguaisLinha == 0:
+                    perdeu = True
+                    print("Verificação se perdeu ou não OK")     
+               
+        if ganhou == True:
+            print("GANHOU!")
+            print("Parabéns!!!\n2048!")
+        elif perdeu == True:
+            print("PERDEU!\nTente novamente!!")
             
+        """if ganhou == True or perdeu == True:
+            break
+            """
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
-        print('\033c', end='')
-        
+        #print('\033c', end='')
+        print(f"Verificação coluna: {contadorIguaisColuna}")
+        print(f"Verificação linhas: {contadorIguaisLinha}")
+        print("Encerrou um loop")
     listaScore.append(score)
     listaQuantidadeJogadas.append(jogadasValidas)
     
@@ -346,7 +369,7 @@ while continuar != "N" and continuar != "n":
     mostrarHistorico = input("Deseja ver o histórico do jogo? [S/N]")
     
     if mostrarHistorico != "N" and mostrarHistorico != "n":
-        print('\033c', end='')
+        #print('\033c', end='')
         print("----------------------------------------")
         print("            HISTÓRICO DO JOGO           ")   
         print("----------------------------------------")
@@ -364,6 +387,7 @@ while continuar != "N" and continuar != "n":
         print("\n\n----------------------------------------\n") 
         
     continuar = input("Deseja continuar jogando?[S/N]: ")
-    print('\033c', end='')   
+    #print('\033c', end='')
+        
 print("Encerrando...")
     
