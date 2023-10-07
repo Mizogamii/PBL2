@@ -244,6 +244,7 @@ while continuar != "N" and continuar != "n":
     score = 0
     jogadasValidas = 0
     contador = 0
+    matrizCheia = False
     #Inserindo os zeros na matriz
     """for i in range(0,4):
         for j in range(0,4):
@@ -319,11 +320,15 @@ while continuar != "N" and continuar != "n":
         if contador > 0 and temEspaco == True and saoDiferentes == True: 
             sorteioNumero()
             print("Sorteio do número a ser inserido OK")
-            imprimirMatriz()
             
+        temEspaco = False
         #Para verificar se tem espaço na matriz
-        matrizCheia = all(all(element != 0 for element in sublist) for sublist in matriz)
-                    
+        for i in range(0,4):
+            for j in range(0,4):
+                if matriz[i][j] == 0:
+                    temEspaco = True
+                    print("Verificação espaço matriz OK")   
+                             
         print(f"Score: {score}")
         print(f"Jogadas válidas: {jogadasValidas}")
         
@@ -341,29 +346,24 @@ while continuar != "N" and continuar != "n":
         #Verificação da derrota do usuário    
         if ganhou != True:
             print("Diferente de true")
-            if matrizCheia == True:
+            if temEspaco == False:
                 print("Tem espaço não")
                 if contadorIguaisColuna == 0 and contadorIguaisLinha == 0:
                     perdeu = True
                     print("Verificação se perdeu ou não OK")     
                
-        if ganhou == True:
-            print("GANHOU!")
-            print("Parabéns!!!\n2048!")
-        elif perdeu == True:
-            print("PERDEU!\nTente novamente!!")
+        
             
-        print(f"Ganhou: {ganhou}")
-        print(f"Perdeu: {perdeu}")    
-        """if ganhou == True or perdeu == True:
-            break"""
-            
+        """print(f"Ganhou: {ganhou}")
+        print(f"Perdeu: {perdeu}")""" 
+           
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
-        #print('\033c', end='')
-        print(f"Verificação coluna: {contadorIguaisColuna}")
+        print('\033c', end='')
+            
+        """print(f"Verificação coluna: {contadorIguaisColuna}")
         print(f"Verificação linhas: {contadorIguaisLinha}")
-        print("Encerrou um loop")
+        print("Encerrou um loop")"""
         
     listaScore.append(score)
     listaQuantidadeJogadas.append(jogadasValidas)
@@ -374,11 +374,19 @@ while continuar != "N" and continuar != "n":
     print(f"Score final: {score}")
     print(f"Jogadas válidas: {jogadasValidas}") 
     print(f"Quantidade de movimentos realizados: {contador}\n")
+    print("----------------------------------------")
+    if ganhou == True:
+        imprimirMatriz()
+        print("GANHOU!")
+        print("Parabéns!!!\n2048!")
+    elif perdeu == True:
+        imprimirMatriz()
+        print("PERDEU!\nTente novamente!!")
     
     mostrarHistorico = input("Deseja ver o histórico do jogo? [S/N]")
     
     if mostrarHistorico != "N" and mostrarHistorico != "n":
-        #print('\033c', end='')
+        print('\033c', end='')
         print("----------------------------------------")
         print("            HISTÓRICO DO JOGO           ")   
         print("----------------------------------------")
@@ -396,7 +404,7 @@ while continuar != "N" and continuar != "n":
         print("\n\n----------------------------------------\n") 
         
     continuar = input("Deseja continuar jogando?[S/N]: ")
-    #print('\033c', end='')
+    print('\033c', end='')
         
 print("Encerrando...")
     
