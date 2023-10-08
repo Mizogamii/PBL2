@@ -345,6 +345,7 @@ while continuar != "N" and continuar != "n":
     print(f"Jogadas válidas: {jogadasValidas}") 
     print(f"Quantidade de movimentos realizados: {contador}")
     print("----------------------------------------")
+    
     if ganhou == True:
         imprimirMatriz()
         print("GANHOU!")
@@ -376,5 +377,4 @@ while continuar != "N" and continuar != "n":
     continuar = input("Deseja continuar jogando?[S/N]: ")
     print('\033c', end='')
         
-print("Encerrando...")
-    
+print("Encerrando...")   
