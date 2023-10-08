@@ -326,12 +326,9 @@ while continuar != "N" and continuar != "n":
         
         #Verificação da derrota do usuário    
         if ganhou != True:
-            print("Diferente de true")
             if temEspaco == False:
-                print("Tem espaço não")
                 if contadorIguaisColuna == 0 and contadorIguaisLinha == 0:
-                    perdeu = True
-                    print("Verificação se perdeu ou não OK")     
+                    perdeu = True   
     
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
