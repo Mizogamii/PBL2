@@ -333,7 +333,8 @@ while continuar != "N" and continuar != "n":
         print("----------------------------------------")  
         print(f"Jogadas válidas: {jogadasValidas}")     
         print('\033c', end='')
-        
+    
+    #Inserindo os scores e a quantidade de jogadas em uma lista para mostrar no histórico
     listaScore.append(score)
     listaQuantidadeJogadas.append(jogadasValidas)
     
