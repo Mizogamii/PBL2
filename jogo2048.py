@@ -354,26 +354,22 @@ while continuar != "N" and continuar != "n":
         imprimirMatriz()
         print("PERDEU!\nTente novamente!!")
     
-    mostrarHistorico = input("Deseja ver o histórico do jogo? [S/N]")
+    print("----------------------------------------")
+    print("            HISTÓRICO DO JOGO           ")   
+    print("----------------------------------------")
+    print("Score anteriores")
+    print("........................................")
     
-    if mostrarHistorico != "N" and mostrarHistorico != "n":
-        print('\033c', end='')
-        print("----------------------------------------")
-        print("            HISTÓRICO DO JOGO           ")   
-        print("----------------------------------------")
-        print("Score anteriores")
-        print("........................................")
+    for elementos in listaScore:
+        print(elementos, end=" ")
         
-        for elementos in listaScore:
-            print(elementos, end=" ")
-            
-        print("\n\n........................................") 
-        print("Jogadas realizadas")
-        print("........................................")
-        for elementos2 in listaQuantidadeJogadas: 
-            print(elementos2, end=" ")
-        print("\n\n----------------------------------------\n") 
-        
+    print("\n\n........................................") 
+    print("Jogadas realizadas")
+    print("........................................")
+    for elementos2 in listaQuantidadeJogadas: 
+        print(elementos2, end=" ")
+    print("\n\n----------------------------------------\n") 
+    
     continuar = input("Deseja continuar jogando?[S/N]: ")
     print('\033c', end='')
         
