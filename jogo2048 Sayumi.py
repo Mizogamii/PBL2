@@ -40,8 +40,6 @@ def sorteioNumero():
 #Função para imprimir as intruções 
 def imprimirInstrucoes():
     print("----------------------------------------")
-    print("\t\t  2048")
-    print("----------------------------------------")
     print("\t   INSTRUÇÕES DO JOGO")
     print("----------------------------------------")
     print(" Digite:")
@@ -254,7 +252,10 @@ while continuar != "N" and continuar != "n":
     jogadasValidas = 0
     contador = 0
     matrizCheia = False
-    
+
+    print("----------------------------------------")
+    print("\t\t  2048")
+
     #Inserindo os zeros na matriz
     for i in range(0,4):
         for j in range(0,4):
